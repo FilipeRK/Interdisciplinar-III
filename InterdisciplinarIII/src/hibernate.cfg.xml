@@ -9,5 +9,21 @@
     <property name="hibernate.connection.password">123</property>
     <property name="hibernate.show_sql">true</property>
     <property name="hibernate.format_sql">true</property>
+    <mapping class="model.AFCaixa"/>
+    <mapping class="model.Banco"/>
+    <mapping class="model.Cartao"/>
+    <mapping class="model.Cheque"/>
+    <mapping class="model.Cidade"/>
+    <mapping class="model.Cliente"/>
+    <mapping class="model.ContaPagar"/>
+    <mapping class="model.CustoAnual"/>
+    <mapping class="model.CustoVenda"/>
+    <mapping class="model.EnergiaEletrica"/>
+    <mapping class="model.Funcionario"/>
+    <mapping class="model.Madeira"/>
+    <mapping class="model.Maquina"/>
+    <mapping class="model.TipoCartao"/>
+    <mapping class="model.TipoContaPagar"/>
+    <mapping class="model.UnidadeMadeira"/>
   </session-factory>
 </hibernate-configuration>

@@ -6,6 +6,9 @@
       <SubComponents>
         <Menu class="javax.swing.JMenu" name="jMCaixa">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Financeiro"/>
           </Properties>
           <Events>
@@ -109,6 +112,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMFornecedores">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Fornecedores"/>
           </Properties>
           <SubComponents>
@@ -132,6 +138,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMCidades">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Cidades"/>
           </Properties>
           <SubComponents>
@@ -155,6 +164,9 @@
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMOpcoes">
           <Properties>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="0" green="0" red="ff" type="rgb"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Op&#xe7;&#xf5;es"/>
           </Properties>
           <SubComponents>

@@ -16,7 +16,7 @@ public class ConnectionFactory {
              * Carrega a classe com.mysql.jdbc.Driver, que é a implementação
              * do driver JDBC para o MySQL.
              */
-            Class.forName( "org.firebirdsql.jdbc.FBDriver" );
+            Class.forName( "org.postgresql.Driver" );
  
             // caso a classe não seja encontrada
         } catch ( ClassNotFoundException exc ) {

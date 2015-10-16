@@ -1,9 +1,9 @@
 package view;
 
 import dao.AFCaixaDao;
-import dao.CidadesDao;
+//import dao.CidadesDao;
 import dao.ClienteDao;
-import dao.FornecedoresDao;
+//import dao.FornecedoresDao;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
@@ -95,6 +95,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jMCaixa.setForeground(new java.awt.Color(255, 0, 0));
         jMCaixa.setText("Financeiro");
         jMCaixa.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -188,6 +189,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuPrincipal.add(jMCaixa);
 
+        jMFornecedores.setForeground(new java.awt.Color(255, 0, 0));
         jMFornecedores.setText("Fornecedores");
 
         jMIFornecedoresCadastro.setText("Cadastro");
@@ -208,6 +210,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuPrincipal.add(jMFornecedores);
 
+        jMCidades.setForeground(new java.awt.Color(255, 0, 0));
         jMCidades.setText("Cidades");
 
         jMICidadesCadastro.setText("Cadastro");
@@ -228,6 +231,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuPrincipal.add(jMCidades);
 
+        jMOpcoes.setForeground(new java.awt.Color(255, 0, 0));
         jMOpcoes.setText("Opções");
 
         jMManutencao.setText("Manutenção");
@@ -341,99 +345,99 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMIClientesCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIClientesCadastroActionPerformed
 
-        ClientesCadastro tela = new ClientesCadastro();
-        tela.abreJanelaClienteCadastro();
-        //this.setVisible(false);
+//        ClientesCadastro tela = new ClientesCadastro();
+//        tela.abreJanelaClienteCadastro();
+//        //this.setVisible(false);
         
     }//GEN-LAST:event_jMIClientesCadastroActionPerformed
 
     private void jMIEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIEntradaActionPerformed
-        String st = telaAFDao.retornaStatusCX();
-        if("A".equals(st) && !"AF".equals(st)){
-            LancamentosCadastro tela = new LancamentosCadastro();
-            tela.tipodelancamento = 1;
-            tela.abreJanelaLancamentosCadastro();
-           // this.setVisible(false);
-        }else{
-            JOptionPane.showMessageDialog(null, "O caixa está fechado!", "Caixa fechado", JOptionPane.INFORMATION_MESSAGE);
-        }
+//        String st = telaAFDao.retornaStatusCX();
+//        if("A".equals(st) && !"AF".equals(st)){
+//            LancamentosCadastro tela = new LancamentosCadastro();
+//            tela.tipodelancamento = 1;
+//            tela.abreJanelaLancamentosCadastro();
+//           // this.setVisible(false);
+//        }else{
+//            JOptionPane.showMessageDialog(null, "O caixa está fechado!", "Caixa fechado", JOptionPane.INFORMATION_MESSAGE);
+//        }
         
     }//GEN-LAST:event_jMIEntradaActionPerformed
 
     private void jMITipoAlteracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMITipoAlteracaoActionPerformed
-       
-        TipoAlteracaoCadastro tela = new TipoAlteracaoCadastro();
-        tela.abreJanelaTipoAlteracaoCadastro();
-        //this.setVisible(false);
+//       
+//        TipoAlteracaoCadastro tela = new TipoAlteracaoCadastro();
+//        tela.abreJanelaTipoAlteracaoCadastro();
+//        //this.setVisible(false);
     }//GEN-LAST:event_jMITipoAlteracaoActionPerformed
 
     private void jMICidadesRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICidadesRelatorioActionPerformed
-        if(JOptionPane.showConfirmDialog(null, "Gerar relatório de Cidades?", "Relatório", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-            CidadesDao cidDao = new CidadesDao();
-            try {
-                cidDao.abrirRelatorio();
-            }catch(Exception e){
-            }
-        }
+//        if(JOptionPane.showConfirmDialog(null, "Gerar relatório de Cidades?", "Relatório", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+//            CidadesDao cidDao = new CidadesDao();
+//            try {
+//                cidDao.abrirRelatorio();
+//            }catch(Exception e){
+//            }
+//        }
     }//GEN-LAST:event_jMICidadesRelatorioActionPerformed
 
     private void jMICidadesCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICidadesCadastroActionPerformed
-        
-        CidadesCadastro tela = new CidadesCadastro();
-        tela.abreJanelaCidadesCadastro();
-       //this.setVisible(false);
+//        
+//        CidadesCadastro tela = new CidadesCadastro();
+//        tela.abreJanelaCidadesCadastro();
+//       //this.setVisible(false);
     }//GEN-LAST:event_jMICidadesCadastroActionPerformed
 
     private void jMIFornecedoresCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIFornecedoresCadastroActionPerformed
-        
-        FornecedoresCadastro tela = new FornecedoresCadastro();
-        tela.abreJanelaFornecedoresCadastro();
-        //this.setVisible(false);
+//        
+//        FornecedoresCadastro tela = new FornecedoresCadastro();
+//        tela.abreJanelaFornecedoresCadastro();
+//        //this.setVisible(false);
     }//GEN-LAST:event_jMIFornecedoresCadastroActionPerformed
 
     private void jMISaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMISaidaActionPerformed
-        String st = telaAFDao.retornaStatusCX();
-        if("A".equals(st) && !"AF".equals(st)){
-            LancamentosCadastro tela = new LancamentosCadastro();
-            tela.tipodelancamento = 2;
-            tela.abreJanelaLancamentosCadastro();
-           // this.setVisible(false);
-        }else{
-            JOptionPane.showMessageDialog(null, "O caixa está fechado!", "Caixa fechado", JOptionPane.INFORMATION_MESSAGE);
-        }
+//        String st = telaAFDao.retornaStatusCX();
+//        if("A".equals(st) && !"AF".equals(st)){
+//            LancamentosCadastro tela = new LancamentosCadastro();
+//            tela.tipodelancamento = 2;
+//            tela.abreJanelaLancamentosCadastro();
+//           // this.setVisible(false);
+//        }else{
+//            JOptionPane.showMessageDialog(null, "O caixa está fechado!", "Caixa fechado", JOptionPane.INFORMATION_MESSAGE);
+//        }
     }//GEN-LAST:event_jMISaidaActionPerformed
 
     private void jMICondicaoPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICondicaoPagamentoActionPerformed
-        CondicaoPagamentoCadastro tela = new CondicaoPagamentoCadastro();
-        tela.abreJanelaCondicaoPagamentoCadastro();
+//        CondicaoPagamentoCadastro tela = new CondicaoPagamentoCadastro();
+//        tela.abreJanelaCondicaoPagamentoCadastro();
         //this.setVisible(false);
     }//GEN-LAST:event_jMICondicaoPagamentoActionPerformed
 
     private void jMITrocarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMITrocarUsuarioActionPerformed
-        if(JOptionPane.showConfirmDialog(null, "Deseja trocar de usuário?", "Trocar de Usuário", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-            UsuarioLogin tela = new UsuarioLogin();
-            tela.jLTítulo.setText("SCF - Login");
-            tela.abreJanelaLogin();
-           // this.dispose();
-        }
+//        if(JOptionPane.showConfirmDialog(null, "Deseja trocar de usuário?", "Trocar de Usuário", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+//            UsuarioLogin tela = new UsuarioLogin();
+//            tela.jLTítulo.setText("SCF - Login");
+//            tela.abreJanelaLogin();
+//           // this.dispose();
+//        }
     }//GEN-LAST:event_jMITrocarUsuarioActionPerformed
 
     private void jMIAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAlterarSenhaActionPerformed
-        UsuarioLogin tela = new UsuarioLogin();
-        tela.jLTítulo.setText("SCF - Alterar Senha");
-        tela.jBLogin.setText("Alterar");
-        tela.setTitle("SCF - Alterar Senha");
-        tela.editSenha = 1;
-        tela.abreJanelaLogin();
+//        UsuarioLogin tela = new UsuarioLogin();
+//        tela.jLTítulo.setText("SCF - Alterar Senha");
+//        tela.jBLogin.setText("Alterar");
+//        tela.setTitle("SCF - Alterar Senha");
+//        tela.editSenha = 1;
+//        tela.abreJanelaLogin();
     }//GEN-LAST:event_jMIAlterarSenhaActionPerformed
 
     private void jMINovoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMINovoUsuarioActionPerformed
-        UsuarioLogin tela = new UsuarioLogin();
-        tela.jLTítulo.setText("SCF - Novo Usuário");
-        tela.jBLogin.setText("Criar");
-        tela.setTitle("SCF - Novo Usuário");
-        tela.novoUser = 1;
-        tela.abreJanelaLogin();
+//        UsuarioLogin tela = new UsuarioLogin();
+//        tela.jLTítulo.setText("SCF - Novo Usuário");
+//        tela.jBLogin.setText("Criar");
+//        tela.setTitle("SCF - Novo Usuário");
+//        tela.novoUser = 1;
+//        tela.abreJanelaLogin();
     }//GEN-LAST:event_jMINovoUsuarioActionPerformed
 
     private void jMIBackupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIBackupActionPerformed
@@ -478,13 +482,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMIRestoreActionPerformed
 
     private void jMIFornecedoresRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIFornecedoresRelatorioActionPerformed
-        if(JOptionPane.showConfirmDialog(null, "Gerar relatório de Fornecedores?", "Relatório", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-            FornecedoresDao fornDao = new FornecedoresDao();
-            try {
-                fornDao.abrirRelatorio();
-            }catch(Exception e){
-            }
-        }
+//        if(JOptionPane.showConfirmDialog(null, "Gerar relatório de Fornecedores?", "Relatório", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+//            FornecedoresDao fornDao = new FornecedoresDao();
+//            try {
+//                fornDao.abrirRelatorio();
+//            }catch(Exception e){
+//            }
+//        }
     }//GEN-LAST:event_jMIFornecedoresRelatorioActionPerformed
 
     private void jMIAberturaCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAberturaCaixaActionPerformed
@@ -520,49 +524,49 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMCaixaMouseClicked
 
     private void jMIClientesRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIClientesRelatorioActionPerformed
-        if(JOptionPane.showConfirmDialog(null, "Gerar relatório de Clientes?", "Relatório", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-            ClienteDao cliDao = new ClienteDao();
-            try {
-                cliDao.abrirRelatorio();
-            }catch(Exception e){
-            }
-        }
+//        if(JOptionPane.showConfirmDialog(null, "Gerar relatório de Clientes?", "Relatório", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+//            ClienteDao cliDao = new ClienteDao();
+//            try {
+//                cliDao.abrirRelatorio();
+//            }catch(Exception e){
+//            }
+//        }
     }//GEN-LAST:event_jMIClientesRelatorioActionPerformed
 
     private void jMIVendaPrazoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIVendaPrazoActionPerformed
-        String st = telaAFDao.retornaStatusCX();
-        if("A".equals(st) && !"AF".equals(st)){
-            ParcelasCadastro tela = new ParcelasCadastro();
-            tela.abreJanelaParcelasCadastro();
-            tela.jBNovo.requestFocus();
-            //this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "O caixa está fechado!", "Caixa fechado", JOptionPane.INFORMATION_MESSAGE);
-        }
+//        String st = telaAFDao.retornaStatusCX();
+//        if("A".equals(st) && !"AF".equals(st)){
+//            ParcelasCadastro tela = new ParcelasCadastro();
+//            tela.abreJanelaParcelasCadastro();
+//            tela.jBNovo.requestFocus();
+//            //this.dispose();
+//        }else{
+//            JOptionPane.showMessageDialog(null, "O caixa está fechado!", "Caixa fechado", JOptionPane.INFORMATION_MESSAGE);
+//        }
     }//GEN-LAST:event_jMIVendaPrazoActionPerformed
 
     private void jMIEntradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIEntradasActionPerformed
         
-        MovimentacoesConsulta movcon = new MovimentacoesConsulta();
-        movcon.jLTitulo.setText("Movimentações de Entrada");
-        movcon.tipodelancamento = 1;
-        try {
-            movcon.abreJanelaMovimentacoesConsulta();
-            //this.dispose();
-        } catch (ParseException ex){
-        }
+//        MovimentacoesConsulta movcon = new MovimentacoesConsulta();
+//        movcon.jLTitulo.setText("Movimentações de Entrada");
+//        movcon.tipodelancamento = 1;
+//        try {
+//            movcon.abreJanelaMovimentacoesConsulta();
+//            //this.dispose();
+//        } catch (ParseException ex){
+//        }
     }//GEN-LAST:event_jMIEntradasActionPerformed
 
     private void jMISaidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMISaidasActionPerformed
         
-        MovimentacoesConsulta movcon = new MovimentacoesConsulta();
-        movcon.jLTitulo.setText("Movimentações de Saída");
-        movcon.tipodelancamento = 2;
-         try {
-            movcon.abreJanelaMovimentacoesConsulta();
-            //this.dispose();
-        } catch (ParseException ex){ 
-        }
+//        MovimentacoesConsulta movcon = new MovimentacoesConsulta();
+//        movcon.jLTitulo.setText("Movimentações de Saída");
+//        movcon.tipodelancamento = 2;
+//         try {
+//            movcon.abreJanelaMovimentacoesConsulta();
+//            //this.dispose();
+//        } catch (ParseException ex){ 
+//        }
     }//GEN-LAST:event_jMISaidasActionPerformed
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
@@ -588,10 +592,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {            
-                UsuarioLogin login = new UsuarioLogin();
-                login.abreJanelaLogin();
-                //TelaPrincipal tela = new TelaPrincipal();
-                //tela.abreJanelaTelaPrincipal();
+//                UsuarioLogin login = new UsuarioLogin();
+//                login.abreJanelaLogin();
+                TelaPrincipal tela = new TelaPrincipal();
+                tela.abreJanelaTelaPrincipal();
             }
         });
     }
@@ -687,7 +691,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
   }
 
     AFCaixaDao telaAFDao = new AFCaixaDao();
-    AFCaixaCadastro telaAF = new AFCaixaCadastro();
+    AFCaixaView telaAF = new AFCaixaView();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMCadastros;
     private javax.swing.JMenu jMCaixa;
