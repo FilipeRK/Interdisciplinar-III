@@ -16,7 +16,8 @@ import javax.persistence.Temporal;
 public class CustoVenda implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq_custovenda")
-    private int codcustovenda, perda, margemlucro;
+    private int codcustovenda;
+    private int perda, margemlucro;
     private double custoadicional, custofinal, valorfinal;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date datavenda;

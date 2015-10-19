@@ -17,7 +17,8 @@ import javax.persistence.Temporal;
 public class Cheque implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq_cheque")
-    private int codcheque, numerocheque;
+    private int codcheque;
+    private int numerocheque;
     private double valor;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date data;

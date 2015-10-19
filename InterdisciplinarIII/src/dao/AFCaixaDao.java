@@ -48,7 +48,7 @@ public class AFCaixaDao {
     public List<AFCaixa> findAll(){
         return session.createQuery("From AFCaixa Order By codafcaixa").list();
     }
-    
+    /*
     //Método que retorna o saldo do dia de acordo com a data atual do sistema
     public String retornaSaldoDia(){
         NumberFormat formatter = new DecimalFormat("#,###.00");  
@@ -206,4 +206,7 @@ public class AFCaixaDao {
             }
         }
     }
+    
+    
+    */
 }

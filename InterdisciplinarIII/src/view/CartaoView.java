@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.BorderLayout;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -22,13 +23,13 @@ public class CartaoView extends javax.swing.JFrame {
         jLTitulo = new javax.swing.JLabel();
         jLCodigo = new javax.swing.JLabel();
         jTFCodigo = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTLancamentos = new javax.swing.JTable();
+        jScrollPanel1 = new javax.swing.JScrollPane();
+        javax.swing.JTable jTCartoes = new javax.swing.JTable();
         jBNovo = new javax.swing.JButton();
-        jBNovo1 = new javax.swing.JButton();
-        jBNovo2 = new javax.swing.JButton();
-        jBNovo3 = new javax.swing.JButton();
-        jBNovo4 = new javax.swing.JButton();
+        jBEditar = new javax.swing.JButton();
+        jBGravar = new javax.swing.JButton();
+        jBDeletar = new javax.swing.JButton();
+        jBCancelar = new javax.swing.JButton();
         jLData = new javax.swing.JLabel();
         jFTFDataCadastro = new javax.swing.JFormattedTextField();
         try{
@@ -54,7 +55,7 @@ public class CartaoView extends javax.swing.JFrame {
         }
         jLData2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLTitulo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -65,7 +66,7 @@ public class CartaoView extends javax.swing.JFrame {
         jTFCodigo.setEditable(false);
         jTFCodigo.setBackground(new java.awt.Color(204, 204, 204));
 
-        jTLancamentos.setModel(new javax.swing.table.DefaultTableModel(
+        jTCartoes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -73,18 +74,17 @@ public class CartaoView extends javax.swing.JFrame {
 
             }
         ));
-        jTLancamentos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jTLancamentos.setAutoscrolls(false);
-        jTLancamentos.setFocusable(false);
-        jTLancamentos.setSelectionMode();
-        jTLancamentos.getTableHeader().setResizingAllowed(false);
-        jTLancamentos.getTableHeader().setReorderingAllowed(false);
-        jTLancamentos.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTCartoes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTCartoes.setAutoscrolls(false);
+        jTCartoes.setFocusable(false);
+        jTCartoes.getTableHeader().setResizingAllowed(false);
+        jTCartoes.getTableHeader().setReorderingAllowed(false);
+        jTCartoes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTLancamentosMouseClicked(evt);
+                jTCartoesMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTLancamentos);
+        jScrollPanel1.setViewportView(jTCartoes);
 
         jBNovo.setText("Novo");
         jBNovo.addActionListener(new java.awt.event.ActionListener() {
@@ -93,31 +93,31 @@ public class CartaoView extends javax.swing.JFrame {
             }
         });
 
-        jBNovo1.setText("Novo");
-        jBNovo1.addActionListener(new java.awt.event.ActionListener() {
+        jBEditar.setText("Editar");
+        jBEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBNovo1ActionPerformed(evt);
+                jBEditarActionPerformed(evt);
             }
         });
 
-        jBNovo2.setText("Novo");
-        jBNovo2.addActionListener(new java.awt.event.ActionListener() {
+        jBGravar.setText("Gravar");
+        jBGravar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBNovo2ActionPerformed(evt);
+                jBGravarActionPerformed(evt);
             }
         });
 
-        jBNovo3.setText("Novo");
-        jBNovo3.addActionListener(new java.awt.event.ActionListener() {
+        jBDeletar.setText("Deletar");
+        jBDeletar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBNovo3ActionPerformed(evt);
+                jBDeletarActionPerformed(evt);
             }
         });
 
-        jBNovo4.setText("Novo");
-        jBNovo4.addActionListener(new java.awt.event.ActionListener() {
+        jBCancelar.setText("Cancelar");
+        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBNovo4ActionPerformed(evt);
+                jBCancelarActionPerformed(evt);
             }
         });
 
@@ -153,7 +153,7 @@ public class CartaoView extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPanel1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLCodigo)
@@ -168,20 +168,20 @@ public class CartaoView extends javax.swing.JFrame {
                             .addComponent(jLData1))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFTFValorVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLData2))
+                            .addComponent(jLData2)
+                            .addComponent(jFTFValorVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jBNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBNovo1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jBNovo2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBGravar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jBNovo3, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jBNovo4, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(25, 25, 25)))
                 .addContainerGap())
         );
@@ -210,57 +210,57 @@ public class CartaoView extends javax.swing.JFrame {
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBNovo1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBNovo2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBNovo3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBNovo4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBGravar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTLancamentosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTLancamentosMouseClicked
-
-        if (jTLancamentos.isEnabled()){
-            jBEditar.setEnabled(true);
-            jBDeletar.setEnabled(true);
-        }
-    }//GEN-LAST:event_jTLancamentosMouseClicked
+    private void jTCartoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTCartoesMouseClicked
+//
+//        if (jTLancamentos.isEnabled()){
+//            jBEditar.setEnabled(true);
+//            jBDeletar.setEnabled(true);
+//        }
+    }//GEN-LAST:event_jTCartoesMouseClicked
 
     private void jBNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNovoActionPerformed
 
-        ajeitaCombo();
-        jTLancamentos.setEnabled(false);
+//        ajeitaCombo();
+ //       jTCartoes.setEnabled(false);
         jBCancelar.setEnabled(true);
         jBDeletar.setEnabled(false);
         jBEditar.setEnabled(false);
         jBNovo.setEnabled(false);
         jBGravar.setEnabled(true);
-        jTFMotivo.setText("");
-        jFTFDataCadastro.setText("");
-        jFTFValor.setText("");
-        jCBEstorno.setSelected(false);
-        jFTFDataCadastro.requestFocus();
+//        jTFMotivo.setText("");
+//        jFTFDataCadastro.setText("");
+//        jFTFValor.setText("");
+//        jCBEstorno.setSelected(false);
+//        jFTFDataCadastro.requestFocus();
     }//GEN-LAST:event_jBNovoActionPerformed
 
-    private void jBNovo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNovo1ActionPerformed
+    private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBNovo1ActionPerformed
+    }//GEN-LAST:event_jBEditarActionPerformed
 
-    private void jBNovo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNovo2ActionPerformed
+    private void jBGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGravarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBNovo2ActionPerformed
+    }//GEN-LAST:event_jBGravarActionPerformed
 
-    private void jBNovo3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNovo3ActionPerformed
+    private void jBDeletarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBDeletarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBNovo3ActionPerformed
+    }//GEN-LAST:event_jBDeletarActionPerformed
 
-    private void jBNovo4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNovo4ActionPerformed
+    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBNovo4ActionPerformed
+    }//GEN-LAST:event_jBCancelarActionPerformed
 
     private void jFTFDataCadastroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataCadastroFocusLost
 
@@ -322,13 +322,24 @@ public class CartaoView extends javax.swing.JFrame {
             }
         });
     }
+    
+      public void abreJanelaCartao(){
+
+        this.setLocationRelativeTo(null);
+        this.setLayout(new BorderLayout());
+        
+        //ImageIcon image = new ImageIcon("C:\\SCF\\img\\icone.png");
+       // this.setIconImage(image.getImage()); 
+        
+        this.setVisible(true);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBCancelar;
+    private javax.swing.JButton jBDeletar;
+    private javax.swing.JButton jBEditar;
+    private javax.swing.JButton jBGravar;
     private javax.swing.JButton jBNovo;
-    private javax.swing.JButton jBNovo1;
-    private javax.swing.JButton jBNovo2;
-    private javax.swing.JButton jBNovo3;
-    private javax.swing.JButton jBNovo4;
     private javax.swing.JFormattedTextField jFTFDataCadastro;
     private javax.swing.JFormattedTextField jFTFDataCredito;
     private javax.swing.JFormattedTextField jFTFValorVenda;
@@ -337,8 +348,7 @@ public class CartaoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLData1;
     private javax.swing.JLabel jLData2;
     private javax.swing.JLabel jLTitulo;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPanel1;
     private javax.swing.JTextField jTFCodigo;
-    private javax.swing.JTable jTLancamentos;
     // End of variables declaration//GEN-END:variables
 }

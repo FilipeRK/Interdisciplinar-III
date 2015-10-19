@@ -21,8 +21,8 @@ public class Cartao implements Serializable {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date datacad, dacatred;
 
-    @JoinColumn(name="codcliente")
     @ManyToOne
+    @JoinColumn(name="codtipocartao")
     private TipoCartao tipocartao;
 
     public int getCodcartao() {

@@ -15,7 +15,8 @@ import javax.persistence.Temporal;
 public class Funcionario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq_funcionario")
-    private int codfuncionario, horasano;
+    private int codfuncionario;
+    private int horasano;
     private String nome, funcao, endereco, cpf, telefone;
     private double salariobase, salariofinal, inss, insalubridade, quinquenio, sindicato, customediomensal,
             custototalano, customodhora, custodia, custohora;

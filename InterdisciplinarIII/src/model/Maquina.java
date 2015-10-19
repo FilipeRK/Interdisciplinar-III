@@ -13,7 +13,8 @@ import javax.persistence.SequenceGenerator;
 public class Maquina implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq_maquina")
-    private int codmaquina, consumo, depreciacao;
+    private int codmaquina;
+    private int consumo, depreciacao;
     private String nome;
     private double precounitario, valormanutencao;
 

@@ -67,9 +67,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMFornecedores = new javax.swing.JMenu();
         jMIFornecedoresCadastro = new javax.swing.JMenuItem();
         jMIFornecedoresRelatorio = new javax.swing.JMenuItem();
-        jMCidades = new javax.swing.JMenu();
-        jMICidadesCadastro = new javax.swing.JMenuItem();
-        jMICidadesRelatorio = new javax.swing.JMenuItem();
         jMOpcoes = new javax.swing.JMenu();
         jMManutencao = new javax.swing.JMenu();
         jMIBackup = new javax.swing.JMenuItem();
@@ -80,10 +77,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMITrocarUsuario = new javax.swing.JMenuItem();
         javax.swing.JMenuItem jMISair = new javax.swing.JMenuItem();
         jMClientes = new javax.swing.JMenu();
-        jMIClientesCadastro = new javax.swing.JMenuItem();
-        jMIClientesRelatorio = new javax.swing.JMenuItem();
+        jMIClienteCadastro = new javax.swing.JMenuItem();
+        jMICidadeCadastro = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
+        jMIChequeCadastro = new javax.swing.JMenuItem();
+        jMIBancoCadastro = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMICartaoCadastro = new javax.swing.JMenuItem();
+        jMITipoCartaoCadastro = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -210,27 +211,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuPrincipal.add(jMFornecedores);
 
-        jMCidades.setForeground(new java.awt.Color(255, 0, 0));
-        jMCidades.setText("Cidades");
-
-        jMICidadesCadastro.setText("Cadastro");
-        jMICidadesCadastro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMICidadesCadastroActionPerformed(evt);
-            }
-        });
-        jMCidades.add(jMICidadesCadastro);
-
-        jMICidadesRelatorio.setText("Relatório");
-        jMICidadesRelatorio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMICidadesRelatorioActionPerformed(evt);
-            }
-        });
-        jMCidades.add(jMICidadesRelatorio);
-
-        jMenuPrincipal.add(jMCidades);
-
         jMOpcoes.setForeground(new java.awt.Color(255, 0, 0));
         jMOpcoes.setText("Opções");
 
@@ -292,33 +272,54 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuPrincipal.add(jMOpcoes);
 
-        jMClientes.setForeground(new java.awt.Color(255, 255, 0));
         jMClientes.setText("Clientes");
 
-        jMIClientesCadastro.setText("Cadastro");
-        jMIClientesCadastro.addActionListener(new java.awt.event.ActionListener() {
+        jMIClienteCadastro.setText("Cadastro");
+        jMIClienteCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIClientesCadastroActionPerformed(evt);
+                jMIClienteCadastroActionPerformed(evt);
             }
         });
-        jMClientes.add(jMIClientesCadastro);
+        jMClientes.add(jMIClienteCadastro);
 
-        jMIClientesRelatorio.setText("Relatório");
-        jMIClientesRelatorio.addActionListener(new java.awt.event.ActionListener() {
+        jMICidadeCadastro.setText("Cidades");
+        jMICidadeCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIClientesRelatorioActionPerformed(evt);
+                jMICidadeCadastroActionPerformed(evt);
             }
         });
-        jMClientes.add(jMIClientesRelatorio);
+        jMClientes.add(jMICidadeCadastro);
 
         jMenuPrincipal.add(jMClientes);
 
-        jMenu1.setForeground(new java.awt.Color(255, 255, 0));
         jMenu1.setText("Cheques");
+
+        jMIChequeCadastro.setText("Cadastro");
+        jMenu1.add(jMIChequeCadastro);
+
+        jMIBancoCadastro.setText("Banco");
+        jMenu1.add(jMIBancoCadastro);
+
         jMenuPrincipal.add(jMenu1);
 
-        jMenu2.setForeground(new java.awt.Color(255, 255, 0));
         jMenu2.setText("Cartão");
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
+            }
+        });
+
+        jMICartaoCadastro.setText("Cadastro");
+        jMICartaoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMICartaoCadastroActionPerformed(evt);
+            }
+        });
+        jMenu2.add(jMICartaoCadastro);
+
+        jMITipoCartaoCadastro.setText("Tipo de Cartão");
+        jMenu2.add(jMITipoCartaoCadastro);
+
         jMenuPrincipal.add(jMenu2);
 
         setJMenuBar(jMenuPrincipal);
@@ -343,13 +344,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMISairActionPerformed
 
-    private void jMIClientesCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIClientesCadastroActionPerformed
+    private void jMIClienteCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIClienteCadastroActionPerformed
 
 //        ClientesCadastro tela = new ClientesCadastro();
 //        tela.abreJanelaClienteCadastro();
 //        //this.setVisible(false);
         
-    }//GEN-LAST:event_jMIClientesCadastroActionPerformed
+    }//GEN-LAST:event_jMIClienteCadastroActionPerformed
 
     private void jMIEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIEntradaActionPerformed
 //        String st = telaAFDao.retornaStatusCX();
@@ -370,23 +371,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 //        tela.abreJanelaTipoAlteracaoCadastro();
 //        //this.setVisible(false);
     }//GEN-LAST:event_jMITipoAlteracaoActionPerformed
-
-    private void jMICidadesRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICidadesRelatorioActionPerformed
-//        if(JOptionPane.showConfirmDialog(null, "Gerar relatório de Cidades?", "Relatório", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-//            CidadesDao cidDao = new CidadesDao();
-//            try {
-//                cidDao.abrirRelatorio();
-//            }catch(Exception e){
-//            }
-//        }
-    }//GEN-LAST:event_jMICidadesRelatorioActionPerformed
-
-    private void jMICidadesCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICidadesCadastroActionPerformed
-//        
-//        CidadesCadastro tela = new CidadesCadastro();
-//        tela.abreJanelaCidadesCadastro();
-//       //this.setVisible(false);
-    }//GEN-LAST:event_jMICidadesCadastroActionPerformed
 
     private void jMIFornecedoresCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIFornecedoresCadastroActionPerformed
 //        
@@ -493,37 +477,37 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMIAberturaCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAberturaCaixaActionPerformed
 
-        String status = telaAFDao.retornaStatusCX();
-        
-        if("F".equals(status) && !"AF".equals(status)){
-            telaAF.jLTítulo.setText("Abertura de Caixa");
-            telaAF.setTitle("Abertura de Caixa");
-            telaAF.tipo = "A";
-            telaAF.abreJanelaAFCaixa();
-        }else{
-            JOptionPane.showMessageDialog(null, "O caixa ja está ou já foi aberto!", "Atenção", JOptionPane.INFORMATION_MESSAGE);
-        }
+//        String status = telaAFDao.retornaStatusCX();
+//        
+//        if("F".equals(status) && !"AF".equals(status)){
+//            telaAF.jLTítulo.setText("Abertura de Caixa");
+//            telaAF.setTitle("Abertura de Caixa");
+//            telaAF.tipo = "A";
+//            telaAF.abreJanelaAFCaixa();
+//        }else{
+//            JOptionPane.showMessageDialog(null, "O caixa ja está ou já foi aberto!", "Atenção", JOptionPane.INFORMATION_MESSAGE);
+//        }
     }//GEN-LAST:event_jMIAberturaCaixaActionPerformed
 
     private void jMIFechamentoCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIFechamentoCaixaActionPerformed
         
-        String status = telaAFDao.retornaStatusCX();
-        
-        if("A".equals(status) && !"AF".equals(status)){
-            telaAF.jLTítulo.setText("Fechamento de Caixa");
-            telaAF.setTitle("Fechamento de Caixa");
-            telaAF.tipo = "F";
-            telaAF.abreJanelaAFCaixa();
-        }else{
-            JOptionPane.showMessageDialog(null, "O caixa ja está ou ja foi fechado!", "Atenção", JOptionPane.INFORMATION_MESSAGE);
-        }
+//        String status = telaAFDao.retornaStatusCX();
+//        
+//        if("A".equals(status) && !"AF".equals(status)){
+//            telaAF.jLTítulo.setText("Fechamento de Caixa");
+//            telaAF.setTitle("Fechamento de Caixa");
+//            telaAF.tipo = "F";
+//            telaAF.abreJanelaAFCaixa();
+//        }else{
+//            JOptionPane.showMessageDialog(null, "O caixa ja está ou ja foi fechado!", "Atenção", JOptionPane.INFORMATION_MESSAGE);
+//        }
     }//GEN-LAST:event_jMIFechamentoCaixaActionPerformed
 
     private void jMCaixaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMCaixaMouseClicked
         
     }//GEN-LAST:event_jMCaixaMouseClicked
 
-    private void jMIClientesRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIClientesRelatorioActionPerformed
+    private void jMICidadeCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICidadeCadastroActionPerformed
 //        if(JOptionPane.showConfirmDialog(null, "Gerar relatório de Clientes?", "Relatório", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
 //            ClienteDao cliDao = new ClienteDao();
 //            try {
@@ -531,7 +515,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 //            }catch(Exception e){
 //            }
 //        }
-    }//GEN-LAST:event_jMIClientesRelatorioActionPerformed
+    }//GEN-LAST:event_jMICidadeCadastroActionPerformed
 
     private void jMIVendaPrazoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIVendaPrazoActionPerformed
 //        String st = telaAFDao.retornaStatusCX();
@@ -570,8 +554,18 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMISaidasActionPerformed
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
-        atualizaBorda();
+//        atualizaBorda();
     }//GEN-LAST:event_formWindowGainedFocus
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+
+    }//GEN-LAST:event_jMenu2ActionPerformed
+
+    private void jMICartaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICartaoCadastroActionPerformed
+        
+        CartaoView aa = new CartaoView();
+        aa.abreJanelaCartao();
+    }//GEN-LAST:event_jMICartaoCadastroActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -606,73 +600,73 @@ public class TelaPrincipal extends javax.swing.JFrame {
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        JLabel background=new JLabel(new ImageIcon("C:\\SCF\\img\\background.jpg"));
-        this.add(background);
-        configuraBorda();
-        ImageIcon image = new ImageIcon("C:\\SCF\\img\\icone.png");
-        this.setIconImage(image.getImage()); 
+       // JLabel background=new JLabel(new ImageIcon("C:\\SCF\\img\\background.jpg"));
+       // this.add(background);
+      //  configuraBorda();
+        //ImageIcon image = new ImageIcon("C:\\SCF\\img\\icone.png");
+       // this.setIconImage(image.getImage()); 
 
         this.setVisible(true);
     }
 
-    private void configuraBorda(){
-           
-        Border border = BorderFactory.createLoweredBevelBorder();
-
-        horas2 = new JLabel("", JLabel.CENTER);
-        horas2.setPreferredSize(new Dimension(120, 20));
-        horas2.setBorder(border);
-
-        data2 = new JLabel("", JLabel.CENTER);
-        data2.setPreferredSize(new Dimension(300, 20));
-        data2.setBorder(border);
-
-        Font font = new Font("Arial", Font.BOLD,12);
-
-        JLabel desenv = new JLabel("Desenvolvido por Filipe Renan Kohls e Rafael Radünz", JLabel.CENTER);
-        desenv.setPreferredSize(new Dimension(340,20));
-        desenv.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
-        desenv.setBorder(border);
-
-        JLabel setrem = new JLabel("SETREM - Bacharelado em Sistemas de Informação - 4º Semestre", JLabel.CENTER);
-        setrem.setPreferredSize(new Dimension(450,20));
-        setrem.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
-        setrem.setBorder(border);
-        
-        JLabel valorCaixa = new JLabel("Caixa: R$"+telaAFDao.retornaSaldoDiaPFechar2(), JLabel.CENTER);
-        valorCaixa.setPreferredSize(new Dimension(140,20));
-        valorCaixa.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
-        valorCaixa.setBorder(border);
-
-        inferior.setLayout(new FlowLayout(FlowLayout.CENTER, 1, 0));
-
-        data2.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
-        horas2.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
-               
-        inferior.add(valorCaixa);
-        inferior.add(desenv);
-        inferior.add(setrem);
-        inferior.add(data2);
-        inferior.add(horas2);       
-    
-        ActionListener tarefa = new ActionListener(){
-          @Override
-          public void actionPerformed(ActionEvent e){
-            horasData();
-          }
-        };
-    
-        javax.swing.Timer timer = new javax.swing.Timer(1000, tarefa);
-        timer.start();
-
-        this.add(inferior, BorderLayout.SOUTH);
-    }
-    
-    private void atualizaBorda(){
-        
-        inferior.removeAll();
-        configuraBorda();
-    }
+//    private void configuraBorda(){
+//           
+//        Border border = BorderFactory.createLoweredBevelBorder();
+//
+//        horas2 = new JLabel("", JLabel.CENTER);
+//        horas2.setPreferredSize(new Dimension(120, 20));
+//        horas2.setBorder(border);
+//
+//        data2 = new JLabel("", JLabel.CENTER);
+//        data2.setPreferredSize(new Dimension(300, 20));
+//        data2.setBorder(border);
+//
+//        Font font = new Font("Arial", Font.BOLD,12);
+//
+//        JLabel desenv = new JLabel("Desenvolvido por Filipe Renan Kohls e Rafael Radünz", JLabel.CENTER);
+//        desenv.setPreferredSize(new Dimension(340,20));
+//        desenv.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
+//        desenv.setBorder(border);
+//
+//        JLabel setrem = new JLabel("SETREM - Bacharelado em Sistemas de Informação - 4º Semestre", JLabel.CENTER);
+//        setrem.setPreferredSize(new Dimension(450,20));
+//        setrem.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
+//        setrem.setBorder(border);
+//        
+//        JLabel valorCaixa = new JLabel("Caixa: R$"+telaAFDao.retornaSaldoDiaPFechar2(), JLabel.CENTER);
+//        valorCaixa.setPreferredSize(new Dimension(140,20));
+//        valorCaixa.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
+//        valorCaixa.setBorder(border);
+//
+//        inferior.setLayout(new FlowLayout(FlowLayout.CENTER, 1, 0));
+//
+//        data2.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
+//        horas2.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
+//               
+//        inferior.add(valorCaixa);
+//        inferior.add(desenv);
+//        inferior.add(setrem);
+//        inferior.add(data2);
+//        inferior.add(horas2);       
+//    
+//        ActionListener tarefa = new ActionListener(){
+//          @Override
+//          public void actionPerformed(ActionEvent e){
+//            horasData();
+//          }
+//        };
+//    
+//        javax.swing.Timer timer = new javax.swing.Timer(1000, tarefa);
+//        timer.start();
+//
+//        this.add(inferior, BorderLayout.SOUTH);
+//    }
+//    
+//    private void atualizaBorda(){
+//        
+//        inferior.removeAll();
+//        configuraBorda();
+//    }
 
     private void horasData(){
         Calendar agora = Calendar.getInstance();
@@ -695,16 +689,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMCadastros;
     private javax.swing.JMenu jMCaixa;
-    private javax.swing.JMenu jMCidades;
     private javax.swing.JMenu jMClientes;
     private javax.swing.JMenu jMFornecedores;
     private javax.swing.JMenuItem jMIAberturaCaixa;
     private javax.swing.JMenuItem jMIAlterarSenha;
     private javax.swing.JMenuItem jMIBackup;
-    private javax.swing.JMenuItem jMICidadesCadastro;
-    private javax.swing.JMenuItem jMICidadesRelatorio;
-    private javax.swing.JMenuItem jMIClientesCadastro;
-    private javax.swing.JMenuItem jMIClientesRelatorio;
+    private javax.swing.JMenuItem jMIBancoCadastro;
+    private javax.swing.JMenuItem jMICartaoCadastro;
+    private javax.swing.JMenuItem jMIChequeCadastro;
+    private javax.swing.JMenuItem jMICidadeCadastro;
+    private javax.swing.JMenuItem jMIClienteCadastro;
     private javax.swing.JMenuItem jMICondicaoPagamento;
     private javax.swing.JMenuItem jMIEntrada;
     private javax.swing.JMenuItem jMIEntradas;
@@ -716,6 +710,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMISaida;
     private javax.swing.JMenuItem jMISaidas;
     private javax.swing.JMenuItem jMITipoAlteracao;
+    private javax.swing.JMenuItem jMITipoCartaoCadastro;
     private javax.swing.JMenuItem jMITrocarUsuario;
     private javax.swing.JMenuItem jMIVendaPrazo;
     private javax.swing.JMenu jMLancar;

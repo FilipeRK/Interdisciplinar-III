@@ -13,7 +13,8 @@ import javax.persistence.SequenceGenerator;
 public class CustoAnual implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq_custoanual")
-    private int codcustoanual, horasano;
+    private int codcustoanual;
+    private int horasano;
     private String nome;
     private double mediames, totalano, custodia;
 

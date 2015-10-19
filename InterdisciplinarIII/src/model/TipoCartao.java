@@ -12,7 +12,8 @@ import javax.persistence.SequenceGenerator;
 public class TipoCartao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq_tipocartao")
-    private int codtipocartao, tarifamensal;
+    private int codtipocartao;
+    private int tarifamensal;
     private String nome;
 
     public int getCodtipocartao() {
