@@ -1,7 +1,8 @@
 package view;
 
-import dao.CartaoDao;
-import dao.TipoCartaoDao;
+import dao.BancoDao;
+import dao.ChequeDao;
+import dao.ClienteDao;
 import java.awt.BorderLayout;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -14,16 +15,17 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import model.Cartao;
-import model.TipoCartao;
+import model.Banco;
+import model.Cheque;
+import model.Cliente;
 
 
-public class CartaoView extends javax.swing.JFrame {
+public class ChequeView extends javax.swing.JFrame {
 
 
     private int editando;
     
-    public CartaoView() {
+    public ChequeView() {
         initComponents();
     }
 
@@ -41,31 +43,23 @@ public class CartaoView extends javax.swing.JFrame {
         jBDeletar = new javax.swing.JButton();
         jBCancelar = new javax.swing.JButton();
         jLData = new javax.swing.JLabel();
-        jFTFDataCadastro = new javax.swing.JFormattedTextField();
+        jFTFData = new javax.swing.JFormattedTextField();
         try{
             javax.swing.text.MaskFormatter mask = new javax.swing.text.MaskFormatter("##/##/####");
-            jFTFDataCadastro = new javax.swing.JFormattedTextField(mask);
+            jFTFData = new javax.swing.JFormattedTextField(mask);
         }
         catch (ParseException e){
         }
-        jFTFDataCredito = new javax.swing.JFormattedTextField();
-        try{
-            javax.swing.text.MaskFormatter mask = new javax.swing.text.MaskFormatter("##/##/####");
-            jFTFDataCredito = new javax.swing.JFormattedTextField(mask);
-        }
-        catch (ParseException e){
-        }
-        jLData1 = new javax.swing.JLabel();
-        jFTFValorVenda = new javax.swing.JFormattedTextField();
+        jFTFValor = new javax.swing.JFormattedTextField();
         jLData2 = new javax.swing.JLabel();
         jCB1 = new javax.swing.JComboBox();
         jLData3 = new javax.swing.JLabel();
-        jTFTarifa = new javax.swing.JTextField();
-        jLCodigo1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTCartao = new javax.swing.JTable();
-        jFTFValorFinal = new javax.swing.JFormattedTextField();
         jLData4 = new javax.swing.JLabel();
+        jTFNumeroCheque = new javax.swing.JTextField();
+        jCB2 = new javax.swing.JComboBox();
+        jLData5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -77,7 +71,7 @@ public class CartaoView extends javax.swing.JFrame {
 
         jLTitulo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLTitulo.setText("Cartão");
+        jLTitulo.setText("Cheque");
 
         jLCodigo.setText("Código");
 
@@ -119,29 +113,21 @@ public class CartaoView extends javax.swing.JFrame {
             }
         });
 
-        jLData.setText("Data de Cadastro");
+        jLData.setText("Data");
 
-        jFTFDataCadastro.addFocusListener(new java.awt.event.FocusAdapter() {
+        jFTFData.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jFTFDataCadastroFocusLost(evt);
+                jFTFDataFocusLost(evt);
             }
         });
 
-        jFTFDataCredito.addFocusListener(new java.awt.event.FocusAdapter() {
+        jFTFValor.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jFTFDataCreditoFocusLost(evt);
+                jFTFValorFocusLost(evt);
             }
         });
 
-        jLData1.setText("Data de Crédito");
-
-        jFTFValorVenda.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jFTFValorVendaFocusLost(evt);
-            }
-        });
-
-        jLData2.setText("Valor de Venda");
+        jLData2.setText("Valor");
 
         jCB1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -159,12 +145,7 @@ public class CartaoView extends javax.swing.JFrame {
             }
         });
 
-        jLData3.setText("Tipo de Cartão");
-
-        jTFTarifa.setEditable(false);
-        jTFTarifa.setBackground(new java.awt.Color(204, 204, 204));
-
-        jLCodigo1.setText("Tarifa");
+        jLData3.setText("Cliente");
 
         jTCartao.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -174,7 +155,7 @@ public class CartaoView extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Data Cadastro", "Data Crédito", "Valor Vendal", "Valor Final", "Cód. Tipo Cartão", "Tipo Cartão", "Tarifa"
+                "Código", "Data", "Valor", "Número Cheque", "Cód. Cliente", "Cliente", "Cód. Banco", "Banco"
             }
         ) {
             Class[] types = new Class [] {
@@ -207,29 +188,44 @@ public class CartaoView extends javax.swing.JFrame {
         if (jTCartao.getColumnModel().getColumnCount() > 0) {
             jTCartao.getColumnModel().getColumn(1).setMinWidth(100);
             jTCartao.getColumnModel().getColumn(2).setMinWidth(100);
-            jTCartao.getColumnModel().getColumn(3).setMinWidth(100);
+            jTCartao.getColumnModel().getColumn(3).setMinWidth(150);
             jTCartao.getColumnModel().getColumn(4).setMinWidth(100);
-            jTCartao.getColumnModel().getColumn(5).setMinWidth(100);
+            jTCartao.getColumnModel().getColumn(5).setMinWidth(150);
             jTCartao.getColumnModel().getColumn(6).setMinWidth(100);
-            jTCartao.getColumnModel().getColumn(7).setMinWidth(80);
+            jTCartao.getColumnModel().getColumn(7).setMinWidth(100);
         }
 
-        jFTFValorFinal.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jFTFValorFinalFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jFTFValorFinalFocusLost(evt);
+        jLData4.setText("Número Cheque");
+
+        jTFNumeroCheque.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFNumeroChequeActionPerformed(evt);
             }
         });
 
-        jLData4.setText("Valor Final");
+        jCB2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCB2ItemStateChanged(evt);
+            }
+        });
+        jCB2.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jCB2FocusLost(evt);
+            }
+        });
+        jCB2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCB2ActionPerformed(evt);
+            }
+        });
+
+        jLData5.setText("Banco");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+            .addComponent(jLTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -250,35 +246,30 @@ public class CartaoView extends javax.swing.JFrame {
                         .addGap(35, 35, 35))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLCodigo)
-                                    .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFTFDataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLData))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFTFDataCredito, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLData1))
-                                .addGap(14, 14, 14)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jFTFValorVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLData2))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLData3)
-                                    .addComponent(jCB1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTFTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLCodigo1))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLData4)
-                                    .addComponent(jFTFValorFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jLCodigo)
+                            .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jFTFData, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLData))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jFTFValor, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLData2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFNumeroCheque, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLData4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCB1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLData3))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jCB2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLData5))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,32 +280,26 @@ public class CartaoView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLCodigo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFTFData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jFTFValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTFNumeroCheque, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jCB1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLData)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFTFDataCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLData1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFTFDataCredito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLData2)
+                            .addComponent(jLData4)
                             .addComponent(jLData3))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jFTFValorVenda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCB1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(26, 26, 26)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLCodigo1)
-                    .addComponent(jLData4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTFTarifa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jFTFValorFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addComponent(jLData5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jCB2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -332,11 +317,16 @@ public class CartaoView extends javax.swing.JFrame {
     private void jBNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNovoActionPerformed
 
         jCB1.removeAllItems();
-        for (TipoCartao a : tcDao.findAll()) { 
-            String id = ""+a.getCodtipocartao();
+        for (Cliente a : cliDao.findAll()) { 
+            String id = ""+a.getCodcliente();
             String nome = a.getNome();
-            double tarifa = a.getTarifamensal();
-            jCB1.addItem(new Item(id,nome,tarifa));    
+            jCB1.addItem(new ItemCliente(id,nome));    
+        }
+        jCB2.removeAllItems();
+        for (Banco b : baDao.findAll()) { 
+            String id = ""+b.getCodbanco();
+            String nome = b.getNome();
+            jCB2.addItem(new ItemBanco(id,nome));    
         } 
         jTCartao.setEnabled(false);
         jBCancelar.setEnabled(true);
@@ -344,20 +334,25 @@ public class CartaoView extends javax.swing.JFrame {
         jBEditar.setEnabled(false);
         jBNovo.setEnabled(false);
         jBGravar.setEnabled(true);
-        jFTFDataCredito.setText("");
-        jFTFDataCadastro.setText("");
-        jFTFValorVenda.setText("");
-        jFTFDataCadastro.requestFocus();
+        jFTFData.setText("");
+        jFTFValor.setText("");
+        jTFNumeroCheque.setText("");
+        jFTFData.requestFocus();
     }//GEN-LAST:event_jBNovoActionPerformed
 
     private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
 
         jCB1.removeAllItems();
-        for (TipoCartao a : tcDao.findAll()) { 
-            String id = ""+a.getCodtipocartao();
+        for (Cliente a : cliDao.findAll()) { 
+            String id = ""+a.getCodcliente();
             String nome = a.getNome();
-            double tarifa = a.getTarifamensal();
-            jCB1.addItem(new Item(id,nome, tarifa));    
+            jCB1.addItem(new ItemCliente(id,nome));    
+        } 
+        jCB2.removeAllItems();
+        for (Banco b : baDao.findAll()) { 
+            String id = ""+b.getCodbanco();
+            String nome = b.getNome();
+            jCB2.addItem(new ItemBanco(id,nome));    
         } 
         jBCancelar.setEnabled(true);
         jBDeletar.setEnabled(false);
@@ -367,20 +362,19 @@ public class CartaoView extends javax.swing.JFrame {
         jTCartao.setEnabled(false);
         
         String codigo = ""+jTCartao.getValueAt(jTCartao.getSelectedRow(),0);
-        String datacad = ""+jTCartao.getValueAt(jTCartao.getSelectedRow(),1);
-        String datacred = ""+jTCartao.getValueAt(jTCartao.getSelectedRow(),2);
-        String valorvenda = ""+jTCartao.getValueAt(jTCartao.getSelectedRow(),3);
+        String data = ""+jTCartao.getValueAt(jTCartao.getSelectedRow(),1);
+        String valor = ""+jTCartao.getValueAt(jTCartao.getSelectedRow(),2);
+        String numero = ""+jTCartao.getValueAt(jTCartao.getSelectedRow(),3);
         
         jTFCodigo.setText(codigo);
-        jFTFDataCadastro.setText(datacad);
-        jFTFDataCredito.setText(datacred);
-        jFTFValorVenda.setText(valorvenda);
+        jFTFData.setText(data);
+        jFTFValor.setText(valor);
+        jTFNumeroCheque.setText(numero);
         
         SimpleDateFormat formato1 = new SimpleDateFormat("yyyy-MM-dd");  
         SimpleDateFormat formato2 = new SimpleDateFormat("ddMMyyyy");  
         try {
-            jFTFDataCadastro.setText(formato2.format(formato1.parse(datacad)));
-            jFTFDataCredito.setText(formato2.format(formato1.parse(datacred)));
+            jFTFData.setText(formato2.format(formato1.parse(data)));
         } catch (ParseException ex) {
         }
        
@@ -393,50 +387,54 @@ public class CartaoView extends javax.swing.JFrame {
        
 
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            String datacad = jFTFDataCadastro.getText();
-            String datacred = jFTFDataCredito.getText();
-            String valor = jFTFValorVenda.getText().replace(",", ".");
-            double valorvenda = Double.valueOf(valor);
+            String data = jFTFData.getText();
+            String numero = jTFNumeroCheque.getText();
+            String valor = jFTFValor.getText().replace(",", ".");
+            double valorcheque = Double.valueOf(valor);
 
-            cartao = new Cartao();
+            cheque = new Cheque();
 
-            if(!"  /  /    ".equals(datacad)){
+            if(!"  /  /    ".equals(data)){
                 try {
-                    java.util.Date dtcad, dtcred; 
-                    dtcad = formatter.parse(datacad);
-                    dtcred = formatter.parse(datacred);
+                    java.util.Date dt; 
+                    dt = formatter.parse(data);
                     //java.sql.Date d = new java.sql.Date(dt.getTime());  
-                    cartao.setDatacad(dtcad);
-                    cartao.setDacatred(dtcred);
+                    cheque.setData(dt);
                 } catch (ParseException e) {
                 }
             }
-            TipoCartao setarcodigo = new TipoCartao();
-            Item i = (Item) jCB1.getSelectedItem(); 
-            setarcodigo.setCodtipocartao(Integer.valueOf(i.codtipocartao));
-            setarcodigo.setNome(i.nometipocartao);
+            Cliente setarcodigoCliente = new Cliente();
+            ItemCliente ic = (ItemCliente) jCB1.getSelectedItem(); 
+            setarcodigoCliente.setCodcliente(Integer.valueOf(ic.codcliente));
+            setarcodigoCliente.setNome(ic.nomecliente);
+            
+            Banco setarcodigoBanco = new Banco();
+            ItemBanco ib = (ItemBanco) jCB2.getSelectedItem();
+            setarcodigoBanco.setCodbanco(Integer.valueOf(ib.codbanco));
+            setarcodigoBanco.setNome(ib.nomebanco);
+            
+            cheque.setNumerocheque(Integer.valueOf(numero));
+            cheque.setValor(valorcheque);
+            cheque.setBanco(setarcodigoBanco);
+            cheque.setCliente(setarcodigoCliente);
+            
                     
-            cartao.setTipocartao(setarcodigo);
-          //  cartao.setDacatred(datacred);
-            cartao.setValorvenda(valorvenda);
-            cartao.setTarifa(Double.parseDouble(i.toStringTarifa()));
-            cartao.setValorfinal(valorvenda-Double.parseDouble(i.toStringTarifa()));
+            
            
             if(editando != 1){
-                dao.insert(cartao);
+                dao.insert(cheque);
             }else{
                 int codigo = Integer.parseInt(jTFCodigo.getText());
-                cartao.setCodcartao(codigo);
-                dao.update(cartao);
+                cheque.setCodcheque(codigo);
+                dao.update(cheque);
             }
 
             listar();
 
             jTFCodigo.setText("");
-            jFTFDataCadastro.setText("");
-            jFTFDataCredito.setText("");
-            jFTFValorVenda.setText("");
-            jFTFValorFinal.setText("");
+            jFTFData.setText("");
+            jFTFValor.setText("");
+            jTFNumeroCheque.setText("");
             jBNovo.setEnabled(true);
             jBGravar.setEnabled(false);
             jBCancelar.setEnabled(false);
@@ -450,8 +448,8 @@ public class CartaoView extends javax.swing.JFrame {
         if (JOptionPane.showConfirmDialog(null, "Excluír registro selecionado?", "Excluír registro", ConfirmationCallback.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
             String codigo = ""+jTCartao.getValueAt(jTCartao.getSelectedRow(),0);
 
-            cartao = dao.findById(Integer.parseInt(codigo));
-            dao.delete(cartao);
+            cheque = dao.findById(Integer.parseInt(codigo));
+            dao.delete(cheque);
 
             listar();
         
@@ -463,10 +461,9 @@ public class CartaoView extends javax.swing.JFrame {
     private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
         
         jTFCodigo.setText("");
-        jFTFDataCadastro.setText("");
-        jFTFDataCredito.setText("");
-        jFTFValorVenda.setText("");
-        jTFTarifa.setText("");
+        jFTFData.setText("");
+        jFTFValor.setText("");
+        jTFNumeroCheque.setText("");
         jTCartao.setEnabled(true);
         jBNovo.setEnabled(true);
         jBDeletar.setEnabled(false);
@@ -475,12 +472,12 @@ public class CartaoView extends javax.swing.JFrame {
         jBEditar.setEnabled(false);
     }//GEN-LAST:event_jBCancelarActionPerformed
 
-    private void jFTFDataCadastroFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataCadastroFocusLost
+    private void jFTFDataFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataFocusLost
 
         SimpleDateFormat formatIso = new SimpleDateFormat("dd/MM/yyyy");
         Date dataT, dataA;
         Calendar c = Calendar.getInstance();
-        String datateste = jFTFDataCadastro.getText();
+        String datateste = jFTFData.getText();
         String dataatual  = formatIso.format(c.getTime());
 
         try{
@@ -489,19 +486,15 @@ public class CartaoView extends javax.swing.JFrame {
 
             if(dataT.after(dataA)){
                 JOptionPane.showMessageDialog(null, "Data inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
-                jFTFDataCadastro.requestFocus();
+                jFTFData.requestFocus();
             }
         }catch(NumberFormatException | ParseException e){
         }
-    }//GEN-LAST:event_jFTFDataCadastroFocusLost
+    }//GEN-LAST:event_jFTFDataFocusLost
 
-    private void jFTFDataCreditoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataCreditoFocusLost
-
-    }//GEN-LAST:event_jFTFDataCreditoFocusLost
-
-    private void jFTFValorVendaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFValorVendaFocusLost
+    private void jFTFValorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFValorFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFTFValorVendaFocusLost
+    }//GEN-LAST:event_jFTFValorFocusLost
 
     private void jCB1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB1ActionPerformed
         // TODO add your handling code here:
@@ -515,35 +508,34 @@ public class CartaoView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jTCartaoMouseClicked
 
-    private void jFTFValorFinalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFValorFinalFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFTFValorFinalFocusLost
-
     private void jCB1FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jCB1FocusLost
        
         
     }//GEN-LAST:event_jCB1FocusLost
 
-    private void jFTFValorFinalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFValorFinalFocusGained
-       double calc1, calc2, total; 
-        
-        calc1 = Double.parseDouble(jFTFValorVenda.getText());
-        calc2 = Double.parseDouble(jTFTarifa.getText());
-        
-        total = calc1 - calc2;
-        
-        jFTFValorFinal.setText(String.valueOf(total));
-    }//GEN-LAST:event_jFTFValorFinalFocusGained
-
     private void jCB1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCB1ItemStateChanged
-        Item i = (Item) jCB1.getSelectedItem(); 
-       String teste = i.toStringTarifa();
-        jTFTarifa.setText(teste);
+
     }//GEN-LAST:event_jCB1ItemStateChanged
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         listar();
     }//GEN-LAST:event_formWindowOpened
+
+    private void jTFNumeroChequeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNumeroChequeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFNumeroChequeActionPerformed
+
+    private void jCB2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCB2ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCB2ItemStateChanged
+
+    private void jCB2FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jCB2FocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCB2FocusLost
+
+    private void jCB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCB2ActionPerformed
 
 
     public static void main(String args[]) {
@@ -560,29 +552,30 @@ public class CartaoView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CartaoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChequeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CartaoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChequeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CartaoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChequeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CartaoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ChequeView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CartaoView().setVisible(true);
+                new ChequeView().setVisible(true);
             }
         });
     }
     
-      public void abreJanelaCartao(){
+      public void abreJanelaCheque(){
 
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        this.setTitle("Lançar entrada por Cartão");
+        this.setTitle("Lançar entrada por Cheque");
         
         //ImageIcon image = new ImageIcon("C:\\SCF\\img\\icone.png");
        // this.setIconImage(image.getImage()); 
@@ -590,28 +583,37 @@ public class CartaoView extends javax.swing.JFrame {
         this.setVisible(true);
     }
       
-       public class Item{  
+       public class ItemCliente{  
   
-        public String codtipocartao;   
-        public String nometipocartao; 
-        public double tarifa;
+        public String codcliente;   
+        public String nomecliente; 
 
-        public Item(String id,String nome, double tarifa){  
-            this.codtipocartao = id;  
-            this.nometipocartao = nome; 
-            this.tarifa = tarifa;
+        public ItemCliente(String id,String nome){  
+            this.codcliente = id;  
+            this.nomecliente = nome; 
         }  
         
         @Override  
         public String toString(){  
-          return nometipocartao;
+          return nomecliente;
          }  
-        
-        public String toStringTarifa(){  
-          return String.valueOf(tarifa);
-         } 
     }  
     
+    public class ItemBanco{  
+  
+        public String codbanco;   
+        public String nomebanco; 
+
+        public ItemBanco(String id,String nome){  
+            this.codbanco = id;  
+            this.nomebanco = nome; 
+        }  
+        
+        @Override  
+        public String toString(){  
+          return nomebanco;
+         }  
+    }  
     private void listar(){
 
         DefaultTableModel dados = (DefaultTableModel) jTCartao.getModel();
@@ -619,13 +621,14 @@ public class CartaoView extends javax.swing.JFrame {
 
         ((DefaultTableCellRenderer)jTCartao.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(SwingConstants.CENTER); 
         
-        for(Cartao ca : dao.findAll()){
-            dados.addRow(new String[]{""+ca.getCodcartao(), ""+ca.getDatacad(),""+ca.getDacatred(), ""+ca.getValorvenda(), ""+ca.getValorfinal(), ""+ca.getTipocartao().getCodtipocartao(), ""+ca.getTipocartao().getNome(), ""+ca.getTipocartao().getTarifamensal()});
+        for(Cheque ch : dao.findAll()){
+            dados.addRow(new String[]{""+ch.getCodcheque(), ""+ch.getData(), ""+ch.getValor(), ""+ch.getNumerocheque(), ""+ch.getCliente().getCodcliente(), ch.getCliente().getNome(), ""+ch.getBanco().getCodbanco(), ch.getBanco().getNome()});
         }
     }
-    private final CartaoDao dao = new CartaoDao();
-    private Cartao cartao = new Cartao();
-    private final TipoCartaoDao tcDao = new TipoCartaoDao();
+    private final ChequeDao dao = new ChequeDao();
+    private Cheque cheque = new Cheque();
+    private final ClienteDao cliDao = new ClienteDao();
+    private final BancoDao baDao = new BancoDao();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBDeletar;
@@ -633,21 +636,19 @@ public class CartaoView extends javax.swing.JFrame {
     private javax.swing.JButton jBGravar;
     private javax.swing.JButton jBNovo;
     private javax.swing.JComboBox jCB1;
-    private javax.swing.JFormattedTextField jFTFDataCadastro;
-    private javax.swing.JFormattedTextField jFTFDataCredito;
-    private javax.swing.JFormattedTextField jFTFValorFinal;
-    private javax.swing.JFormattedTextField jFTFValorVenda;
+    private javax.swing.JComboBox jCB2;
+    private javax.swing.JFormattedTextField jFTFData;
+    private javax.swing.JFormattedTextField jFTFValor;
     private javax.swing.JLabel jLCodigo;
-    private javax.swing.JLabel jLCodigo1;
     private javax.swing.JLabel jLData;
-    private javax.swing.JLabel jLData1;
     private javax.swing.JLabel jLData2;
     private javax.swing.JLabel jLData3;
     private javax.swing.JLabel jLData4;
+    private javax.swing.JLabel jLData5;
     private javax.swing.JLabel jLTitulo;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTCartao;
     private javax.swing.JTextField jTFCodigo;
-    private javax.swing.JTextField jTFTarifa;
+    private javax.swing.JTextField jTFNumeroCheque;
     // End of variables declaration//GEN-END:variables
 }

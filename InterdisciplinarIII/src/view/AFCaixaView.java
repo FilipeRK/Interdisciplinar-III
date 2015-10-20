@@ -31,6 +31,7 @@ public class AFCaixaView extends javax.swing.JFrame {
         jBOK = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setResizable(false);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 formWindowGainedFocus(evt);
@@ -45,8 +46,6 @@ public class AFCaixaView extends javax.swing.JFrame {
 
         jLSenha.setText("Valor");
 
-        jTFValor.setEditable(false);
-        jTFValor.setBackground(new java.awt.Color(204, 204, 204));
         jTFValor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTFValorKeyTyped(evt);
@@ -134,16 +133,6 @@ public class AFCaixaView extends javax.swing.JFrame {
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         
-//        String statusCx = dao.retornaStatusCX();
-//
-//        
-//        if("F".equals(statusCx)){
-//            jTFValor.setText(dao.retornaSaldoDiaAnterior2());
-//        }
-//        if("A".equals(statusCx)){
-//            jTFValor.setText(dao.retornaSaldoDiaPFechar2());
-//        }
-
     }//GEN-LAST:event_formWindowGainedFocus
 
     /**
@@ -187,6 +176,7 @@ public class AFCaixaView extends javax.swing.JFrame {
 
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
+        this.setTitle("Abrir/Fechar o Caixa");
         
         //ImageIcon image = new ImageIcon("C:\\SCF\\img\\icone.png");
        // this.setIconImage(image.getImage()); 
@@ -198,14 +188,6 @@ public class AFCaixaView extends javax.swing.JFrame {
                 
         
         if (!"".equals(jTFValor.getText())){
-        
-//          //  String statusCx = dao.retornaStatusCX();
-//            if("F".equals(statusCx)){
-//            //    jTFValor.setText(dao.retornaSaldoDiaAnterior());
-//            }
-//            if("A".equals(statusCx)){
-////                jTFValor.setText(dao.retornaSaldoDiaPFechar());
-//            }
             
             String valor = jTFValor.getText().replace(",", ".");
 
@@ -231,7 +213,7 @@ public class AFCaixaView extends javax.swing.JFrame {
             jTFValor.setText("");
 
             if("F".equals(tipo)){
-               // JOptionPane.showMessageDialog(null, "O saldo do dia foi: R$"+dao.retornaSaldoDia(), "Saldo do dia", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "O saldo do dia foi: R$"+dao.retornaSaldoDia(), "Saldo do dia", JOptionPane.INFORMATION_MESSAGE);
             }
 
             this.dispose();

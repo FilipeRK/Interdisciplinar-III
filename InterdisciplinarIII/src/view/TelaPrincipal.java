@@ -67,15 +67,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMFornecedores = new javax.swing.JMenu();
         jMIFornecedoresCadastro = new javax.swing.JMenuItem();
         jMIFornecedoresRelatorio = new javax.swing.JMenuItem();
-        jMOpcoes = new javax.swing.JMenu();
-        jMManutencao = new javax.swing.JMenu();
-        jMIBackup = new javax.swing.JMenuItem();
-        jMIRestore = new javax.swing.JMenuItem();
-        jMUsuario = new javax.swing.JMenu();
-        jMINovoUsuario = new javax.swing.JMenuItem();
-        jMIAlterarSenha = new javax.swing.JMenuItem();
-        jMITrocarUsuario = new javax.swing.JMenuItem();
-        javax.swing.JMenuItem jMISair = new javax.swing.JMenuItem();
         jMClientes = new javax.swing.JMenu();
         jMIClienteCadastro = new javax.swing.JMenuItem();
         jMICidadeCadastro = new javax.swing.JMenuItem();
@@ -88,6 +79,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setResizable(false);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 formWindowGainedFocus(evt);
@@ -191,7 +183,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuPrincipal.add(jMCaixa);
 
         jMFornecedores.setForeground(new java.awt.Color(255, 0, 0));
-        jMFornecedores.setText("Fornecedores");
+        jMFornecedores.setText("Madeira");
 
         jMIFornecedoresCadastro.setText("Cadastro");
         jMIFornecedoresCadastro.addActionListener(new java.awt.event.ActionListener() {
@@ -201,7 +193,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMFornecedores.add(jMIFornecedoresCadastro);
 
-        jMIFornecedoresRelatorio.setText("Relatório");
+        jMIFornecedoresRelatorio.setText("Unidade Madeira");
         jMIFornecedoresRelatorio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMIFornecedoresRelatorioActionPerformed(evt);
@@ -210,67 +202,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMFornecedores.add(jMIFornecedoresRelatorio);
 
         jMenuPrincipal.add(jMFornecedores);
-
-        jMOpcoes.setForeground(new java.awt.Color(255, 0, 0));
-        jMOpcoes.setText("Opções");
-
-        jMManutencao.setText("Manutenção");
-
-        jMIBackup.setText("Backup");
-        jMIBackup.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIBackupActionPerformed(evt);
-            }
-        });
-        jMManutencao.add(jMIBackup);
-
-        jMIRestore.setText("Restore");
-        jMIRestore.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIRestoreActionPerformed(evt);
-            }
-        });
-        jMManutencao.add(jMIRestore);
-
-        jMOpcoes.add(jMManutencao);
-
-        jMUsuario.setText("Usuário");
-
-        jMINovoUsuario.setText("Novo Usuário");
-        jMINovoUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMINovoUsuarioActionPerformed(evt);
-            }
-        });
-        jMUsuario.add(jMINovoUsuario);
-
-        jMIAlterarSenha.setText("Alterar Senha");
-        jMIAlterarSenha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIAlterarSenhaActionPerformed(evt);
-            }
-        });
-        jMUsuario.add(jMIAlterarSenha);
-
-        jMITrocarUsuario.setText("Trocar de Usuário");
-        jMITrocarUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMITrocarUsuarioActionPerformed(evt);
-            }
-        });
-        jMUsuario.add(jMITrocarUsuario);
-
-        jMOpcoes.add(jMUsuario);
-
-        jMISair.setText("Sair");
-        jMISair.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMISairActionPerformed(evt);
-            }
-        });
-        jMOpcoes.add(jMISair);
-
-        jMenuPrincipal.add(jMOpcoes);
 
         jMClientes.setText("Clientes");
 
@@ -295,9 +226,19 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu1.setText("Cheques");
 
         jMIChequeCadastro.setText("Cadastro");
+        jMIChequeCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIChequeCadastroActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMIChequeCadastro);
 
         jMIBancoCadastro.setText("Banco");
+        jMIBancoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIBancoCadastroActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMIBancoCadastro);
 
         jMenuPrincipal.add(jMenu1);
@@ -343,17 +284,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMISairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMISairActionPerformed
-        if(JOptionPane.showConfirmDialog(null, "Deseja sair do sistema?", "Sair", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-            System.exit(0);
-        }
-    }//GEN-LAST:event_jMISairActionPerformed
-
     private void jMIClienteCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIClienteCadastroActionPerformed
 
-//        ClientesCadastro tela = new ClientesCadastro();
-//        tela.abreJanelaClienteCadastro();
-//        //this.setVisible(false);
+       ClienteView tela = new ClienteView();
+       tela.abreJanelaCliente(); 
         
     }//GEN-LAST:event_jMIClienteCadastroActionPerformed
 
@@ -402,74 +336,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         //this.setVisible(false);
     }//GEN-LAST:event_jMICondicaoPagamentoActionPerformed
 
-    private void jMITrocarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMITrocarUsuarioActionPerformed
-//        if(JOptionPane.showConfirmDialog(null, "Deseja trocar de usuário?", "Trocar de Usuário", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-//            UsuarioLogin tela = new UsuarioLogin();
-//            tela.jLTítulo.setText("SCF - Login");
-//            tela.abreJanelaLogin();
-//           // this.dispose();
-//        }
-    }//GEN-LAST:event_jMITrocarUsuarioActionPerformed
-
-    private void jMIAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAlterarSenhaActionPerformed
-//        UsuarioLogin tela = new UsuarioLogin();
-//        tela.jLTítulo.setText("SCF - Alterar Senha");
-//        tela.jBLogin.setText("Alterar");
-//        tela.setTitle("SCF - Alterar Senha");
-//        tela.editSenha = 1;
-//        tela.abreJanelaLogin();
-    }//GEN-LAST:event_jMIAlterarSenhaActionPerformed
-
-    private void jMINovoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMINovoUsuarioActionPerformed
-//        UsuarioLogin tela = new UsuarioLogin();
-//        tela.jLTítulo.setText("SCF - Novo Usuário");
-//        tela.jBLogin.setText("Criar");
-//        tela.setTitle("SCF - Novo Usuário");
-//        tela.novoUser = 1;
-//        tela.abreJanelaLogin();
-    }//GEN-LAST:event_jMINovoUsuarioActionPerformed
-
-    private void jMIBackupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIBackupActionPerformed
-        
-        DateFormat df = new SimpleDateFormat("ddMMyyyy");    
-        Calendar c = Calendar.getInstance();      
-        String data  = df.format(c.getTime()); 
- 
-        if(JOptionPane.showConfirmDialog(null, "Deseja fazer backup do banco de dados?", "Backup", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){ 
-            try{  
-                Scanner s = new Scanner(Runtime.getRuntime().exec("C:\\SCF\\gbak.exe -user SYSDBA -pas masterkey C:\\SCF\\BANCO.fdb C:\\SCF\\BKP\\BANCO-"+data+".fbk").getInputStream());  
-                JOptionPane.showMessageDialog(null, "Backup efetuado com sucesso! \n \n Caminho: C:\\SCF\\BKP\\BANCO-"+data+".fbk", "Backup", JOptionPane.INFORMATION_MESSAGE);
-            }catch (IOException ex){  
-            } 
-        }  
-    }//GEN-LAST:event_jMIBackupActionPerformed
-
-    private void jMIRestoreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIRestoreActionPerformed
-        JFileChooser jFC = new JFileChooser();  
-        jFC.setApproveButtonText("Selecionar");  
-        jFC.setCurrentDirectory(new File("C:\\SCF\\BKP"));
-        jFC.setDialogTitle("Selecione a pasta que contém o Backup"); 
-        jFC.setFileSelectionMode(JFileChooser.FILES_ONLY);  
-        int returnVal = jFC.showOpenDialog(this); 
-        if (returnVal == JFileChooser.APPROVE_OPTION)  
-        {  
-            String diretorio = jFC.getSelectedFile().getName();
-
-            util.HibernateUtil.getSessionFactory().close();
-
-            File bd = new File("C:\\SCF\\BANCO.FDB"); 
-            bd.delete();
-            try{
-                Scanner s = new Scanner(Runtime.getRuntime().exec("C:\\SCF\\gbak.exe -user SYSDBA -pas masterkey -r C:\\SCF\\BKP\\"+diretorio+" C:\\SCF\\BANCO.FDB -rep").getInputStream());  
-                JOptionPane.showMessageDialog(null, "Restauração concluída!\n\n O programa será fechado para aplicar as configurações!", "Restauração", JOptionPane.INFORMATION_MESSAGE);
-                System.exit(0);
-            }  
-            catch (IOException ex){  
-                JOptionPane.showMessageDialog(null, "Ocorreu um erro!", "Erro", JOptionPane.ERROR_MESSAGE);
-            }  
-        }
-    }//GEN-LAST:event_jMIRestoreActionPerformed
-
     private void jMIFornecedoresRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIFornecedoresRelatorioActionPerformed
 //        if(JOptionPane.showConfirmDialog(null, "Gerar relatório de Fornecedores?", "Relatório", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
 //            FornecedoresDao fornDao = new FornecedoresDao();
@@ -482,30 +348,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jMIAberturaCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAberturaCaixaActionPerformed
 
-//        String status = telaAFDao.retornaStatusCX();
-//        
-//        if("F".equals(status) && !"AF".equals(status)){
-//            telaAF.jLTítulo.setText("Abertura de Caixa");
-//            telaAF.setTitle("Abertura de Caixa");
-//            telaAF.tipo = "A";
-//            telaAF.abreJanelaAFCaixa();
-//        }else{
-//            JOptionPane.showMessageDialog(null, "O caixa ja está ou já foi aberto!", "Atenção", JOptionPane.INFORMATION_MESSAGE);
-//        }
+        String status = telaAFDao.retornaStatusCX();
+        
+        if("F".equals(status) && !"AF".equals(status)){
+            telaAF.jLTítulo.setText("Abertura de Caixa");
+            telaAF.setTitle("Abertura de Caixa");
+            telaAF.tipo = "A";
+            telaAF.abreJanelaAFCaixa();
+        }else{
+            JOptionPane.showMessageDialog(null, "O caixa ja está ou já foi aberto!", "Atenção", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jMIAberturaCaixaActionPerformed
 
     private void jMIFechamentoCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIFechamentoCaixaActionPerformed
         
-//        String status = telaAFDao.retornaStatusCX();
-//        
-//        if("A".equals(status) && !"AF".equals(status)){
-//            telaAF.jLTítulo.setText("Fechamento de Caixa");
-//            telaAF.setTitle("Fechamento de Caixa");
-//            telaAF.tipo = "F";
-//            telaAF.abreJanelaAFCaixa();
-//        }else{
-//            JOptionPane.showMessageDialog(null, "O caixa ja está ou ja foi fechado!", "Atenção", JOptionPane.INFORMATION_MESSAGE);
-//        }
+        String status = telaAFDao.retornaStatusCX();
+        
+        if("A".equals(status) && !"AF".equals(status)){
+            telaAF.jLTítulo.setText("Fechamento de Caixa");
+            telaAF.setTitle("Fechamento de Caixa");
+            telaAF.tipo = "F";
+            telaAF.abreJanelaAFCaixa();
+        }else{
+            JOptionPane.showMessageDialog(null, "O caixa ja está ou ja foi fechado!", "Atenção", JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_jMIFechamentoCaixaActionPerformed
 
     private void jMCaixaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMCaixaMouseClicked
@@ -513,13 +379,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMCaixaMouseClicked
 
     private void jMICidadeCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICidadeCadastroActionPerformed
-//        if(JOptionPane.showConfirmDialog(null, "Gerar relatório de Clientes?", "Relatório", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-//            ClienteDao cliDao = new ClienteDao();
-//            try {
-//                cliDao.abrirRelatorio();
-//            }catch(Exception e){
-//            }
-//        }
+        CidadeView aa = new CidadeView();
+        aa.abreJanelaCidade();
     }//GEN-LAST:event_jMICidadeCadastroActionPerformed
 
     private void jMIVendaPrazoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIVendaPrazoActionPerformed
@@ -576,6 +437,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         TipoCartaoView aaa = new TipoCartaoView();
         aaa.abreJanelaTipoCartao();
     }//GEN-LAST:event_jMITipoCartaoCadastroActionPerformed
+
+    private void jMIBancoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIBancoCadastroActionPerformed
+        BancoView aa = new BancoView();
+        aa.abreJanelaBanco();
+    }//GEN-LAST:event_jMIBancoCadastroActionPerformed
+
+    private void jMIChequeCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIChequeCadastroActionPerformed
+        ChequeView c = new ChequeView();
+        c.abreJanelaCheque();
+    }//GEN-LAST:event_jMIChequeCadastroActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -702,8 +573,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMClientes;
     private javax.swing.JMenu jMFornecedores;
     private javax.swing.JMenuItem jMIAberturaCaixa;
-    private javax.swing.JMenuItem jMIAlterarSenha;
-    private javax.swing.JMenuItem jMIBackup;
     private javax.swing.JMenuItem jMIBancoCadastro;
     private javax.swing.JMenuItem jMICartaoCadastro;
     private javax.swing.JMenuItem jMIChequeCadastro;
@@ -715,19 +584,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMIFechamentoCaixa;
     private javax.swing.JMenuItem jMIFornecedoresCadastro;
     private javax.swing.JMenuItem jMIFornecedoresRelatorio;
-    private javax.swing.JMenuItem jMINovoUsuario;
-    private javax.swing.JMenuItem jMIRestore;
     private javax.swing.JMenuItem jMISaida;
     private javax.swing.JMenuItem jMISaidas;
     private javax.swing.JMenuItem jMITipoAlteracao;
     private javax.swing.JMenuItem jMITipoCartaoCadastro;
-    private javax.swing.JMenuItem jMITrocarUsuario;
     private javax.swing.JMenuItem jMIVendaPrazo;
     private javax.swing.JMenu jMLancar;
-    private javax.swing.JMenu jMManutencao;
     private javax.swing.JMenu jMMovimentacao;
-    private javax.swing.JMenu jMOpcoes;
-    private javax.swing.JMenu jMUsuario;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuPrincipal;

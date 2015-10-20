@@ -27,8 +27,8 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jLTitulo" alignment="0" pref="561" max="32767" attributes="0"/>
-          <Group type="102" alignment="0" attributes="0">
+          <Component id="jLTitulo" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -48,47 +48,39 @@
                       <Component id="jBCancelar" min="-2" pref="88" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLCodigo" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTFCodigo" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jFTFDataCadastro" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
-                                  <Component id="jLData" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jFTFDataCredito" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
-                                  <Component id="jLData1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jFTFValorVenda" min="-2" pref="90" max="-2" attributes="0"/>
-                                  <Component id="jLData2" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLData3" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jCB1" min="-2" pref="135" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTFTarifa" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
-                                  <Component id="jLCodigo1" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLData4" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jFTFValorFinal" min="-2" pref="90" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
+                          <Component id="jLCodigo" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFCodigo" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jFTFData" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                          <Component id="jLData" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jFTFValor" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                          <Component id="jLData2" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jTFNumeroCheque" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
+                          <Component id="jLData4" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jCB1" min="-2" pref="135" max="-2" attributes="0"/>
+                          <Component id="jLData3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jCB2" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
+                          <Component id="jLData5" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -103,41 +95,32 @@
                   <Group type="102" attributes="0">
                       <Component id="jLCodigo" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTFCodigo" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jTFCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFTFData" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jFTFValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFNumeroCheque" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jCB1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="jLData" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jFTFDataCadastro" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Component id="jLData1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="jFTFDataCredito" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLData2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLData4" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLData3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jFTFValorVenda" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCB1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLCodigo1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLData4" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTFTarifa" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jFTFValorFinal" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace pref="17" max="32767" attributes="0"/>
+              <Component id="jLData5" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jCB2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jBNovo" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="jBEditar" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
@@ -159,7 +142,7 @@
           <Font name="Arial" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Cart&#xe3;o"/>
+        <Property name="text" type="java.lang.String" value="Cheque"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLCodigo">
@@ -217,38 +200,25 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLData">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Data de Cadastro"/>
+        <Property name="text" type="java.lang.String" value="Data"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFTFDataCadastro">
+    <Component class="javax.swing.JFormattedTextField" name="jFTFData">
       <Events>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFDataCadastroFocusLost"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFDataFocusLost"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xd;&#xa;javax.swing.text.MaskFormatter mask = new javax.swing.text.MaskFormatter(&quot;##/##/####&quot;);&#xd;&#xa;jFTFDataCadastro = new javax.swing.JFormattedTextField(mask);&#xd;&#xa;}&#xd;&#xa;catch (ParseException e){&#xd;&#xa;} "/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xd;&#xa;javax.swing.text.MaskFormatter mask = new javax.swing.text.MaskFormatter(&quot;##/##/####&quot;);&#xd;&#xa;jFTFData = new javax.swing.JFormattedTextField(mask);&#xd;&#xa;}&#xd;&#xa;catch (ParseException e){&#xd;&#xa;} "/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFTFDataCredito">
+    <Component class="javax.swing.JFormattedTextField" name="jFTFValor">
       <Events>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFDataCreditoFocusLost"/>
-      </Events>
-      <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodePost" type="java.lang.String" value="try{&#xd;&#xa;javax.swing.text.MaskFormatter mask = new javax.swing.text.MaskFormatter(&quot;##/##/####&quot;);&#xd;&#xa;jFTFDataCredito = new javax.swing.JFormattedTextField(mask);&#xd;&#xa;}&#xd;&#xa;catch (ParseException e){&#xd;&#xa;} "/>
-      </AuxValues>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLData1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Data de Cr&#xe9;dito"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JFormattedTextField" name="jFTFValorVenda">
-      <Events>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFValorVendaFocusLost"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFValorFocusLost"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLData2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Valor de Venda"/>
+        <Property name="text" type="java.lang.String" value="Valor"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jCB1">
@@ -265,20 +235,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLData3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tipo de Cart&#xe3;o"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTFTarifa">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="cc" type="rgb"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLCodigo1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Tarifa"/>
+        <Property name="text" type="java.lang.String" value="Cliente"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -293,13 +250,13 @@
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="8" rowCount="4">
                 <Column editable="false" title="C&#xf3;digo" type="java.lang.Integer"/>
-                <Column editable="false" title="Data Cadastro" type="java.lang.String"/>
-                <Column editable="false" title="Data Cr&#xe9;dito" type="java.lang.String"/>
-                <Column editable="false" title="Valor Vendal" type="java.lang.String"/>
-                <Column editable="false" title="Valor Final" type="java.lang.String"/>
-                <Column editable="false" title="C&#xf3;d. Tipo Cart&#xe3;o" type="java.lang.Integer"/>
-                <Column editable="false" title="Tipo Cart&#xe3;o" type="java.lang.String"/>
-                <Column editable="false" title="Tarifa" type="java.lang.String"/>
+                <Column editable="false" title="Data" type="java.lang.String"/>
+                <Column editable="false" title="Valor" type="java.lang.String"/>
+                <Column editable="false" title="N&#xfa;mero Cheque" type="java.lang.String"/>
+                <Column editable="false" title="C&#xf3;d. Cliente" type="java.lang.String"/>
+                <Column editable="false" title="Cliente" type="java.lang.Integer"/>
+                <Column editable="false" title="C&#xf3;d. Banco" type="java.lang.String"/>
+                <Column editable="false" title="Banco" type="java.lang.String"/>
               </Table>
             </Property>
             <Property name="autoResizeMode" type="int" value="0"/>
@@ -321,7 +278,17 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
+                <Column maxWidth="-1" minWidth="150" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
                 <Column maxWidth="-1" minWidth="100" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="150" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -332,16 +299,6 @@
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="100" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="100" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="80" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -362,15 +319,31 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JFormattedTextField" name="jFTFValorFinal">
-      <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFValorFinalFocusGained"/>
-        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFValorFinalFocusLost"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLData4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Valor Final"/>
+        <Property name="text" type="java.lang.String" value="N&#xfa;mero Cheque"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTFNumeroCheque">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFNumeroChequeActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="jCB2">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="0"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jCB2ItemStateChanged"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jCB2FocusLost"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCB2ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLData5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Banco"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -39,6 +39,7 @@ public class UsuarioView extends javax.swing.JFrame {
         jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLTítulo.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLTítulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
