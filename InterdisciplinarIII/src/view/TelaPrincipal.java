@@ -318,6 +318,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMICartaoCadastro);
 
         jMITipoCartaoCadastro.setText("Tipo de Cartão");
+        jMITipoCartaoCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMITipoCartaoCadastroActionPerformed(evt);
+            }
+        });
         jMenu2.add(jMITipoCartaoCadastro);
 
         jMenuPrincipal.add(jMenu2);
@@ -566,6 +571,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         CartaoView aa = new CartaoView();
         aa.abreJanelaCartao();
     }//GEN-LAST:event_jMICartaoCadastroActionPerformed
+
+    private void jMITipoCartaoCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMITipoCartaoCadastroActionPerformed
+        TipoCartaoView aaa = new TipoCartaoView();
+        aaa.abreJanelaTipoCartao();
+    }//GEN-LAST:event_jMITipoCartaoCadastroActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

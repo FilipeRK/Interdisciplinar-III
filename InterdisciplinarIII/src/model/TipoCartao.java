@@ -13,7 +13,7 @@ public class TipoCartao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq_tipocartao")
     private int codtipocartao;
-    private int tarifamensal;
+    private double tarifamensal;
     private String nome;
 
     public int getCodtipocartao() {
@@ -24,11 +24,11 @@ public class TipoCartao implements Serializable {
         this.codtipocartao = codtipocartao;
     }
 
-    public int getTarifamensal() {
+    public double getTarifamensal() {
         return tarifamensal;
     }
 
-    public void setTarifamensal(int tarifamensal) {
+    public void setTarifamensal(double tarifamensal) {
         this.tarifamensal = tarifamensal;
     }
 
