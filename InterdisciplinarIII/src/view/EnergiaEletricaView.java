@@ -132,11 +132,12 @@ public class EnergiaEletricaView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTEnergia);
         if (jTEnergia.getColumnModel().getColumnCount() > 0) {
-            jTEnergia.getColumnModel().getColumn(1).setMinWidth(200);
-            jTEnergia.getColumnModel().getColumn(2).setMinWidth(50);
+            jTEnergia.getColumnModel().getColumn(0).setMinWidth(100);
+            jTEnergia.getColumnModel().getColumn(1).setMinWidth(292);
+            jTEnergia.getColumnModel().getColumn(2).setMinWidth(150);
         }
 
-        jLData1.setText("Valor da Hora");
+        jLData1.setText("Valor do kWh");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -173,7 +174,7 @@ public class EnergiaEletricaView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLData1)
                             .addComponent(jTFValorHora, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(192, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

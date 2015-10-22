@@ -154,7 +154,7 @@ public class MadeiraView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTMadeira);
         if (jTMadeira.getColumnModel().getColumnCount() > 0) {
-            jTMadeira.getColumnModel().getColumn(1).setMinWidth(150);
+            jTMadeira.getColumnModel().getColumn(1).setMinWidth(170);
             jTMadeira.getColumnModel().getColumn(2).setMinWidth(100);
             jTMadeira.getColumnModel().getColumn(3).setMinWidth(100);
             jTMadeira.getColumnModel().getColumn(4).setMinWidth(100);
@@ -228,7 +228,9 @@ public class MadeiraView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLCodigo)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLCodigo)
+                            .addComponent(jLData))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,7 +239,6 @@ public class MadeiraView extends javax.swing.JFrame {
                             .addComponent(jCB1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLData)
                             .addComponent(jLData5)
                             .addComponent(jLData3))
                         .addGap(26, 26, 26)))

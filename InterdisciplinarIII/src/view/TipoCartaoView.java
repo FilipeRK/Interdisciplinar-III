@@ -136,8 +136,8 @@ public class TipoCartaoView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTTipoCartao);
         if (jTTipoCartao.getColumnModel().getColumnCount() > 0) {
-            jTTipoCartao.getColumnModel().getColumn(1).setMinWidth(150);
-            jTTipoCartao.getColumnModel().getColumn(2).setMinWidth(100);
+            jTTipoCartao.getColumnModel().getColumn(1).setMinWidth(350);
+            jTTipoCartao.getColumnModel().getColumn(2).setMinWidth(123);
         }
 
         jLData1.setText("Tarifa Mensal");

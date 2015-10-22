@@ -63,7 +63,7 @@
                           <Component id="jLData1" min="-2" max="-2" attributes="0"/>
                           <Component id="jTFValorHora" min="-2" pref="83" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="192" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -195,17 +195,17 @@
             <Property name="autoscrolls" type="boolean" value="false"/>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="100" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="200" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="292" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="50" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="150" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -232,7 +232,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLData1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Valor da Hora"/>
+        <Property name="text" type="java.lang.String" value="Valor do kWh"/>
       </Properties>
     </Component>
   </SubComponents>

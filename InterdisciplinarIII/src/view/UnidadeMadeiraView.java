@@ -133,7 +133,8 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTUnMad);
         if (jTUnMad.getColumnModel().getColumnCount() > 0) {
-            jTUnMad.getColumnModel().getColumn(1).setMinWidth(150);
+            jTUnMad.getColumnModel().getColumn(0).setMinWidth(100);
+            jTUnMad.getColumnModel().getColumn(1).setMinWidth(444);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

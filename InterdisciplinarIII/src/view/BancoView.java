@@ -134,7 +134,7 @@ public class BancoView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTBanco);
         if (jTBanco.getColumnModel().getColumnCount() > 0) {
-            jTBanco.getColumnModel().getColumn(1).setMinWidth(150);
+            jTBanco.getColumnModel().getColumn(1).setMinWidth(468);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

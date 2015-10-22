@@ -138,9 +138,9 @@ public class CidadeView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTCidade);
         if (jTCidade.getColumnModel().getColumnCount() > 0) {
-            jTCidade.getColumnModel().getColumn(1).setMinWidth(200);
-            jTCidade.getColumnModel().getColumn(2).setMinWidth(50);
-            jTCidade.getColumnModel().getColumn(3).setMinWidth(100);
+            jTCidade.getColumnModel().getColumn(1).setMinWidth(250);
+            jTCidade.getColumnModel().getColumn(2).setMinWidth(100);
+            jTCidade.getColumnModel().getColumn(3).setMinWidth(117);
         }
 
         jLData1.setText("UF");

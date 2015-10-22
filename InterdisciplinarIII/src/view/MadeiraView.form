@@ -93,7 +93,10 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jLCodigo" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLData" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTFCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -104,7 +107,6 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLData" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLData5" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLData3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -238,7 +240,7 @@
                   <Editor/>
                   <Renderer/>
                 </Column>
-                <Column maxWidth="-1" minWidth="150" prefWidth="-1" resizable="true">
+                <Column maxWidth="-1" minWidth="170" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
