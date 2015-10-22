@@ -64,9 +64,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMMovimentacao = new javax.swing.JMenu();
         jMIEntradas = new javax.swing.JMenuItem();
         jMISaidas = new javax.swing.JMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMFornecedores = new javax.swing.JMenu();
-        jMIFornecedoresCadastro = new javax.swing.JMenuItem();
-        jMIFornecedoresRelatorio = new javax.swing.JMenuItem();
+        jMIMadeira = new javax.swing.JMenuItem();
+        jMIUnidadeMadeiraCadastro = new javax.swing.JMenuItem();
         jMClientes = new javax.swing.JMenu();
         jMIClienteCadastro = new javax.swing.JMenuItem();
         jMICidadeCadastro = new javax.swing.JMenuItem();
@@ -182,24 +185,43 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuPrincipal.add(jMCaixa);
 
-        jMFornecedores.setForeground(new java.awt.Color(255, 0, 0));
-        jMFornecedores.setText("Madeira");
+        jMenu3.setText("Máquinas");
 
-        jMIFornecedoresCadastro.setText("Cadastro");
-        jMIFornecedoresCadastro.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem1.setText("Cadastro");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIFornecedoresCadastroActionPerformed(evt);
+                jMenuItem1ActionPerformed(evt);
             }
         });
-        jMFornecedores.add(jMIFornecedoresCadastro);
+        jMenu3.add(jMenuItem1);
 
-        jMIFornecedoresRelatorio.setText("Unidade Madeira");
-        jMIFornecedoresRelatorio.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem2.setText("Energia Elétrica");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIFornecedoresRelatorioActionPerformed(evt);
+                jMenuItem2ActionPerformed(evt);
             }
         });
-        jMFornecedores.add(jMIFornecedoresRelatorio);
+        jMenu3.add(jMenuItem2);
+
+        jMenuPrincipal.add(jMenu3);
+
+        jMFornecedores.setText("Madeiras");
+
+        jMIMadeira.setText("Cadastro");
+        jMIMadeira.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIMadeiraActionPerformed(evt);
+            }
+        });
+        jMFornecedores.add(jMIMadeira);
+
+        jMIUnidadeMadeiraCadastro.setText("Unidade Madeira");
+        jMIUnidadeMadeiraCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMIUnidadeMadeiraCadastroActionPerformed(evt);
+            }
+        });
+        jMFornecedores.add(jMIUnidadeMadeiraCadastro);
 
         jMenuPrincipal.add(jMFornecedores);
 
@@ -311,12 +333,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
 //        //this.setVisible(false);
     }//GEN-LAST:event_jMITipoAlteracaoActionPerformed
 
-    private void jMIFornecedoresCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIFornecedoresCadastroActionPerformed
-//        
-//        FornecedoresCadastro tela = new FornecedoresCadastro();
-//        tela.abreJanelaFornecedoresCadastro();
-//        //this.setVisible(false);
-    }//GEN-LAST:event_jMIFornecedoresCadastroActionPerformed
+    private void jMIMadeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIMadeiraActionPerformed
+        
+        MadeiraView aa = new MadeiraView();
+        aa.abreJanelaMadeira();
+    }//GEN-LAST:event_jMIMadeiraActionPerformed
 
     private void jMISaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMISaidaActionPerformed
 //        String st = telaAFDao.retornaStatusCX();
@@ -336,15 +357,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         //this.setVisible(false);
     }//GEN-LAST:event_jMICondicaoPagamentoActionPerformed
 
-    private void jMIFornecedoresRelatorioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIFornecedoresRelatorioActionPerformed
-//        if(JOptionPane.showConfirmDialog(null, "Gerar relatório de Fornecedores?", "Relatório", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-//            FornecedoresDao fornDao = new FornecedoresDao();
-//            try {
-//                fornDao.abrirRelatorio();
-//            }catch(Exception e){
-//            }
-//        }
-    }//GEN-LAST:event_jMIFornecedoresRelatorioActionPerformed
+    private void jMIUnidadeMadeiraCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIUnidadeMadeiraCadastroActionPerformed
+        
+        UnidadeMadeiraView aa = new UnidadeMadeiraView();
+        aa.abreJanelaUnidadeMadeira();
+    }//GEN-LAST:event_jMIUnidadeMadeiraCadastroActionPerformed
 
     private void jMIAberturaCaixaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIAberturaCaixaActionPerformed
 
@@ -447,6 +464,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         ChequeView c = new ChequeView();
         c.abreJanelaCheque();
     }//GEN-LAST:event_jMIChequeCadastroActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        EnergiaEletricaView aa = new EnergiaEletricaView();
+        aa.abreJanelaEnergiaEletrica();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -582,17 +608,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMIEntrada;
     private javax.swing.JMenuItem jMIEntradas;
     private javax.swing.JMenuItem jMIFechamentoCaixa;
-    private javax.swing.JMenuItem jMIFornecedoresCadastro;
-    private javax.swing.JMenuItem jMIFornecedoresRelatorio;
+    private javax.swing.JMenuItem jMIMadeira;
     private javax.swing.JMenuItem jMISaida;
     private javax.swing.JMenuItem jMISaidas;
     private javax.swing.JMenuItem jMITipoAlteracao;
     private javax.swing.JMenuItem jMITipoCartaoCadastro;
+    private javax.swing.JMenuItem jMIUnidadeMadeiraCadastro;
     private javax.swing.JMenuItem jMIVendaPrazo;
     private javax.swing.JMenu jMLancar;
     private javax.swing.JMenu jMMovimentacao;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuBar jMenuPrincipal;
     // End of variables declaration//GEN-END:variables
 }
