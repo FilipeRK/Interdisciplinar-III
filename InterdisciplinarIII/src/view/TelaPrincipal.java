@@ -503,7 +503,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     public void abreJanelaTelaPrincipal(){  
         
-        this.setTitle("SCF - Sistema para Controle Financeiro");
+        this.setTitle("SAP - Sistema para Auxílio de Produção");
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
