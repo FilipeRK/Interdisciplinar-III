@@ -530,8 +530,8 @@ public class CartaoView extends javax.swing.JFrame {
        double calc1, calc2, total, totaltarifado; 
        NumberFormat formatter = new DecimalFormat("#,###.00");  
         
-        calc1 = Double.parseDouble(jFTFValorVenda.getText());
-        calc2 = Double.parseDouble(jTFTarifa.getText());
+        calc1 = Double.parseDouble(jFTFValorVenda.getText().replace(",", "."));
+        calc2 = Double.parseDouble(jTFTarifa.getText().replace(",", "."));
         
         total = calc1 * (calc2/100);
         totaltarifado = calc1 - total;

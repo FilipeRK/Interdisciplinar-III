@@ -129,7 +129,7 @@ public class UsuarioView extends javax.swing.JFrame {
 
     private void jBOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOKActionPerformed
 
-        if("Administrador".equals(jTFValor.getText())&& "Administrador".equals(jPasswordField1.getText())){
+        if("Admin".equals(jTFValor.getText())&& "Admin".equals(jPasswordField1.getText())){
             TelaPrincipal aa = new TelaPrincipal();
             aa.abreJanelaTelaPrincipal();
             this.dispose();
