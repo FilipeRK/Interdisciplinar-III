@@ -531,7 +531,7 @@ public class CartaoView extends javax.swing.JFrame {
         calc2 = Double.parseDouble(jTFTarifa.getText());
         
         total = calc1 * (calc2/100);
-        totaltarifado = calc2 - total;
+        totaltarifado = calc1 - total;
         
         jFTFValorFinal.setText(String.valueOf(totaltarifado));
     }//GEN-LAST:event_jFTFValorFinalFocusGained
