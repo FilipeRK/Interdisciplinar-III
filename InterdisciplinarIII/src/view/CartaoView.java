@@ -525,14 +525,15 @@ public class CartaoView extends javax.swing.JFrame {
     }//GEN-LAST:event_jCB1FocusLost
 
     private void jFTFValorFinalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFValorFinalFocusGained
-       double calc1, calc2, total; 
+       double calc1, calc2, total, totaltarifado; 
         
         calc1 = Double.parseDouble(jFTFValorVenda.getText());
         calc2 = Double.parseDouble(jTFTarifa.getText());
         
-        total = calc1 - calc2;
+        total = calc1 * (calc2/100);
+        totaltarifado = calc2 - total;
         
-        jFTFValorFinal.setText(String.valueOf(total));
+        jFTFValorFinal.setText(String.valueOf(totaltarifado));
     }//GEN-LAST:event_jFTFValorFinalFocusGained
 
     private void jCB1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCB1ItemStateChanged

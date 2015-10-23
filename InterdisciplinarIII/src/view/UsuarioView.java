@@ -7,6 +7,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -127,10 +128,17 @@ public class UsuarioView extends javax.swing.JFrame {
     }//GEN-LAST:event_jTFValorKeyTyped
 
     private void jBOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBOKActionPerformed
-        
-        TelaPrincipal aa = new TelaPrincipal();
-        aa.abreJanelaTelaPrincipal();
-        this.dispose();
+
+        if("Administrador".equals(jTFValor.getText())&& "Administrador".equals(jPasswordField1.getText())){
+            TelaPrincipal aa = new TelaPrincipal();
+            aa.abreJanelaTelaPrincipal();
+            this.dispose();
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuário e/ou Senha inválido(a)!", "Erro", JOptionPane.ERROR_MESSAGE);
+            jTFValor.requestFocus();
+            jTFValor.selectAll();
+            jPasswordField1.setText("");
+        }
        
     }//GEN-LAST:event_jBOKActionPerformed
 
