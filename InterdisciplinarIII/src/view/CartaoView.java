@@ -3,6 +3,8 @@ package view;
 import dao.CartaoDao;
 import dao.TipoCartaoDao;
 import java.awt.BorderLayout;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -526,12 +528,14 @@ public class CartaoView extends javax.swing.JFrame {
 
     private void jFTFValorFinalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFValorFinalFocusGained
        double calc1, calc2, total, totaltarifado; 
+       NumberFormat formatter = new DecimalFormat("#,###.00");  
         
         calc1 = Double.parseDouble(jFTFValorVenda.getText());
         calc2 = Double.parseDouble(jTFTarifa.getText());
         
         total = calc1 * (calc2/100);
         totaltarifado = calc1 - total;
+        formatter.format(totaltarifado);
         
         jFTFValorFinal.setText(String.valueOf(totaltarifado));
     }//GEN-LAST:event_jFTFValorFinalFocusGained
