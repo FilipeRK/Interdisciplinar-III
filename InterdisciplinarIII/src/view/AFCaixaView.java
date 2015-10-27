@@ -178,8 +178,8 @@ public class AFCaixaView extends javax.swing.JFrame {
         this.setLayout(new BorderLayout());
         this.setTitle("Abrir/Fechar o Caixa");
         
-        //ImageIcon image = new ImageIcon("C:\\SCF\\img\\icone.png");
-       // this.setIconImage(image.getImage()); 
+        ImageIcon image = new ImageIcon("C:\\SCCP\\img\\icone.png");
+        this.setIconImage(image.getImage()); 
         
         this.setVisible(true);
     }

@@ -1,26 +1,22 @@
 package view;
 
-import dao.TipoCartaoDao;
+import dao.MaquinaDao;
 import java.awt.BorderLayout;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import javax.security.auth.callback.ConfirmationCallback;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import model.TipoCartao;
+import model.Maquina;
 
 
-public class TipoCartaoView extends javax.swing.JFrame {
+public class MaquinaView extends javax.swing.JFrame {
 
 
     private int editando;
     
-    public TipoCartaoView() {
+    public MaquinaView() {
         initComponents();
     }
 
@@ -39,10 +35,16 @@ public class TipoCartaoView extends javax.swing.JFrame {
         jBCancelar = new javax.swing.JButton();
         jLData = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTTipoCartao = new javax.swing.JTable();
-        jTFDescricao = new javax.swing.JTextField();
-        jTFTarifaMensal = new javax.swing.JTextField();
+        jTEnergia = new javax.swing.JTable();
+        jTFNome = new javax.swing.JTextField();
+        jTFConsumo = new javax.swing.JTextField();
         jLData1 = new javax.swing.JLabel();
+        jLData2 = new javax.swing.JLabel();
+        jTFDepreciacao = new javax.swing.JTextField();
+        jLData3 = new javax.swing.JLabel();
+        jTFPrecoUnitario = new javax.swing.JTextField();
+        jLData4 = new javax.swing.JLabel();
+        jTFValorManut = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -54,7 +56,7 @@ public class TipoCartaoView extends javax.swing.JFrame {
 
         jLTitulo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLTitulo.setText("Tipo de Cartão");
+        jLTitulo.setText("Máquinas");
 
         jLCodigo.setText("Código");
 
@@ -96,24 +98,24 @@ public class TipoCartaoView extends javax.swing.JFrame {
             }
         });
 
-        jLData.setText("Descrição");
+        jLData.setText("Nome");
 
-        jTTipoCartao.setModel(new javax.swing.table.DefaultTableModel(
+        jTEnergia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Descrição", "Tarifa"
+                "Código", "Nome", "Consumo", "Depreciacao", "Preço Unitário", "Valor Manutenção"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -124,48 +126,48 @@ public class TipoCartaoView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTTipoCartao.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jTTipoCartao.setAutoscrolls(false);
-        jTTipoCartao.setFocusable(false);
-        jTTipoCartao.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jTTipoCartao.getTableHeader().setResizingAllowed(false);
-        jTTipoCartao.getTableHeader().setReorderingAllowed(false);
-        jTTipoCartao.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTEnergia.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTEnergia.setAutoscrolls(false);
+        jTEnergia.setFocusable(false);
+        jTEnergia.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTEnergia.getTableHeader().setResizingAllowed(false);
+        jTEnergia.getTableHeader().setReorderingAllowed(false);
+        jTEnergia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTTipoCartaoMouseClicked(evt);
+                jTEnergiaMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTTipoCartao);
-        if (jTTipoCartao.getColumnModel().getColumnCount() > 0) {
-            jTTipoCartao.getColumnModel().getColumn(1).setMinWidth(350);
-            jTTipoCartao.getColumnModel().getColumn(2).setMinWidth(123);
+        jScrollPane1.setViewportView(jTEnergia);
+        if (jTEnergia.getColumnModel().getColumnCount() > 0) {
+            jTEnergia.getColumnModel().getColumn(0).setMinWidth(100);
+            jTEnergia.getColumnModel().getColumn(1).setMinWidth(200);
+            jTEnergia.getColumnModel().getColumn(2).setMinWidth(100);
+            jTEnergia.getColumnModel().getColumn(3).setMinWidth(100);
+            jTEnergia.getColumnModel().getColumn(4).setMinWidth(100);
+            jTEnergia.getColumnModel().getColumn(5).setMinWidth(100);
         }
 
-        jLData1.setText("Tarifa Mensal");
+        jLData1.setText("Consumo");
+
+        jLData2.setText("Depreciação");
+
+        jLData3.setText("Preço Unitário");
+
+        jLData4.setText("Valor Manutenção");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 561, Short.MAX_VALUE)
+            .addComponent(jLTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLCodigo)
-                            .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLData))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLData1)
-                            .addComponent(jTFTarifaMensal, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 27, Short.MAX_VALUE)
                         .addComponent(jBNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -175,8 +177,33 @@ public class TipoCartaoView extends javax.swing.JFrame {
                         .addComponent(jBDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)))
+                        .addGap(33, 33, 33))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLCodigo)
+                            .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLData))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLData1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLData2)
+                            .addComponent(jTFDepreciacao, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLData3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTFPrecoUnitario))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLData4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTFValorManut))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,16 +214,29 @@ public class TipoCartaoView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLCodigo)
-                            .addComponent(jLData1))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLData1)
+                                .addComponent(jLData2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTFDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTFTarifaMensal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTFConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTFDepreciacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLData)
                         .addGap(26, 26, 26)))
-                .addGap(46, 46, 46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLData3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTFPrecoUnitario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLData4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTFValorManut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,7 +244,7 @@ public class TipoCartaoView extends javax.swing.JFrame {
                     .addComponent(jBDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -213,15 +253,18 @@ public class TipoCartaoView extends javax.swing.JFrame {
 
     private void jBNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNovoActionPerformed
 
-        jTTipoCartao.setEnabled(false);
+        jTEnergia.setEnabled(false);
         jBCancelar.setEnabled(true);
         jBDeletar.setEnabled(false);
         jBEditar.setEnabled(false);
         jBNovo.setEnabled(false);
         jBGravar.setEnabled(true);
-        jTFDescricao.setText("");
-        jTFTarifaMensal.setText("");
-        jTFDescricao.requestFocus();
+        jTFNome.setText("");
+        jTFConsumo.setText("");
+        jTFDepreciacao.setText("");
+        jTFPrecoUnitario.setText("");
+        jTFValorManut.setText("");
+        jTFNome.requestFocus();
     }//GEN-LAST:event_jBNovoActionPerformed
 
     private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
@@ -232,15 +275,21 @@ public class TipoCartaoView extends javax.swing.JFrame {
         jBEditar.setEnabled(false);
         jBNovo.setEnabled(false);
         jBGravar.setEnabled(true);
-        jTTipoCartao.setEnabled(false);
+        jTEnergia.setEnabled(false);
         
-        String codigo = ""+jTTipoCartao.getValueAt(jTTipoCartao.getSelectedRow(),0);
-        String nome = ""+jTTipoCartao.getValueAt(jTTipoCartao.getSelectedRow(),1);
-        String tarifa = ""+jTTipoCartao.getValueAt(jTTipoCartao.getSelectedRow(),2);
+        String codigo = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),0);
+        String nome = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),1);
+        String consumo = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),2);
+        String depreciacao = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),3);
+        String precou = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),4);
+        String valormanutencao = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),5);
         
         jTFCodigo.setText(codigo);
-        jTFDescricao.setText(nome);
-        jTFTarifaMensal.setText(tarifa);
+        jTFNome.setText(nome);
+        jTFConsumo.setText(consumo);
+        jTFDepreciacao.setText(depreciacao);
+        jTFPrecoUnitario.setText(precou);
+        jTFValorManut.setText(valormanutencao);
 
         editando = 1;
         
@@ -249,35 +298,44 @@ public class TipoCartaoView extends javax.swing.JFrame {
 
     private void jBGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGravarActionPerformed
        
-        if (!"".equals(jTFDescricao.getText())){
+        if (!"".equals(jTFNome.getText())){
 
-        String descricao = jTFDescricao.getText();
-        double tarifa = Double.parseDouble(jTFTarifaMensal.getText().replace(",", "."));
+        String nome = jTFNome.getText();
+        String consumo = jTFConsumo.getText();
+        String depreciacao = jTFDepreciacao.getText();
+        String precou2 = jTFPrecoUnitario.getText().replace(",", ".");
+        double precou = Double.parseDouble(precou2);
+        String valormanut2 = jTFValorManut.getText().replace(",", ".");
+        double valormanutencao = Double.parseDouble(valormanut2);
 
-           
+            maquina = new Maquina();
 
-            tipocartao = new TipoCartao();
-
-            tipocartao.setNome(descricao);
-            tipocartao.setTarifamensal(tarifa);
+            maquina.setNome(nome);
+            maquina.setConsumo(Integer.valueOf(consumo));
+            maquina.setDepreciacao(Integer.valueOf(depreciacao));
+            maquina.setPrecounitario(precou);
+            maquina.setValormanutencao(valormanutencao);
             
             if(editando != 1){
-                dao.insert(tipocartao);
+                dao.insert(maquina);
             }else{
                 int codigo = Integer.parseInt(jTFCodigo.getText());
-                tipocartao.setCodtipocartao(codigo);
-                dao.update(tipocartao);
+                maquina.setCodmaquina(codigo);
+                dao.update(maquina);
             }
 
             listar();
 
             jTFCodigo.setText("");
-            jTFDescricao.setText("");
-            jTFTarifaMensal.setText("");
+            jTFNome.setText("");
+            jTFConsumo.setText("");
+            jTFDepreciacao.setText("");
+            jTFPrecoUnitario.setText("");
+            jTFValorManut.setText("");
             jBNovo.setEnabled(true);
             jBGravar.setEnabled(false);
             jBCancelar.setEnabled(false);
-            jTTipoCartao.setEnabled(true);
+            jTEnergia.setEnabled(true);
 
         }else{
             JOptionPane.showMessageDialog(null, "Há campos obrigatórios em branco!", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -288,10 +346,10 @@ public class TipoCartaoView extends javax.swing.JFrame {
         
         
         if (JOptionPane.showConfirmDialog(null, "Excluír registro selecionado?", "Excluír registro", ConfirmationCallback.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-            String codigo = ""+jTTipoCartao.getValueAt(jTTipoCartao.getSelectedRow(),0);
+            String codigo = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),0);
 
-            tipocartao = dao.findById(Integer.parseInt(codigo));
-            dao.delete(tipocartao);
+            maquina = dao.findById(Integer.parseInt(codigo));
+            dao.delete(maquina);
 
             listar();
         
@@ -304,9 +362,12 @@ public class TipoCartaoView extends javax.swing.JFrame {
     private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
         
         jTFCodigo.setText("");
-        jTFDescricao.setText("");
-        jTFTarifaMensal.setText("");
-        jTTipoCartao.setEnabled(true);
+        jTFNome.setText("");
+        jTFConsumo.setText("");
+        jTFDepreciacao.setText("");
+        jTFPrecoUnitario.setText("");
+        jTFValorManut.setText("");
+        jTEnergia.setEnabled(true);
         jBNovo.setEnabled(true);
         jBDeletar.setEnabled(false);
         jBGravar.setEnabled(false);
@@ -314,13 +375,13 @@ public class TipoCartaoView extends javax.swing.JFrame {
         jBEditar.setEnabled(false);
     }//GEN-LAST:event_jBCancelarActionPerformed
 
-    private void jTTipoCartaoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTTipoCartaoMouseClicked
+    private void jTEnergiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTEnergiaMouseClicked
 
-        if (jTTipoCartao.isEnabled()){
+        if (jTEnergia.isEnabled()){
             jBEditar.setEnabled(true);
             jBDeletar.setEnabled(true);
         }
-    }//GEN-LAST:event_jTTipoCartaoMouseClicked
+    }//GEN-LAST:event_jTEnergiaMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         listar();
@@ -341,30 +402,44 @@ public class TipoCartaoView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TipoCartaoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaquinaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TipoCartaoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaquinaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TipoCartaoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaquinaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TipoCartaoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MaquinaView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TipoCartaoView().setVisible(true);
+                new MaquinaView().setVisible(true);
             }
         });
     }
     
-      public void abreJanelaTipoCartao(){
+      public void abreJanelaMaquina(){
 
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        this.setTitle("Cadastro de Tipos de Cartão");
+        this.setTitle("Cadastro de Máquinas");
         
         ImageIcon image = new ImageIcon("C:\\SCCP\\img\\icone.png");
         this.setIconImage(image.getImage()); 
@@ -374,18 +449,18 @@ public class TipoCartaoView extends javax.swing.JFrame {
       
       private void listar(){
 
-        DefaultTableModel dados = (DefaultTableModel) jTTipoCartao.getModel();
+        DefaultTableModel dados = (DefaultTableModel) jTEnergia.getModel();
         dados.setNumRows(0);
         
-        ((DefaultTableCellRenderer)jTTipoCartao.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(SwingConstants.CENTER); 
+        ((DefaultTableCellRenderer)jTEnergia.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(SwingConstants.CENTER); 
 
-        for(TipoCartao tc : dao.findAll()){
-           dados.addRow(new String[]{""+tc.getCodtipocartao(), tc.getNome(), ""+tc.getTarifamensal()});
+        for(Maquina ma : dao.findAll()){
+           dados.addRow(new String[]{""+ma.getCodmaquina(), ma.getNome(), ""+ma.getConsumo(), ""+ma.getDepreciacao(), ""+ma.getPrecounitario(), ""+ma.getValormanutencao()});
         }
     }
       
-    private final TipoCartaoDao dao = new TipoCartaoDao();
-    private TipoCartao tipocartao = new TipoCartao();
+    private final MaquinaDao dao = new MaquinaDao();
+    private Maquina maquina = new Maquina();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCancelar;
@@ -396,11 +471,17 @@ public class TipoCartaoView extends javax.swing.JFrame {
     private javax.swing.JLabel jLCodigo;
     private javax.swing.JLabel jLData;
     private javax.swing.JLabel jLData1;
+    private javax.swing.JLabel jLData2;
+    private javax.swing.JLabel jLData3;
+    private javax.swing.JLabel jLData4;
     private javax.swing.JLabel jLTitulo;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTEnergia;
     private javax.swing.JTextField jTFCodigo;
-    private javax.swing.JTextField jTFDescricao;
-    private javax.swing.JTextField jTFTarifaMensal;
-    private javax.swing.JTable jTTipoCartao;
+    private javax.swing.JTextField jTFConsumo;
+    private javax.swing.JTextField jTFDepreciacao;
+    private javax.swing.JTextField jTFNome;
+    private javax.swing.JTextField jTFPrecoUnitario;
+    private javax.swing.JTextField jTFValorManut;
     // End of variables declaration//GEN-END:variables
 }

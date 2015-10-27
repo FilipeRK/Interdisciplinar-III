@@ -1,7 +1,7 @@
 package view;
 
-import dao.CidadeDao;
-import dao.ClienteDao;
+import dao.TipoContaPagarDao;
+import dao.ContaPagarDao;
 import java.awt.BorderLayout;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -15,16 +15,16 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import model.Cidade;
-import model.Cliente;
+import model.ContaPagar;
+import model.TipoContaPagar;
 
 
-public class ClienteView extends javax.swing.JFrame {
+public class ContaPagarView extends javax.swing.JFrame {
 
 
     private int editando;
     
-    public ClienteView() {
+    public ContaPagarView() {
         initComponents();
     }
 
@@ -46,32 +46,24 @@ public class ClienteView extends javax.swing.JFrame {
         jLData3 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTCliente = new javax.swing.JTable();
-        jTFNome = new javax.swing.JTextField();
-        jLData1 = new javax.swing.JLabel();
-        jFTFDataNascimento = new javax.swing.JFormattedTextField();
+        jTFCredor = new javax.swing.JTextField();
+        jFTFDataConta = new javax.swing.JFormattedTextField();
         try{
             javax.swing.text.MaskFormatter mask = new javax.swing.text.MaskFormatter("##/##/####");
-            jFTFDataNascimento = new javax.swing.JFormattedTextField(mask);
+            jFTFDataConta = new javax.swing.JFormattedTextField(mask);
         }
         catch (ParseException e){
         }
         jLData2 = new javax.swing.JLabel();
         jLData4 = new javax.swing.JLabel();
-        jFTFTelefone = new javax.swing.JFormattedTextField();
+        jFTFDataVencimento = new javax.swing.JFormattedTextField();
         try{
-            javax.swing.text.MaskFormatter mask = new javax.swing.text.MaskFormatter("(##)####-####");
-            jFTFTelefone = new javax.swing.JFormattedTextField(mask);
+            javax.swing.text.MaskFormatter mask = new javax.swing.text.MaskFormatter("##/##/####");
+            jFTFDataVencimento = new javax.swing.JFormattedTextField(mask);
         }
         catch (ParseException e){
         }
-        jFTFCPF = new javax.swing.JFormattedTextField();
-        try{
-            javax.swing.text.MaskFormatter mask = new javax.swing.text.MaskFormatter("###.###.###-##");
-            jFTFCPF = new javax.swing.JFormattedTextField(mask);
-        }
-        catch (ParseException e){
-        }
-        jTFEndereco = new javax.swing.JTextField();
+        jTFValor = new javax.swing.JTextField();
         jLData5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -84,7 +76,7 @@ public class ClienteView extends javax.swing.JFrame {
 
         jLTitulo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLTitulo.setText("Cliente");
+        jLTitulo.setText("Conta a Pagar");
 
         jLCodigo.setText("Código");
 
@@ -126,7 +118,7 @@ public class ClienteView extends javax.swing.JFrame {
             }
         });
 
-        jLData.setText("Nome");
+        jLData.setText("Credor");
 
         jCB1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -144,24 +136,24 @@ public class ClienteView extends javax.swing.JFrame {
             }
         });
 
-        jLData3.setText("Cidade");
+        jLData3.setText("Tipo de Conta");
 
         jTCliente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Nome", "CPF", "Data de Nascimento", "Telefone", "Endereço", "Cód. Cidade", "Cidade"
+                "Código", "Credor", "Data da Conta", "Data de Vencimento", "Valor", "Cód. Tipo da Conta", "Tipo da Conta"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -185,67 +177,53 @@ public class ClienteView extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(jTCliente);
         if (jTCliente.getColumnModel().getColumnCount() > 0) {
-            jTCliente.getColumnModel().getColumn(1).setMinWidth(150);
+            jTCliente.getColumnModel().getColumn(1).setMinWidth(200);
             jTCliente.getColumnModel().getColumn(2).setMinWidth(100);
             jTCliente.getColumnModel().getColumn(3).setMinWidth(100);
             jTCliente.getColumnModel().getColumn(4).setMinWidth(100);
             jTCliente.getColumnModel().getColumn(5).setMinWidth(150);
-            jTCliente.getColumnModel().getColumn(6).setMinWidth(100);
-            jTCliente.getColumnModel().getColumn(7).setMinWidth(150);
+            jTCliente.getColumnModel().getColumn(6).setMinWidth(150);
         }
 
-        jTFNome.addActionListener(new java.awt.event.ActionListener() {
+        jTFCredor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFNomeActionPerformed(evt);
+                jTFCredorActionPerformed(evt);
             }
         });
 
-        jLData1.setText("CPF");
-
-        jFTFDataNascimento.addFocusListener(new java.awt.event.FocusAdapter() {
+        jFTFDataConta.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jFTFDataNascimentoFocusLost(evt);
+                jFTFDataContaFocusLost(evt);
             }
         });
-        jFTFDataNascimento.addActionListener(new java.awt.event.ActionListener() {
+        jFTFDataConta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFTFDataNascimentoActionPerformed(evt);
+                jFTFDataContaActionPerformed(evt);
             }
         });
 
-        jLData2.setText("Data de Nascimento");
+        jLData2.setText("Data da Conta");
 
-        jLData4.setText("Telefone");
+        jLData4.setText("Data de Vencimento");
 
-        jFTFTelefone.addFocusListener(new java.awt.event.FocusAdapter() {
+        jFTFDataVencimento.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
-                jFTFTelefoneFocusLost(evt);
+                jFTFDataVencimentoFocusLost(evt);
             }
         });
-        jFTFTelefone.addActionListener(new java.awt.event.ActionListener() {
+        jFTFDataVencimento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFTFTelefoneActionPerformed(evt);
+                jFTFDataVencimentoActionPerformed(evt);
             }
         });
 
-        jFTFCPF.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jFTFCPFFocusLost(evt);
-            }
-        });
-        jFTFCPF.addActionListener(new java.awt.event.ActionListener() {
+        jTFValor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFTFCPFActionPerformed(evt);
+                jTFValorActionPerformed(evt);
             }
         });
 
-        jTFEndereco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFEnderecoActionPerformed(evt);
-            }
-        });
-
-        jLData5.setText("Endereço");
+        jLData5.setText("Valor");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -264,24 +242,17 @@ public class ClienteView extends javax.swing.JFrame {
                             .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLData))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLData)
+                            .addComponent(jTFCredor, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLData1)
-                                .addGap(86, 86, 86))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jFTFCPF)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addComponent(jLData2)
+                            .addComponent(jFTFDataConta, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLData2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jFTFDataNascimento))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLData4)
-                            .addComponent(jFTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(19, Short.MAX_VALUE))
+                            .addComponent(jLData4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jFTFDataVencimento))
+                        .addContainerGap(61, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -292,60 +263,53 @@ public class ClienteView extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jBGravar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTFEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLData5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLData3)
-                                    .addComponent(jCB1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(jTFValor)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jCB1, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(106, 106, 106)))
                         .addGap(18, 18, 18)
                         .addComponent(jBDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))))
+                        .addGap(35, 35, 35))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLData5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLData3)
+                        .addGap(413, 413, 413))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLCodigo)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLData)
-                                            .addComponent(jLData1))
-                                        .addGap(26, 26, 26))))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(6, 6, 6)
-                                .addComponent(jLData4)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jFTFTelefone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLData2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jFTFDataNascimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jFTFCPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLData3)
-                    .addComponent(jLData5))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLCodigo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTFCredor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jFTFDataConta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jFTFDataVencimento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLData)
+                                .addGap(26, 26, 26))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLData4)
+                            .addComponent(jLData2))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLData5)
+                    .addComponent(jLData3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCB1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTFEndereco, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTFValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -364,8 +328,8 @@ public class ClienteView extends javax.swing.JFrame {
     private void jBNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNovoActionPerformed
 
         jCB1.removeAllItems();
-        for (Cidade a : ciDao.findAll()) { 
-            String id = ""+a.getCodcidade();
+        for (TipoContaPagar a : tcpDao.findAll()) { 
+            String id = ""+a.getCodtipocontapagar();
             String nome = a.getNome();
             jCB1.addItem(new Item(id,nome));    
         } 
@@ -375,19 +339,18 @@ public class ClienteView extends javax.swing.JFrame {
         jBEditar.setEnabled(false);
         jBNovo.setEnabled(false);
         jBGravar.setEnabled(true);
-        jTFNome.setText("");
-        jFTFCPF.setText("");
-        jFTFDataNascimento.setText("");
-        jFTFTelefone.setText("");
-        jTFEndereco.setText("");
-        jTFNome.requestFocus();
+        jTFCredor.setText("");
+        jFTFDataConta.setText("");
+        jFTFDataVencimento.setText("");
+        jTFValor.setText("");
+        jTFCredor.requestFocus();
     }//GEN-LAST:event_jBNovoActionPerformed
 
     private void jBEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBEditarActionPerformed
 
         jCB1.removeAllItems();
-        for (Cidade a : ciDao.findAll()) { 
-            String id = ""+a.getCodcidade();
+        for (TipoContaPagar a : tcpDao.findAll()) { 
+            String id = ""+a.getCodtipocontapagar();
             String nome = a.getNome();
             jCB1.addItem(new Item(id,nome));    
         } 
@@ -399,23 +362,22 @@ public class ClienteView extends javax.swing.JFrame {
         jTCliente.setEnabled(false);
         
         String codigo = ""+jTCliente.getValueAt(jTCliente.getSelectedRow(),0);
-        String nome = ""+jTCliente.getValueAt(jTCliente.getSelectedRow(),1);
-        String cpf = ""+jTCliente.getValueAt(jTCliente.getSelectedRow(),2);
-        String datanasc = ""+jTCliente.getValueAt(jTCliente.getSelectedRow(),3);
-        String telefone = ""+jTCliente.getValueAt(jTCliente.getSelectedRow(),4);
-        String endereco = ""+jTCliente.getValueAt(jTCliente.getSelectedRow(),5);
+        String credor = ""+jTCliente.getValueAt(jTCliente.getSelectedRow(),1);
+        String dataconta = ""+jTCliente.getValueAt(jTCliente.getSelectedRow(),2);
+        String datavenc = ""+jTCliente.getValueAt(jTCliente.getSelectedRow(),3);
+        String valor = ""+jTCliente.getValueAt(jTCliente.getSelectedRow(),4);
         
         jTFCodigo.setText(codigo);
-        jTFNome.setText(nome);
-        jFTFCPF.setText(cpf);
-        jFTFDataNascimento.setText(datanasc);
-        jFTFTelefone.setText(telefone);
-        jTFEndereco.setText(endereco);
+        jTFCredor.setText(credor);
+        jFTFDataConta.setText(dataconta);
+        jFTFDataVencimento.setText(datavenc);
+        jTFValor.setText(valor);
         
         SimpleDateFormat formato1 = new SimpleDateFormat("yyyy-MM-dd");  
         SimpleDateFormat formato2 = new SimpleDateFormat("ddMMyyyy");  
         try {
-            jFTFDataNascimento.setText(formato2.format(formato1.parse(datanasc)));
+            jFTFDataConta.setText(formato2.format(formato1.parse(dataconta)));
+            jFTFDataVencimento.setText(formato2.format(formato1.parse(datavenc)));
         } catch (ParseException ex) {
         }
        
@@ -428,50 +390,49 @@ public class ClienteView extends javax.swing.JFrame {
        
 
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-            String nome = jTFNome.getText();
-            String cpf = jFTFCPF.getText();
-            String datanasc = jFTFDataNascimento.getText();
-            String telefone = jFTFTelefone.getText();
-            String endereco = jTFEndereco.getText();
+            String credor = jTFCredor.getText();
+            String dataconta = jFTFDataConta.getText();
+            String datavenc = jFTFDataVencimento.getText();
+            String valor2 = jTFValor.getText().replace(",", ".");
+            double valor = Double.parseDouble(valor2);
 
-            cliente = new Cliente();
+            cp = new ContaPagar();
 
-            if(!"  /  /    ".equals(datanasc)){
+            if(!"  /  /    ".equals(dataconta)){
                 try {
-                    java.util.Date dtnasc; 
-                    dtnasc = formatter.parse(datanasc);
+                    java.util.Date dtconta, dtvenc; 
+                    dtconta = formatter.parse(dataconta);
+                    dtvenc = formatter.parse(datavenc);
                     //java.sql.Date d = new java.sql.Date(dt.getTime());  
-                    cliente.setDatanascimento(dtnasc);
+                    cp.setDataconta(dtconta);
+                    cp.setDatavencimento(dtvenc);
                 } catch (ParseException e) {
                 }
             }
-            Cidade setarcodigo = new Cidade();
+            TipoContaPagar setarcodigo = new TipoContaPagar();
             Item i = (Item) jCB1.getSelectedItem(); 
-            setarcodigo.setCodcidade(Integer.valueOf(i.codcidade));
+            setarcodigo.setCodtipocontapagar(Integer.valueOf(i.codtipoconta));
             setarcodigo.setNome(i.nome);
                     
-            cliente.setCidade(setarcodigo);
-            cliente.setNome(nome);
-            cliente.setCpf(cpf);
-            cliente.setTelefone(telefone);
-            cliente.setEndereco(endereco);
+            cp.setTipocontapagar(setarcodigo);
+            cp.setCredor(credor);
+            cp.setValor(valor);
            
             if(editando != 1){
-                dao.insert(cliente);
+                dao.insert(cp);
             }else{
                 int codigo = Integer.parseInt(jTFCodigo.getText());
-                cliente.setCodcliente(codigo);
-                dao.update(cliente);
+                cp.setCodcontapagar(codigo);
+                dao.update(cp);
             }
 
             listar();
 
             jTFCodigo.setText("");
-            jTFNome.setText("");
-            jFTFCPF.setText("");
-            jFTFDataNascimento.setText("");
-            jFTFTelefone.setText("");
-            jTFEndereco.setText("");
+            jTFCredor.setText("");;
+            jFTFDataConta.setText("");
+            jFTFDataVencimento.setText("");
+            jTFValor.setText("");
             jBNovo.setEnabled(true);
             jBGravar.setEnabled(false);
             jBCancelar.setEnabled(false);
@@ -485,8 +446,8 @@ public class ClienteView extends javax.swing.JFrame {
         if (JOptionPane.showConfirmDialog(null, "Excluír registro selecionado?", "Excluír registro", ConfirmationCallback.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
             String codigo = ""+jTCliente.getValueAt(jTCliente.getSelectedRow(),0);
 
-            cliente = dao.findById(Integer.parseInt(codigo));
-            dao.delete(cliente);
+            cp = dao.findById(Integer.parseInt(codigo));
+            dao.delete(cp);
 
             listar();
         
@@ -498,11 +459,10 @@ public class ClienteView extends javax.swing.JFrame {
     private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
         
         jTFCodigo.setText("");
-        jTFNome.setText("");
-        jFTFCPF.setText("");
-        jFTFDataNascimento.setText("");
-        jFTFTelefone.setText("");
-        jTFEndereco.setText("");
+        jTFCredor.setText("");
+        jFTFDataConta.setText("");
+        jFTFDataVencimento.setText("");
+        jTFValor.setText("");
         jTCliente.setEnabled(true);
         jBNovo.setEnabled(true);
         jBDeletar.setEnabled(false);
@@ -536,16 +496,16 @@ public class ClienteView extends javax.swing.JFrame {
         listar();
     }//GEN-LAST:event_formWindowOpened
 
-    private void jTFNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFNomeActionPerformed
+    private void jTFCredorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFCredorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTFNomeActionPerformed
+    }//GEN-LAST:event_jTFCredorActionPerformed
 
-    private void jFTFDataNascimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataNascimentoFocusLost
+    private void jFTFDataContaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataContaFocusLost
 
         SimpleDateFormat formatIso = new SimpleDateFormat("dd/MM/yyyy");
         Date dataT, dataA;
         Calendar c = Calendar.getInstance();
-        String datateste = jFTFDataNascimento.getText();
+        String datateste = jFTFDataConta.getText();
         String dataatual  = formatIso.format(c.getTime());
 
         try{
@@ -554,35 +514,27 @@ public class ClienteView extends javax.swing.JFrame {
 
             if(dataT.after(dataA)){
                 JOptionPane.showMessageDialog(null, "Data inválida!", "Erro", JOptionPane.ERROR_MESSAGE);
-                jFTFDataNascimento.requestFocus();
+                jFTFDataConta.requestFocus();
             }
         }catch(NumberFormatException | ParseException e){
         }
-    }//GEN-LAST:event_jFTFDataNascimentoFocusLost
+    }//GEN-LAST:event_jFTFDataContaFocusLost
 
-    private void jFTFDataNascimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFTFDataNascimentoActionPerformed
+    private void jFTFDataContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFTFDataContaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFTFDataNascimentoActionPerformed
+    }//GEN-LAST:event_jFTFDataContaActionPerformed
 
-    private void jFTFTelefoneFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFTelefoneFocusLost
+    private void jFTFDataVencimentoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataVencimentoFocusLost
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFTFTelefoneFocusLost
+    }//GEN-LAST:event_jFTFDataVencimentoFocusLost
 
-    private void jFTFTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFTFTelefoneActionPerformed
+    private void jFTFDataVencimentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFTFDataVencimentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFTFTelefoneActionPerformed
+    }//GEN-LAST:event_jFTFDataVencimentoActionPerformed
 
-    private void jFTFCPFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFCPFFocusLost
+    private void jTFValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFValorActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jFTFCPFFocusLost
-
-    private void jFTFCPFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFTFCPFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jFTFCPFActionPerformed
-
-    private void jTFEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFEnderecoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFEnderecoActionPerformed
+    }//GEN-LAST:event_jTFValorActionPerformed
 
 
     public static void main(String args[]) {
@@ -599,30 +551,32 @@ public class ClienteView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ContaPagarView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ContaPagarView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ContaPagarView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ClienteView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ContaPagarView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ClienteView().setVisible(true);
+                new ContaPagarView().setVisible(true);
             }
         });
     }
     
-      public void abreJanelaCliente(){
+      public void abreJanelaContaPagar(){
 
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        this.setTitle("Cadastro de Clientes");
+        this.setTitle("Cadastro de Contas a Pagar");
         
         ImageIcon image = new ImageIcon("C:\\SCCP\\img\\icone.png");
         this.setIconImage(image.getImage()); 
@@ -632,11 +586,11 @@ public class ClienteView extends javax.swing.JFrame {
       
        public class Item{  
   
-        public String codcidade;   
+        public String codtipoconta;   
         public String nome; 
 
         public Item(String id,String nome){  
-            this.codcidade = id;  
+            this.codtipoconta = id;  
             this.nome = nome; 
         }  
         
@@ -653,13 +607,13 @@ public class ClienteView extends javax.swing.JFrame {
 
         ((DefaultTableCellRenderer)jTCliente.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(SwingConstants.CENTER); 
         
-        for(Cliente ca : dao.findAll()){
-            dados.addRow(new String[]{""+ca.getCodcliente(), ca.getNome(), ca.getCpf(), ""+ca.getDatanascimento(), ca.getTelefone(), ca.getEndereco(), ""+ca.getCidade().getCodcidade(), ca.getCidade().getNome()});
+        for(ContaPagar cp : dao.findAll()){
+            dados.addRow(new String[]{""+cp.getCodcontapagar(), cp.getCredor(), ""+cp.getDataconta(), ""+cp.getDatavencimento(), ""+cp.getValor(), ""+cp.getTipocontapagar().getCodtipocontapagar(), cp.getTipocontapagar().getNome()});
         }
     }
-    private final ClienteDao dao = new ClienteDao();
-    private Cliente cliente = new Cliente();
-    private final CidadeDao ciDao = new CidadeDao();
+    private final ContaPagarDao dao = new ContaPagarDao();
+    private ContaPagar cp = new ContaPagar();
+    private final TipoContaPagarDao tcpDao = new TipoContaPagarDao();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBDeletar;
@@ -667,12 +621,10 @@ public class ClienteView extends javax.swing.JFrame {
     private javax.swing.JButton jBGravar;
     private javax.swing.JButton jBNovo;
     private javax.swing.JComboBox jCB1;
-    private javax.swing.JFormattedTextField jFTFCPF;
-    private javax.swing.JFormattedTextField jFTFDataNascimento;
-    private javax.swing.JFormattedTextField jFTFTelefone;
+    private javax.swing.JFormattedTextField jFTFDataConta;
+    private javax.swing.JFormattedTextField jFTFDataVencimento;
     private javax.swing.JLabel jLCodigo;
     private javax.swing.JLabel jLData;
-    private javax.swing.JLabel jLData1;
     private javax.swing.JLabel jLData2;
     private javax.swing.JLabel jLData3;
     private javax.swing.JLabel jLData4;
@@ -681,7 +633,7 @@ public class ClienteView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTCliente;
     private javax.swing.JTextField jTFCodigo;
-    private javax.swing.JTextField jTFEndereco;
-    private javax.swing.JTextField jTFNome;
+    private javax.swing.JTextField jTFCredor;
+    private javax.swing.JTextField jTFValor;
     // End of variables declaration//GEN-END:variables
 }

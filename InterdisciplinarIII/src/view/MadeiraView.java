@@ -4,6 +4,7 @@ import dao.MadeiraDao;
 import dao.UnidadeMadeiraDao;
 import java.awt.BorderLayout;
 import javax.security.auth.callback.ConfirmationCallback;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -316,6 +317,7 @@ public class MadeiraView extends javax.swing.JFrame {
             setarcodigo.setCodunidademadeira(Integer.valueOf(i.codunmad));
             setarcodigo.setNome(i.nome);
                     
+            madeira.setUnidademadeira(setarcodigo);
             madeira.setNome(nome);
             madeira.setPrecounitario(precou);
            
@@ -443,8 +445,8 @@ public class MadeiraView extends javax.swing.JFrame {
         this.setLayout(new BorderLayout());
         this.setTitle("Cadastro de Madeiras");
         
-        //ImageIcon image = new ImageIcon("C:\\SCF\\img\\icone.png");
-       // this.setIconImage(image.getImage()); 
+        ImageIcon image = new ImageIcon("C:\\SCCP\\img\\icone.png");
+        this.setIconImage(image.getImage()); 
         
         this.setVisible(true);
     }

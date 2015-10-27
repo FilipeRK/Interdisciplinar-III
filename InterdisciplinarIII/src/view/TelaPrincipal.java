@@ -26,6 +26,7 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
+import model.ContaPagar;
 
 public class TelaPrincipal extends javax.swing.JFrame {
  
@@ -64,6 +65,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMMovimentacao = new javax.swing.JMenu();
         jMIEntradas = new javax.swing.JMenuItem();
         jMISaidas = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -82,7 +87,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setResizable(false);
         addWindowFocusListener(new java.awt.event.WindowFocusListener() {
             public void windowGainedFocus(java.awt.event.WindowEvent evt) {
                 formWindowGainedFocus(evt);
@@ -184,6 +188,34 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMCaixa.add(jMMovimentacao);
 
         jMenuPrincipal.add(jMCaixa);
+
+        jMenu4.setText("Contas");
+
+        jMenuItem3.setText("Contas a Pagar");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem3);
+
+        jMenuItem4.setText("Tipo de Conta");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem4);
+
+        jMenuItem5.setText("Custos Anuais");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem5);
+
+        jMenuPrincipal.add(jMenu4);
 
         jMenu3.setText("Máquinas");
 
@@ -300,7 +332,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 465, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
         pack();
@@ -466,13 +498,29 @@ public class TelaPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMIChequeCadastroActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        // TODO add your handling code here:
+        MaquinaView aa = new MaquinaView();
+        aa.abreJanelaMaquina();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         EnergiaEletricaView aa = new EnergiaEletricaView();
         aa.abreJanelaEnergiaEletrica();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+       ContaPagarView aa = new ContaPagarView();
+       aa.abreJanelaContaPagar();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        TipoContaView aa = new TipoContaView();
+        aa.abreJanelaTipoContaPagar();
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        CustoAnualView aa = new CustoAnualView();
+        aa.abreJanelaCustoAnual();
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -503,77 +551,72 @@ public class TelaPrincipal extends javax.swing.JFrame {
     
     public void abreJanelaTelaPrincipal(){  
         
-        this.setTitle("SAP - Sistema para Auxílio de Produção");
+
+        this.setTitle("Sistema de Cálculo de Custo de Produção");
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-       // JLabel background=new JLabel(new ImageIcon("C:\\SCF\\img\\background.jpg"));
-       // this.add(background);
-      //  configuraBorda();
-        //ImageIcon image = new ImageIcon("C:\\SCF\\img\\icone.png");
-       // this.setIconImage(image.getImage()); 
+        JLabel background=new JLabel(new ImageIcon("C:\\SCCP\\img\\background.jpg"));
+        this.add(background);
+        configuraBorda();
+        ImageIcon image = new ImageIcon("C:\\SCCP\\img\\icone.png");
+        this.setIconImage(image.getImage()); 
 
         this.setVisible(true);
     }
 
-//    private void configuraBorda(){
-//           
-//        Border border = BorderFactory.createLoweredBevelBorder();
-//
-//        horas2 = new JLabel("", JLabel.CENTER);
-//        horas2.setPreferredSize(new Dimension(120, 20));
-//        horas2.setBorder(border);
-//
-//        data2 = new JLabel("", JLabel.CENTER);
-//        data2.setPreferredSize(new Dimension(300, 20));
-//        data2.setBorder(border);
-//
-//        Font font = new Font("Arial", Font.BOLD,12);
-//
-//        JLabel desenv = new JLabel("Desenvolvido por Filipe Renan Kohls e Rafael Radünz", JLabel.CENTER);
-//        desenv.setPreferredSize(new Dimension(340,20));
-//        desenv.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
-//        desenv.setBorder(border);
-//
-//        JLabel setrem = new JLabel("SETREM - Bacharelado em Sistemas de Informação - 4º Semestre", JLabel.CENTER);
-//        setrem.setPreferredSize(new Dimension(450,20));
-//        setrem.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
-//        setrem.setBorder(border);
-//        
-//        JLabel valorCaixa = new JLabel("Caixa: R$"+telaAFDao.retornaSaldoDiaPFechar2(), JLabel.CENTER);
-//        valorCaixa.setPreferredSize(new Dimension(140,20));
-//        valorCaixa.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
-//        valorCaixa.setBorder(border);
-//
-//        inferior.setLayout(new FlowLayout(FlowLayout.CENTER, 1, 0));
-//
-//        data2.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
-//        horas2.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
-//               
-//        inferior.add(valorCaixa);
-//        inferior.add(desenv);
-//        inferior.add(setrem);
-//        inferior.add(data2);
-//        inferior.add(horas2);       
-//    
-//        ActionListener tarefa = new ActionListener(){
-//          @Override
-//          public void actionPerformed(ActionEvent e){
-//            horasData();
-//          }
-//        };
-//    
-//        javax.swing.Timer timer = new javax.swing.Timer(1000, tarefa);
-//        timer.start();
-//
-//        this.add(inferior, BorderLayout.SOUTH);
-//    }
-//    
-//    private void atualizaBorda(){
-//        
-//        inferior.removeAll();
-//        configuraBorda();
-//    }
+    private void configuraBorda(){
+           
+        Border border = BorderFactory.createLoweredBevelBorder();
+
+        horas2 = new JLabel("", JLabel.CENTER);
+        horas2.setPreferredSize(new Dimension(120, 20));
+        horas2.setBorder(border);
+
+        data2 = new JLabel("", JLabel.CENTER);
+        data2.setPreferredSize(new Dimension(300, 20));
+        data2.setBorder(border);
+
+        Font font = new Font("Arial", Font.BOLD,12);
+
+        JLabel desenv = new JLabel("Desenvolvido por Filipe Renan Kohls e Rafael Radünz", JLabel.CENTER);
+        desenv.setPreferredSize(new Dimension(340,20));
+        desenv.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
+        desenv.setBorder(border);
+
+        JLabel setrem = new JLabel("SETREM - Bacharelado em Sistemas de Informação - 6º Semestre", JLabel.CENTER);
+        setrem.setPreferredSize(new Dimension(450,20));
+        setrem.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
+        setrem.setBorder(border);
+
+        inferior.setLayout(new FlowLayout(FlowLayout.CENTER, 1, 0));
+
+        data2.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
+        horas2.setFont(font.deriveFont(font.getStyle() | Font.BOLD));
+
+        inferior.add(desenv);
+        inferior.add(setrem);
+        inferior.add(data2);
+        inferior.add(horas2);       
+    
+        ActionListener tarefa = new ActionListener(){
+          @Override
+          public void actionPerformed(ActionEvent e){
+            horasData();
+          }
+        };
+    
+        javax.swing.Timer timer = new javax.swing.Timer(1000, tarefa);
+        timer.start();
+
+        this.add(inferior, BorderLayout.SOUTH);
+    }
+    
+    private void atualizaBorda(){
+        
+        inferior.removeAll();
+        configuraBorda();
+    }
 
     private void horasData(){
         Calendar agora = Calendar.getInstance();
@@ -620,8 +663,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuBar jMenuPrincipal;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,6 +3,7 @@ package view;
 import dao.EnergiaEletricaDao;
 import java.awt.BorderLayout;
 import javax.security.auth.callback.ConfirmationCallback;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
@@ -370,8 +371,8 @@ public class EnergiaEletricaView extends javax.swing.JFrame {
         this.setLayout(new BorderLayout());
         this.setTitle("Cadastro de Energias");
         
-        //ImageIcon image = new ImageIcon("C:\\SCF\\img\\icone.png");
-       // this.setIconImage(image.getImage()); 
+        ImageIcon image = new ImageIcon("C:\\SCCP\\img\\icone.png");
+        this.setIconImage(image.getImage()); 
 
         this.setVisible(true);
     }

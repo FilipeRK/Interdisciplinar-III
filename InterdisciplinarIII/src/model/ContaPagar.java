@@ -20,6 +20,7 @@ public class ContaPagar implements Serializable {
     private double valor;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date dataconta, datavencimento;
+    private String credor;
     
     @JoinColumn(name="codtipocontapagar")
     @ManyToOne
@@ -63,5 +64,13 @@ public class ContaPagar implements Serializable {
 
     public void setTipocontapagar(TipoContaPagar tipocontapagar) {
         this.tipocontapagar = tipocontapagar;
+    }
+    
+    public String getCredor() {
+        return credor;
+    }
+
+    public void setCredor(String credor) {
+        this.credor = credor;
     }
 }

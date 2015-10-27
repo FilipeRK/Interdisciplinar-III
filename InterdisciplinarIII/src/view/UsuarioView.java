@@ -7,6 +7,7 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.event.KeyEvent;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -48,6 +49,7 @@ public class UsuarioView extends javax.swing.JFrame {
 
         jLSenha.setText("Usuário");
 
+        jTFValor.setText("Admin");
         jTFValor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTFValorKeyTyped(evt);
@@ -70,6 +72,7 @@ public class UsuarioView extends javax.swing.JFrame {
 
         jLSenha1.setText("Senha");
 
+        jPasswordField1.setText("Admin");
         jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jPasswordField1KeyTyped(evt);
@@ -192,8 +195,8 @@ public class UsuarioView extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
         
-        //ImageIcon image = new ImageIcon("C:\\SCF\\img\\icone.png");
-       // this.setIconImage(image.getImage()); 
+        ImageIcon image = new ImageIcon("C:\\SCCP\\img\\icone.png");
+        this.setIconImage(image.getImage()); 
         
         this.setVisible(true);
     }

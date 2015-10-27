@@ -1,25 +1,24 @@
 package view;
 
-import dao.UnidadeMadeiraDao;
+import dao.CustoAnualDao;
 import java.awt.BorderLayout;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import javax.security.auth.callback.ConfirmationCallback;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
-import model.UnidadeMadeira;
+import model.CustoAnual;
 
-public class UnidadeMadeiraView extends javax.swing.JFrame {
+
+public class CustoAnualView extends javax.swing.JFrame {
 
 
     private int editando;
     
-    public UnidadeMadeiraView() {
+    public CustoAnualView() {
         initComponents();
     }
 
@@ -38,8 +37,18 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
         jBCancelar = new javax.swing.JButton();
         jLData = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTUnMad = new javax.swing.JTable();
+        jTEnergia = new javax.swing.JTable();
         jTFNome = new javax.swing.JTextField();
+        jTFMediaMes = new javax.swing.JTextField();
+        jLData1 = new javax.swing.JLabel();
+        jLData2 = new javax.swing.JLabel();
+        jTFMediaAno = new javax.swing.JTextField();
+        jLData3 = new javax.swing.JLabel();
+        jTFHorasAno = new javax.swing.JTextField();
+        jLData4 = new javax.swing.JLabel();
+        jTFTotalAno = new javax.swing.JTextField();
+        jLData5 = new javax.swing.JLabel();
+        jTFCustoDia = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -51,7 +60,7 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
 
         jLTitulo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLTitulo.setText("Unidade de Madeira");
+        jLTitulo.setText("Custo Anual");
 
         jLCodigo.setText("Código");
 
@@ -95,22 +104,22 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
 
         jLData.setText("Nome");
 
-        jTUnMad.setModel(new javax.swing.table.DefaultTableModel(
+        jTEnergia.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Nome"
+                "Código", "Nome", "Média/Mês", "Horas/Ano", "Total Ano", "Custo/Dia"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false
+                false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -121,22 +130,51 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTUnMad.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
-        jTUnMad.setAutoscrolls(false);
-        jTUnMad.setFocusable(false);
-        jTUnMad.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jTUnMad.getTableHeader().setResizingAllowed(false);
-        jTUnMad.getTableHeader().setReorderingAllowed(false);
-        jTUnMad.addMouseListener(new java.awt.event.MouseAdapter() {
+        jTEnergia.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        jTEnergia.setAutoscrolls(false);
+        jTEnergia.setFocusable(false);
+        jTEnergia.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTEnergia.getTableHeader().setResizingAllowed(false);
+        jTEnergia.getTableHeader().setReorderingAllowed(false);
+        jTEnergia.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTUnMadMouseClicked(evt);
+                jTEnergiaMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTUnMad);
-        if (jTUnMad.getColumnModel().getColumnCount() > 0) {
-            jTUnMad.getColumnModel().getColumn(0).setMinWidth(100);
-            jTUnMad.getColumnModel().getColumn(1).setMinWidth(444);
+        jScrollPane1.setViewportView(jTEnergia);
+        if (jTEnergia.getColumnModel().getColumnCount() > 0) {
+            jTEnergia.getColumnModel().getColumn(0).setMinWidth(100);
+            jTEnergia.getColumnModel().getColumn(1).setMinWidth(200);
+            jTEnergia.getColumnModel().getColumn(2).setMinWidth(100);
+            jTEnergia.getColumnModel().getColumn(3).setMinWidth(100);
+            jTEnergia.getColumnModel().getColumn(4).setMinWidth(100);
+            jTEnergia.getColumnModel().getColumn(5).setMinWidth(100);
         }
+
+        jTFMediaMes.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFMediaMesFocusLost(evt);
+            }
+        });
+
+        jLData1.setText("Média/Mês");
+
+        jLData2.setText("Média/Ano");
+
+        jTFMediaAno.setEditable(false);
+        jTFMediaAno.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLData3.setText("Horas/Ano");
+
+        jLData4.setText("Total Ano");
+
+        jTFTotalAno.setEditable(false);
+        jTFTotalAno.setBackground(new java.awt.Color(204, 204, 204));
+
+        jLData5.setText("Custo/Dia");
+
+        jTFCustoDia.setEditable(false);
+        jTFCustoDia.setBackground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -169,7 +207,28 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLData))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFMediaMes, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLData1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLData2)
+                            .addComponent(jTFMediaAno, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLData3)
+                            .addComponent(jTFHorasAno, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLData4)
+                            .addComponent(jTFTotalAno, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLData5)
+                            .addComponent(jTFCustoDia, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -178,15 +237,34 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLCodigo)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLCodigo)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLData1)
+                                .addComponent(jLData2)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTFMediaMes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTFMediaAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLData)
                         .addGap(26, 26, 26)))
-                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLData3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTFHorasAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLData4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTFTotalAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLData5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTFCustoDia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -203,13 +281,18 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
 
     private void jBNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNovoActionPerformed
 
-        jTUnMad.setEnabled(false);
+        jTEnergia.setEnabled(false);
         jBCancelar.setEnabled(true);
         jBDeletar.setEnabled(false);
         jBEditar.setEnabled(false);
         jBNovo.setEnabled(false);
         jBGravar.setEnabled(true);
         jTFNome.setText("");
+        jTFMediaMes.setText("");
+        jTFMediaAno.setText("");
+        jTFHorasAno.setText("");
+        jTFTotalAno.setText("");
+        jTFCustoDia.setText("");
         jTFNome.requestFocus();
     }//GEN-LAST:event_jBNovoActionPerformed
 
@@ -221,13 +304,24 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
         jBEditar.setEnabled(false);
         jBNovo.setEnabled(false);
         jBGravar.setEnabled(true);
-        jTUnMad.setEnabled(false);
+        jTEnergia.setEnabled(false);
         
-        String codigo = ""+jTUnMad.getValueAt(jTUnMad.getSelectedRow(),0);
-        String nome = ""+jTUnMad.getValueAt(jTUnMad.getSelectedRow(),1);
+        String codigo = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),0);
+        String nome = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),1);
+        String mediames = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),2);
+        String horasano = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),3);
+        String totalano = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),4);
+        String custodia = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),5);
+        
+        double mediaano = Double.valueOf(mediames)*12;
         
         jTFCodigo.setText(codigo);
         jTFNome.setText(nome);
+        jTFMediaMes.setText(mediames);
+        jTFMediaAno.setText(String.valueOf(mediaano));
+        jTFHorasAno.setText(horasano);
+        jTFTotalAno.setText(totalano);
+        jTFCustoDia.setText(custodia);
 
         editando = 1;
         
@@ -236,32 +330,45 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
 
     private void jBGravarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGravarActionPerformed
        
-        if (!"".equals(jTFNome.getText())){
+        if (!"".equals(jTFNome.getText()) && !"".equals(jTFHorasAno.getText())){
 
-        String descricao = jTFNome.getText();
+        String nome = jTFNome.getText();
+        double mediames = Double.parseDouble(jTFMediaMes.getText().replace(",", "."));      
+        String horasano = jTFHorasAno.getText();
+        
+        
+        double totalano = Double.valueOf(jTFMediaAno.getText())/Double.valueOf(horasano);
+        double custodia = totalano/5;
+                
+        custoanual = new CustoAnual();
+        
+        custoanual.setNome(nome);
+        custoanual.setMediames(mediames);
+        custoanual.setHorasano(Integer.valueOf(horasano));
+        custoanual.setTotalano(totalano);
+        custoanual.setCustodia(custodia);
 
-           
-
-            unmad = new UnidadeMadeira();
-
-            unmad.setNome(descricao);
-            
             if(editando != 1){
-                dao.insert(unmad);
+                dao.insert(custoanual);
             }else{
                 int codigo = Integer.parseInt(jTFCodigo.getText());
-                unmad.setCodunidademadeira(codigo);
-                dao.update(unmad);
+                custoanual.setCodcustoanual(codigo);
+                dao.update(custoanual);
             }
 
             listar();
 
             jTFCodigo.setText("");
             jTFNome.setText("");
+            jTFMediaMes.setText("");
+            jTFMediaAno.setText("");
+            jTFHorasAno.setText("");
+            jTFTotalAno.setText("");
+            jTFCustoDia.setText("");
             jBNovo.setEnabled(true);
             jBGravar.setEnabled(false);
             jBCancelar.setEnabled(false);
-            jTUnMad.setEnabled(true);
+            jTEnergia.setEnabled(true);
 
         }else{
             JOptionPane.showMessageDialog(null, "Há campos obrigatórios em branco!", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -272,10 +379,10 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
         
         
         if (JOptionPane.showConfirmDialog(null, "Excluír registro selecionado?", "Excluír registro", ConfirmationCallback.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-            String codigo = ""+jTUnMad.getValueAt(jTUnMad.getSelectedRow(),0);
+            String codigo = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),0);
 
-            unmad = dao.findById(Integer.parseInt(codigo));
-            dao.delete(unmad);
+            custoanual = dao.findById(Integer.parseInt(codigo));
+            dao.delete(custoanual);
 
             listar();
         
@@ -289,7 +396,12 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
         
         jTFCodigo.setText("");
         jTFNome.setText("");
-        jTUnMad.setEnabled(true);
+        jTFMediaMes.setText("");
+        jTFMediaAno.setText("");
+        jTFHorasAno.setText("");
+        jTFTotalAno.setText("");
+        jTFCustoDia.setText("");
+        jTEnergia.setEnabled(true);
         jBNovo.setEnabled(true);
         jBDeletar.setEnabled(false);
         jBGravar.setEnabled(false);
@@ -297,17 +409,22 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
         jBEditar.setEnabled(false);
     }//GEN-LAST:event_jBCancelarActionPerformed
 
-    private void jTUnMadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTUnMadMouseClicked
+    private void jTEnergiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTEnergiaMouseClicked
 
-        if (jTUnMad.isEnabled()){
+        if (jTEnergia.isEnabled()){
             jBEditar.setEnabled(true);
             jBDeletar.setEnabled(true);
         }
-    }//GEN-LAST:event_jTUnMadMouseClicked
+    }//GEN-LAST:event_jTEnergiaMouseClicked
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         listar();
     }//GEN-LAST:event_formWindowOpened
+
+    private void jTFMediaMesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFMediaMesFocusLost
+        double totalano = Double.valueOf(jTFMediaMes.getText().replace(",", "."))*12;
+        jTFMediaAno.setText(String.valueOf(totalano));
+    }//GEN-LAST:event_jTFMediaMesFocusLost
 
 
     public static void main(String args[]) {
@@ -324,14 +441,30 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UnidadeMadeiraView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustoAnualView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UnidadeMadeiraView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustoAnualView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UnidadeMadeiraView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustoAnualView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UnidadeMadeiraView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CustoAnualView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -352,16 +485,16 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UnidadeMadeiraView().setVisible(true);
+                new CustoAnualView().setVisible(true);
             }
         });
     }
     
-      public void abreJanelaUnidadeMadeira(){
+      public void abreJanelaCustoAnual(){
 
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        this.setTitle("Cadastro de Unidade de Madeira");
+        this.setTitle("Cadastro de Custos Anuais");
         
         ImageIcon image = new ImageIcon("C:\\SCCP\\img\\icone.png");
         this.setIconImage(image.getImage()); 
@@ -369,20 +502,23 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
         this.setVisible(true);
     }
       
-      private void listar(){
-
-        DefaultTableModel dados = (DefaultTableModel) jTUnMad.getModel();
+      private void listar(){ 
+        DefaultTableModel dados = (DefaultTableModel) jTEnergia.getModel();
         dados.setNumRows(0);
         
-        ((DefaultTableCellRenderer)jTUnMad.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(SwingConstants.CENTER); 
+        ((DefaultTableCellRenderer)jTEnergia.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(SwingConstants.CENTER); 
 
-        for(UnidadeMadeira um : dao.findAll()){
-           dados.addRow(new String[]{""+um.getCodunidademadeira(), um.getNome()});
+        for(CustoAnual ca : dao.findAll()){
+           dados.addRow(new String[]{""+ca.getCodcustoanual(), ca.getNome(), ""+ca.getMediames(), ""+ca.getHorasano(), format(ca.getTotalano()), format(ca.getCustodia())});
         }
     }
       
-    private final UnidadeMadeiraDao dao = new UnidadeMadeiraDao();
-    private UnidadeMadeira unmad = new UnidadeMadeira();
+    public static String format(double x) {  
+        return String.format("%.2f", x);  
+    }  
+      
+    private final CustoAnualDao dao = new CustoAnualDao();
+    private CustoAnual custoanual = new CustoAnual();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCancelar;
@@ -392,10 +528,20 @@ public class UnidadeMadeiraView extends javax.swing.JFrame {
     private javax.swing.JButton jBNovo;
     private javax.swing.JLabel jLCodigo;
     private javax.swing.JLabel jLData;
+    private javax.swing.JLabel jLData1;
+    private javax.swing.JLabel jLData2;
+    private javax.swing.JLabel jLData3;
+    private javax.swing.JLabel jLData4;
+    private javax.swing.JLabel jLData5;
     private javax.swing.JLabel jLTitulo;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTEnergia;
     private javax.swing.JTextField jTFCodigo;
+    private javax.swing.JTextField jTFCustoDia;
+    private javax.swing.JTextField jTFHorasAno;
+    private javax.swing.JTextField jTFMediaAno;
+    private javax.swing.JTextField jTFMediaMes;
     private javax.swing.JTextField jTFNome;
-    private javax.swing.JTable jTUnMad;
+    private javax.swing.JTextField jTFTotalAno;
     // End of variables declaration//GEN-END:variables
 }
