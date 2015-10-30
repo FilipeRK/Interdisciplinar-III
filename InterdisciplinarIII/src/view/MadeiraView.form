@@ -210,7 +210,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLData3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Unidade Madeira"/>
+        <Property name="text" type="java.lang.String" value="Unidade de medida"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">

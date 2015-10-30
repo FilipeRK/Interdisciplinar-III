@@ -153,7 +153,7 @@ public class MaquinaView extends javax.swing.JFrame {
 
         jLData3.setText("Preço Unitário");
 
-        jLData4.setText("Valor Manutenção");
+        jLData4.setText("Valor de Manutenção");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -226,7 +226,6 @@ public class MaquinaView extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLData)
                         .addGap(26, 26, 26)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLData3)

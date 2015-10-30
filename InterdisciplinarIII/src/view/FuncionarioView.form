@@ -605,7 +605,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLData9">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Quinquenio"/>
+        <Property name="text" type="java.lang.String" value="Quinqu&#xea;nio"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTFSindicato">

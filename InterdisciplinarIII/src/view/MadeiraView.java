@@ -114,7 +114,7 @@ public class MadeiraView extends javax.swing.JFrame {
             }
         });
 
-        jLData3.setText("Unidade Madeira");
+        jLData3.setText("Unidade de medida");
 
         jTMadeira.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

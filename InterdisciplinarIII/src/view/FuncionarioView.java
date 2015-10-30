@@ -295,7 +295,7 @@ public class FuncionarioView extends javax.swing.JFrame {
             }
         });
 
-        jLData9.setText("Quinquenio");
+        jLData9.setText("Quinquênio");
 
         jTFSindicato.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {

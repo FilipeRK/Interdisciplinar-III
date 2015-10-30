@@ -302,7 +302,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLData4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Valor Manuten&#xe7;&#xe3;o"/>
+        <Property name="text" type="java.lang.String" value="Valor de Manuten&#xe7;&#xe3;o"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTFValorManut">
