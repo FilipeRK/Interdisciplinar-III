@@ -194,6 +194,7 @@ public class UsuarioView extends javax.swing.JFrame {
 
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
+        this.setTitle("SCCP - Login");
         
         ImageIcon image = new ImageIcon("C:\\SCCP\\img\\icone.png");
         this.setIconImage(image.getImage()); 

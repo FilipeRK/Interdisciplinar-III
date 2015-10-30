@@ -52,23 +52,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuPrincipal = new javax.swing.JMenuBar();
-        jMCaixa = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         jMIAberturaCaixa = new javax.swing.JMenuItem();
         jMIFechamentoCaixa = new javax.swing.JMenuItem();
-        jMLancar = new javax.swing.JMenu();
-        jMIEntrada = new javax.swing.JMenuItem();
-        jMISaida = new javax.swing.JMenuItem();
-        jMIVendaPrazo = new javax.swing.JMenuItem();
-        jMCadastros = new javax.swing.JMenu();
-        jMICondicaoPagamento = new javax.swing.JMenuItem();
-        jMITipoAlteracao = new javax.swing.JMenuItem();
-        jMMovimentacao = new javax.swing.JMenu();
-        jMIEntradas = new javax.swing.JMenuItem();
-        jMISaidas = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenu5 = new javax.swing.JMenu();
+        jMenuItem7 = new javax.swing.JMenuItem();
+        jMenuItem8 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -95,13 +86,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
-        jMCaixa.setForeground(new java.awt.Color(255, 0, 0));
-        jMCaixa.setText("Financeiro");
-        jMCaixa.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMCaixaMouseClicked(evt);
-            }
-        });
+        jMenu4.setText("Custos");
 
         jMIAberturaCaixa.setText("Abertura de Caixa");
         jMIAberturaCaixa.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +94,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jMIAberturaCaixaActionPerformed(evt);
             }
         });
-        jMCaixa.add(jMIAberturaCaixa);
+        jMenu4.add(jMIAberturaCaixa);
 
         jMIFechamentoCaixa.setText("Fechamento de Caixa");
         jMIFechamentoCaixa.addActionListener(new java.awt.event.ActionListener() {
@@ -117,95 +102,27 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 jMIFechamentoCaixaActionPerformed(evt);
             }
         });
-        jMCaixa.add(jMIFechamentoCaixa);
+        jMenu4.add(jMIFechamentoCaixa);
 
-        jMLancar.setText("Lançar");
+        jMenu5.setText("Contas a Pagar");
 
-        jMIEntrada.setText("Entrada");
-        jMIEntrada.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem7.setText("Cadastro");
+        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIEntradaActionPerformed(evt);
+                jMenuItem7ActionPerformed(evt);
             }
         });
-        jMLancar.add(jMIEntrada);
+        jMenu5.add(jMenuItem7);
 
-        jMISaida.setText("Saída");
-        jMISaida.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItem8.setText("Tipos de Conta");
+        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMISaidaActionPerformed(evt);
+                jMenuItem8ActionPerformed(evt);
             }
         });
-        jMLancar.add(jMISaida);
+        jMenu5.add(jMenuItem8);
 
-        jMIVendaPrazo.setText("Venda à prazo");
-        jMIVendaPrazo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIVendaPrazoActionPerformed(evt);
-            }
-        });
-        jMLancar.add(jMIVendaPrazo);
-
-        jMCaixa.add(jMLancar);
-
-        jMCadastros.setText("Cadastros");
-
-        jMICondicaoPagamento.setText("Condição de Pagamento");
-        jMICondicaoPagamento.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMICondicaoPagamentoActionPerformed(evt);
-            }
-        });
-        jMCadastros.add(jMICondicaoPagamento);
-
-        jMITipoAlteracao.setText("Tipo de Alteração");
-        jMITipoAlteracao.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMITipoAlteracaoActionPerformed(evt);
-            }
-        });
-        jMCadastros.add(jMITipoAlteracao);
-
-        jMCaixa.add(jMCadastros);
-
-        jMMovimentacao.setText("Movimentação");
-
-        jMIEntradas.setText("Entradas");
-        jMIEntradas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMIEntradasActionPerformed(evt);
-            }
-        });
-        jMMovimentacao.add(jMIEntradas);
-
-        jMISaidas.setText("Saídas");
-        jMISaidas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMISaidasActionPerformed(evt);
-            }
-        });
-        jMMovimentacao.add(jMISaidas);
-
-        jMCaixa.add(jMMovimentacao);
-
-        jMenuPrincipal.add(jMCaixa);
-
-        jMenu4.setText("Contas");
-
-        jMenuItem3.setText("Contas a Pagar");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem3);
-
-        jMenuItem4.setText("Tipo de Conta");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenu4.add(jMenuItem4);
+        jMenu4.add(jMenu5);
 
         jMenuItem5.setText("Custos Anuais");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
@@ -214,6 +131,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jMenu4.add(jMenuItem5);
+
+        jMenuItem6.setText("Funcionários");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu4.add(jMenuItem6);
 
         jMenuPrincipal.add(jMenu4);
 
@@ -332,7 +257,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 298, Short.MAX_VALUE)
         );
 
         pack();
@@ -345,49 +270,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMIClienteCadastroActionPerformed
 
-    private void jMIEntradaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIEntradaActionPerformed
-//        String st = telaAFDao.retornaStatusCX();
-//        if("A".equals(st) && !"AF".equals(st)){
-//            LancamentosCadastro tela = new LancamentosCadastro();
-//            tela.tipodelancamento = 1;
-//            tela.abreJanelaLancamentosCadastro();
-//           // this.setVisible(false);
-//        }else{
-//            JOptionPane.showMessageDialog(null, "O caixa está fechado!", "Caixa fechado", JOptionPane.INFORMATION_MESSAGE);
-//        }
-        
-    }//GEN-LAST:event_jMIEntradaActionPerformed
-
-    private void jMITipoAlteracaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMITipoAlteracaoActionPerformed
-//       
-//        TipoAlteracaoCadastro tela = new TipoAlteracaoCadastro();
-//        tela.abreJanelaTipoAlteracaoCadastro();
-//        //this.setVisible(false);
-    }//GEN-LAST:event_jMITipoAlteracaoActionPerformed
-
     private void jMIMadeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIMadeiraActionPerformed
         
         MadeiraView aa = new MadeiraView();
         aa.abreJanelaMadeira();
     }//GEN-LAST:event_jMIMadeiraActionPerformed
-
-    private void jMISaidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMISaidaActionPerformed
-//        String st = telaAFDao.retornaStatusCX();
-//        if("A".equals(st) && !"AF".equals(st)){
-//            LancamentosCadastro tela = new LancamentosCadastro();
-//            tela.tipodelancamento = 2;
-//            tela.abreJanelaLancamentosCadastro();
-//           // this.setVisible(false);
-//        }else{
-//            JOptionPane.showMessageDialog(null, "O caixa está fechado!", "Caixa fechado", JOptionPane.INFORMATION_MESSAGE);
-//        }
-    }//GEN-LAST:event_jMISaidaActionPerformed
-
-    private void jMICondicaoPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICondicaoPagamentoActionPerformed
-//        CondicaoPagamentoCadastro tela = new CondicaoPagamentoCadastro();
-//        tela.abreJanelaCondicaoPagamentoCadastro();
-        //this.setVisible(false);
-    }//GEN-LAST:event_jMICondicaoPagamentoActionPerformed
 
     private void jMIUnidadeMadeiraCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIUnidadeMadeiraCadastroActionPerformed
         
@@ -423,50 +310,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMIFechamentoCaixaActionPerformed
 
-    private void jMCaixaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMCaixaMouseClicked
-        
-    }//GEN-LAST:event_jMCaixaMouseClicked
-
     private void jMICidadeCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMICidadeCadastroActionPerformed
         CidadeView aa = new CidadeView();
         aa.abreJanelaCidade();
     }//GEN-LAST:event_jMICidadeCadastroActionPerformed
-
-    private void jMIVendaPrazoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIVendaPrazoActionPerformed
-//        String st = telaAFDao.retornaStatusCX();
-//        if("A".equals(st) && !"AF".equals(st)){
-//            ParcelasCadastro tela = new ParcelasCadastro();
-//            tela.abreJanelaParcelasCadastro();
-//            tela.jBNovo.requestFocus();
-//            //this.dispose();
-//        }else{
-//            JOptionPane.showMessageDialog(null, "O caixa está fechado!", "Caixa fechado", JOptionPane.INFORMATION_MESSAGE);
-//        }
-    }//GEN-LAST:event_jMIVendaPrazoActionPerformed
-
-    private void jMIEntradasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMIEntradasActionPerformed
-        
-//        MovimentacoesConsulta movcon = new MovimentacoesConsulta();
-//        movcon.jLTitulo.setText("Movimentações de Entrada");
-//        movcon.tipodelancamento = 1;
-//        try {
-//            movcon.abreJanelaMovimentacoesConsulta();
-//            //this.dispose();
-//        } catch (ParseException ex){
-//        }
-    }//GEN-LAST:event_jMIEntradasActionPerformed
-
-    private void jMISaidasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMISaidasActionPerformed
-        
-//        MovimentacoesConsulta movcon = new MovimentacoesConsulta();
-//        movcon.jLTitulo.setText("Movimentações de Saída");
-//        movcon.tipodelancamento = 2;
-//         try {
-//            movcon.abreJanelaMovimentacoesConsulta();
-//            //this.dispose();
-//        } catch (ParseException ex){ 
-//        }
-    }//GEN-LAST:event_jMISaidasActionPerformed
 
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
 //        atualizaBorda();
@@ -507,20 +354,25 @@ public class TelaPrincipal extends javax.swing.JFrame {
         aa.abreJanelaEnergiaEletrica();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-       ContaPagarView aa = new ContaPagarView();
-       aa.abreJanelaContaPagar();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        TipoContaView aa = new TipoContaView();
-        aa.abreJanelaTipoContaPagar();
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
-
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         CustoAnualView aa = new CustoAnualView();
         aa.abreJanelaCustoAnual();
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+       FuncionarioView aa = new FuncionarioView();
+       aa.abreJanelaFuncionario();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
+    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+       ContaPagarView aa = new ContaPagarView();
+       aa.abreJanelaContaPagar();
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+        TipoContaView aa = new TipoContaView();
+        aa.abreJanelaTipoContaPagar();
+    }//GEN-LAST:event_jMenuItem8ActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -637,8 +489,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     AFCaixaDao telaAFDao = new AFCaixaDao();
     AFCaixaView telaAF = new AFCaixaView();
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMCadastros;
-    private javax.swing.JMenu jMCaixa;
     private javax.swing.JMenu jMClientes;
     private javax.swing.JMenu jMFornecedores;
     private javax.swing.JMenuItem jMIAberturaCaixa;
@@ -647,28 +497,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMIChequeCadastro;
     private javax.swing.JMenuItem jMICidadeCadastro;
     private javax.swing.JMenuItem jMIClienteCadastro;
-    private javax.swing.JMenuItem jMICondicaoPagamento;
-    private javax.swing.JMenuItem jMIEntrada;
-    private javax.swing.JMenuItem jMIEntradas;
     private javax.swing.JMenuItem jMIFechamentoCaixa;
     private javax.swing.JMenuItem jMIMadeira;
-    private javax.swing.JMenuItem jMISaida;
-    private javax.swing.JMenuItem jMISaidas;
-    private javax.swing.JMenuItem jMITipoAlteracao;
     private javax.swing.JMenuItem jMITipoCartaoCadastro;
     private javax.swing.JMenuItem jMIUnidadeMadeiraCadastro;
-    private javax.swing.JMenuItem jMIVendaPrazo;
-    private javax.swing.JMenu jMLancar;
-    private javax.swing.JMenu jMMovimentacao;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem jMenuItem7;
+    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuBar jMenuPrincipal;
     // End of variables declaration//GEN-END:variables
 }

@@ -47,4 +47,16 @@ public class CustoAnualDao {
     public List<CustoAnual> findAll(){ 
         return session.createQuery("From CustoAnual").list();
     }
+    
+     public String retornaTotalCustoDia(){
+        String status2 = (session.createSQLQuery("SELECT SUM(CUSTODIA) FROM CUSTOANUAL").list().toString()).replace("[", "");
+        String status1 =  status2.replace("]", "");
+        double status = Double.valueOf(status1);
+
+        return format(status);
+     }
+     
+         public static String format(double x) {  
+        return String.format("%.2f", x);  
+    }  
 }
