@@ -89,6 +89,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu4.setText("Custos");
 
+        jMIAberturaCaixa.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\abertura_caixa.png")); // NOI18N
         jMIAberturaCaixa.setText("Abertura de Caixa");
         jMIAberturaCaixa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -97,6 +98,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu4.add(jMIAberturaCaixa);
 
+        jMIFechamentoCaixa.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\fechamento_caixa.png")); // NOI18N
         jMIFechamentoCaixa.setText("Fechamento de Caixa");
         jMIFechamentoCaixa.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -105,6 +107,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu4.add(jMIFechamentoCaixa);
 
+        jMenuItem3.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\custo_venda.png")); // NOI18N
         jMenuItem3.setText("Custo de Venda");
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,8 +116,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem3);
 
+        jMenu5.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\contas_pagar.png")); // NOI18N
         jMenu5.setText("Contas a Pagar");
 
+        jMenuItem7.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\add.png")); // NOI18N
         jMenuItem7.setText("Cadastro");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,6 +128,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu5.add(jMenuItem7);
 
+        jMenuItem8.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\tipo_conta.png")); // NOI18N
         jMenuItem8.setText("Tipos de Conta");
         jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,6 +139,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu4.add(jMenu5);
 
+        jMenuItem5.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\custo_anual.png")); // NOI18N
         jMenuItem5.setText("Custos Anuais");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -141,6 +148,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu4.add(jMenuItem5);
 
+        jMenuItem6.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\funcionário.png")); // NOI18N
         jMenuItem6.setText("Funcionários");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,6 +161,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu3.setText("Máquinas");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\add.png")); // NOI18N
         jMenuItem1.setText("Cadastro");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -161,6 +170,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem1);
 
+        jMenuItem2.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\energia_eletrica.png")); // NOI18N
         jMenuItem2.setText("Energia Elétrica");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,6 +183,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMFornecedores.setText("Madeiras");
 
+        jMIMadeira.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\add.png")); // NOI18N
         jMIMadeira.setText("Cadastro");
         jMIMadeira.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -181,6 +192,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMFornecedores.add(jMIMadeira);
 
+        jMIUnidadeMadeiraCadastro.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\madeira.png")); // NOI18N
         jMIUnidadeMadeiraCadastro.setText("Unidade Madeira");
         jMIUnidadeMadeiraCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -193,6 +205,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMClientes.setText("Clientes");
 
+        jMIClienteCadastro.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\cliente.png")); // NOI18N
         jMIClienteCadastro.setText("Cadastro");
         jMIClienteCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -201,6 +214,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMClientes.add(jMIClienteCadastro);
 
+        jMICidadeCadastro.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\cidade.png")); // NOI18N
         jMICidadeCadastro.setText("Cidades");
         jMICidadeCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,6 +227,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu1.setText("Cheques");
 
+        jMIChequeCadastro.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\cheque.png")); // NOI18N
         jMIChequeCadastro.setText("Cadastro");
         jMIChequeCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,6 +236,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu1.add(jMIChequeCadastro);
 
+        jMIBancoCadastro.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\banco.png")); // NOI18N
         jMIBancoCadastro.setText("Banco");
         jMIBancoCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -238,6 +254,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        jMICartaoCadastro.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\cartão.png")); // NOI18N
         jMICartaoCadastro.setText("Cadastro");
         jMICartaoCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,6 +263,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu2.add(jMICartaoCadastro);
 
+        jMITipoCartaoCadastro.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\tipo_cartao.png")); // NOI18N
         jMITipoCartaoCadastro.setText("Tipo de Cartão");
         jMITipoCartaoCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

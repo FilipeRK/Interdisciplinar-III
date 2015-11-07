@@ -32,56 +32,57 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <Component id="jScrollPane1" max="32767" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLCodigo" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTFCodigo" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jFTFData" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
-                          <Component id="jLData" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jFTFValor" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
-                          <Component id="jLData2" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTFNumeroCheque" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
-                          <Component id="jLData4" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="44" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jCB1" min="-2" pref="135" max="-2" attributes="0"/>
-                          <Component id="jLData3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jCB2" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
                           <Component id="jLData5" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jScrollPane1" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLCodigo" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFCodigo" alignment="0" min="-2" pref="67" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jFTFData" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                                  <Component id="jLData" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jFTFValor" alignment="0" min="-2" pref="90" max="-2" attributes="0"/>
+                                  <Component id="jLData2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTFNumeroCheque" alignment="0" min="-2" pref="133" max="-2" attributes="0"/>
+                                  <Component id="jLData4" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace pref="44" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jCB1" min="-2" pref="135" max="-2" attributes="0"/>
+                                  <Component id="jLData3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
           </Group>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
-              <Component id="jBNovo" min="-2" pref="100" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Component id="jBNovo" min="-2" pref="105" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jBEditar" min="-2" pref="100" max="-2" attributes="0"/>
+              <Component id="jBEditar" min="-2" pref="105" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jBGravar" min="-2" pref="100" max="-2" attributes="0"/>
+              <Component id="jBGravar" min="-2" pref="105" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jBDeletar" min="-2" pref="100" max="-2" attributes="0"/>
+              <Component id="jBDeletar" min="-2" pref="105" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jBCancelar" min="-2" pref="100" max="-2" attributes="0"/>
+              <Component id="jBCancelar" min="-2" pref="105" max="-2" attributes="0"/>
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
       </Group>
