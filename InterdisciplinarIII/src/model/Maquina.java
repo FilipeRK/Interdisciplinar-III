@@ -14,9 +14,9 @@ public class Maquina implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq_maquina")
     private int codmaquina;
-    private int consumo, depreciacao;
+    private int depreciacao;
     private String nome;
-    private double precounitario, valormanutencao;
+    private double precounitario, valormanutencao, consumo;
 
     public int getCodmaquina() {
         return codmaquina;
@@ -26,11 +26,11 @@ public class Maquina implements Serializable {
         this.codmaquina = codmaquina;
     }
 
-    public int getConsumo() {
+    public double getConsumo() {
         return consumo;
     }
 
-    public void setConsumo(int consumo) {
+    public void setConsumo(double consumo) {
         this.consumo = consumo;
     }
 

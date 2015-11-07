@@ -45,9 +45,17 @@ public class MaquinaView extends javax.swing.JFrame {
         jTFPrecoUnitario = new javax.swing.JTextField();
         jLData4 = new javax.swing.JLabel();
         jTFValorManut = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
+        addWindowFocusListener(new java.awt.event.WindowFocusListener() {
+            public void windowGainedFocus(java.awt.event.WindowEvent evt) {
+                formWindowGainedFocus(evt);
+            }
+            public void windowLostFocus(java.awt.event.WindowEvent evt) {
+            }
+        });
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -147,13 +155,20 @@ public class MaquinaView extends javax.swing.JFrame {
             jTEnergia.getColumnModel().getColumn(5).setMinWidth(100);
         }
 
-        jLData1.setText("Consumo");
+        jLData1.setText("Consumo(kw/h)");
 
-        jLData2.setText("Depreciação");
+        jLData2.setText("Depreciação (%)");
 
         jLData3.setText("Preço Unitário");
 
         jLData4.setText("Valor de Manutenção");
+
+        jButton1.setText("...");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -188,12 +203,14 @@ public class MaquinaView extends javax.swing.JFrame {
                             .addComponent(jLData))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLData1))
+                            .addComponent(jLData1)
+                            .addComponent(jTFConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLData2)
-                            .addComponent(jTFDepreciacao, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTFDepreciacao, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLData2))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -222,7 +239,8 @@ public class MaquinaView extends javax.swing.JFrame {
                             .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTFConsumo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTFDepreciacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jTFDepreciacao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLData)
                         .addGap(26, 26, 26)))
@@ -243,7 +261,7 @@ public class MaquinaView extends javax.swing.JFrame {
                     .addComponent(jBDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -310,7 +328,7 @@ public class MaquinaView extends javax.swing.JFrame {
             maquina = new Maquina();
 
             maquina.setNome(nome);
-            maquina.setConsumo(Integer.valueOf(consumo));
+            maquina.setConsumo(Double.valueOf(consumo));
             maquina.setDepreciacao(Integer.valueOf(depreciacao));
             maquina.setPrecounitario(precou);
             maquina.setValormanutencao(valormanutencao);
@@ -386,6 +404,15 @@ public class MaquinaView extends javax.swing.JFrame {
         listar();
     }//GEN-LAST:event_formWindowOpened
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+   
+        aaa.abreJanelaCalculoKWH();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
+        jTFConsumo.setText(aaa.valor);
+    }//GEN-LAST:event_formWindowGainedFocus
+
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -460,13 +487,14 @@ public class MaquinaView extends javax.swing.JFrame {
       
     private final MaquinaDao dao = new MaquinaDao();
     private Maquina maquina = new Maquina();
-
+    private final CalculoKWH aaa = new CalculoKWH();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBDeletar;
     private javax.swing.JButton jBEditar;
     private javax.swing.JButton jBGravar;
     private javax.swing.JButton jBNovo;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLCodigo;
     private javax.swing.JLabel jLData;
     private javax.swing.JLabel jLData1;

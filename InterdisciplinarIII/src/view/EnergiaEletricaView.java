@@ -236,7 +236,6 @@ public class EnergiaEletricaView extends javax.swing.JFrame {
         String codigo = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),0);
         String prestadora = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),1);
         String valorhora = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),2);
-        String cep = ""+jTEnergia.getValueAt(jTEnergia.getSelectedRow(),3);
         
         jTFCodigo.setText(codigo);
         jTFPrestadora.setText(prestadora);

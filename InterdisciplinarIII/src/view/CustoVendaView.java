@@ -87,6 +87,8 @@ public class CustoVendaView extends javax.swing.JFrame {
         jTFCustoMaquina = new javax.swing.JTextField();
         jTFCustoMadeira = new javax.swing.JTextField();
         jTFCustoFuncionario = new javax.swing.JTextField();
+        jTFMadeira = new javax.swing.JTextField();
+        jLData15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -162,20 +164,20 @@ public class CustoVendaView extends javax.swing.JFrame {
 
         jTCustoVenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Cód. Máquina", "Máquina", "Cód. Energia", "Energia", "Cód. Funcionário", "Funcionário", "Cód. Madeira", "Madeira", "Data da Venda", "Custo Adicional", "Perda", "Custo Final", "Margem de Lucro", "Valor Final"
+                "Código", "Cód. Máquina", "Máquina", "Cód. Energia", "Energia", "Cód. Funcionário", "Funcionário", "Cód. Madeira", "Madeira", "Data da Venda", "Custo Adicional", "Perda", "Custo Final", "Margem de Lucro", "Valor Final", "Horas", "Madeira Utilizada"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -213,6 +215,8 @@ public class CustoVendaView extends javax.swing.JFrame {
             jTCustoVenda.getColumnModel().getColumn(12).setMinWidth(200);
             jTCustoVenda.getColumnModel().getColumn(13).setMinWidth(100);
             jTCustoVenda.getColumnModel().getColumn(14).setMinWidth(200);
+            jTCustoVenda.getColumnModel().getColumn(15).setMinWidth(50);
+            jTCustoVenda.getColumnModel().getColumn(16).setMinWidth(150);
         }
 
         jTFCustoAdicional.addActionListener(new java.awt.event.ActionListener() {
@@ -294,7 +298,7 @@ public class CustoVendaView extends javax.swing.JFrame {
             }
         });
 
-        jLData1.setText("Perda");
+        jLData1.setText("Perda(%)");
 
         jLData7.setText("Custo Final");
 
@@ -310,7 +314,7 @@ public class CustoVendaView extends javax.swing.JFrame {
             }
         });
 
-        jLData8.setText("Margem de Lucro");
+        jLData8.setText("Margem Lucro(%)");
 
         jTFValorFinal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -328,12 +332,14 @@ public class CustoVendaView extends javax.swing.JFrame {
 
         jTFCustoEnergia.setEditable(false);
         jTFCustoEnergia.setBackground(new java.awt.Color(204, 204, 204));
+        jTFCustoEnergia.setFocusable(false);
         jTFCustoEnergia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFCustoEnergiaActionPerformed(evt);
             }
         });
 
+        jTFHoras.setEditable(false);
         jTFHoras.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTFHorasFocusLost(evt);
@@ -353,6 +359,7 @@ public class CustoVendaView extends javax.swing.JFrame {
 
         jTFCustoMaquina.setEditable(false);
         jTFCustoMaquina.setBackground(new java.awt.Color(204, 204, 204));
+        jTFCustoMaquina.setFocusable(false);
         jTFCustoMaquina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFCustoMaquinaActionPerformed(evt);
@@ -361,6 +368,7 @@ public class CustoVendaView extends javax.swing.JFrame {
 
         jTFCustoMadeira.setEditable(false);
         jTFCustoMadeira.setBackground(new java.awt.Color(204, 204, 204));
+        jTFCustoMadeira.setFocusable(false);
         jTFCustoMadeira.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFCustoMadeiraActionPerformed(evt);
@@ -369,11 +377,26 @@ public class CustoVendaView extends javax.swing.JFrame {
 
         jTFCustoFuncionario.setEditable(false);
         jTFCustoFuncionario.setBackground(new java.awt.Color(204, 204, 204));
+        jTFCustoFuncionario.setFocusable(false);
         jTFCustoFuncionario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFCustoFuncionarioActionPerformed(evt);
             }
         });
+
+        jTFMadeira.setEditable(false);
+        jTFMadeira.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFMadeiraFocusLost(evt);
+            }
+        });
+        jTFMadeira.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFMadeiraActionPerformed(evt);
+            }
+        });
+
+        jLData15.setText("Madeira");
 
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
         jLayeredPane2.setLayout(jLayeredPane2Layout);
@@ -382,52 +405,65 @@ public class CustoVendaView extends javax.swing.JFrame {
             .addGroup(jLayeredPane2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTFHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLData10))
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(jLData11)
-                        .addGap(50, 50, 50))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTFCustoMaquina, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTFCustoEnergia, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLData12))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLData13)
-                    .addComponent(jTFCustoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(12, 12, 12)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLData14)
-                    .addComponent(jTFCustoMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTFMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLData15))
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                                .addGap(32, 32, 32)
+                                .addComponent(jLData11)
+                                .addGap(50, 50, 50))
+                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTFCustoMaquina, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTFCustoEnergia, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLData12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLData13)
+                            .addComponent(jTFCustoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(12, 12, 12)
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLData14)
+                            .addComponent(jTFCustoMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLData10))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLData10)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addComponent(jLData14)
-                        .addGap(26, 26, 26))
+                        .addGap(5, 5, 5)
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                                .addComponent(jLData14)
+                                .addGap(26, 26, 26))
+                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLData12)
+                                    .addComponent(jLData11)
+                                    .addComponent(jLData13))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTFCustoEnergia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTFCustoMaquina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTFCustoMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jTFCustoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLData12)
-                            .addComponent(jLData11)
-                            .addComponent(jLData10)
-                            .addComponent(jLData13))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTFCustoEnergia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTFHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTFCustoMaquina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTFCustoMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTFCustoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap())
+                        .addComponent(jTFHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLData15)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTFMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         jLayeredPane2.setLayer(jLData11, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jLData12, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -439,6 +475,8 @@ public class CustoVendaView extends javax.swing.JFrame {
         jLayeredPane2.setLayer(jTFCustoMaquina, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jTFCustoMadeira, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jTFCustoFuncionario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFMadeira, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLData15, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -580,13 +618,18 @@ public class CustoVendaView extends javax.swing.JFrame {
         for (Maquina a : maDao.findAll()) { 
             String id = ""+a.getCodmaquina();
             String nome = a.getNome();
-            jCBMaquina.addItem(new ItemMaquina(id,nome));    
+            String consumo = ""+a.getConsumo();
+            String depreciacao = ""+a.getDepreciacao();
+            String valormanutencao = ""+a.getValormanutencao();
+            String precounitario = ""+a.getPrecounitario();
+            jCBMaquina.addItem(new ItemMaquina(id,nome,consumo,depreciacao,valormanutencao,precounitario));    
         } 
         jCBEnergia.removeAllItems();
         for (EnergiaEletrica a : enDao.findAll()) { 
             String id = ""+a.getCodenergiaeletrica();
             String nome = a.getPrestadora();
-            jCBEnergia.addItem(new ItemEnergia(id,nome));    
+            String valorhora = ""+a.getValorhora();
+            jCBEnergia.addItem(new ItemEnergia(id,nome,valorhora));    
         } 
         jCBFuncionario.removeAllItems();
         for (Funcionario a : fuDao.findAll()) { 
@@ -613,6 +656,10 @@ public class CustoVendaView extends javax.swing.JFrame {
         jTFCustoFinal.setText("");
         jTFMargemLucro.setText("");
         jTFValorFinal.setText("");
+        jTFHoras.setText("");
+        jTFMadeira.setText("");
+        jTFHoras.setEditable(true);
+        jTFMadeira.setEditable(true);
         jTFCustoAdicional.requestFocus();
     }//GEN-LAST:event_jBNovoActionPerformed
 
@@ -622,13 +669,18 @@ public class CustoVendaView extends javax.swing.JFrame {
         for (Maquina a : maDao.findAll()) { 
             String id = ""+a.getCodmaquina();
             String nome = a.getNome();
-            jCBMaquina.addItem(new ItemMaquina(id,nome));    
+            String consumo = ""+a.getConsumo();
+            String depreciacao = ""+a.getDepreciacao();
+            String valormanutencao = ""+a.getValormanutencao();
+            String precounitario = ""+a.getPrecounitario();
+            jCBMaquina.addItem(new ItemMaquina(id,nome,consumo,depreciacao,valormanutencao,precounitario));    
         } 
         jCBEnergia.removeAllItems();
         for (EnergiaEletrica a : enDao.findAll()) { 
             String id = ""+a.getCodenergiaeletrica();
             String nome = a.getPrestadora();
-            jCBEnergia.addItem(new ItemEnergia(id,nome));    
+            String valorhora = ""+a.getValorhora();
+            jCBEnergia.addItem(new ItemEnergia(id,nome,valorhora));    
         } 
         jCBFuncionario.removeAllItems();
         for (Funcionario a : fuDao.findAll()) { 
@@ -648,6 +700,8 @@ public class CustoVendaView extends javax.swing.JFrame {
         jBNovo.setEnabled(false);
         jBGravar.setEnabled(true);
         jTCustoVenda.setEnabled(false);
+        jTFHoras.setEditable(true);
+        jTFMadeira.setEditable(true);
         
         String codigo = ""+jTCustoVenda.getValueAt(jTCustoVenda.getSelectedRow(),0);
         String datavenda = ""+jTCustoVenda.getValueAt(jTCustoVenda.getSelectedRow(),9);
@@ -656,6 +710,8 @@ public class CustoVendaView extends javax.swing.JFrame {
         String custofinal = ""+jTCustoVenda.getValueAt(jTCustoVenda.getSelectedRow(),12);
         String margemlucro = ""+jTCustoVenda.getValueAt(jTCustoVenda.getSelectedRow(),13);
         String valorfinal = ""+jTCustoVenda.getValueAt(jTCustoVenda.getSelectedRow(),14);
+        String hora = ""+jTCustoVenda.getValueAt(jTCustoVenda.getSelectedRow(),15);
+        String tamanhomadeira = ""+jTCustoVenda.getValueAt(jTCustoVenda.getSelectedRow(),14);
         
         jTFCodigo.setText(codigo);
         jFTFDataVenda.setText(datavenda);
@@ -664,6 +720,8 @@ public class CustoVendaView extends javax.swing.JFrame {
         jTFCustoFinal.setText(custofinal);
         jTFMargemLucro.setText(margemlucro);
         jTFValorFinal.setText(valorfinal);
+        jTFHoras.setText(hora);
+        jTFMadeira.setText(tamanhomadeira);
         
         SimpleDateFormat formato1 = new SimpleDateFormat("yyyy-MM-dd");  
         SimpleDateFormat formato2 = new SimpleDateFormat("ddMMyyyy");  
@@ -688,6 +746,8 @@ public class CustoVendaView extends javax.swing.JFrame {
             String custofinal = jTFCustoFinal.getText();
             String margemlucro = jTFMargemLucro.getText();
             String valorfinal = jTFValorFinal.getText();
+            String horas = jTFHoras.getText();
+            String tamanhomadeira = jTFMadeira.getText();
             
             custovenda = new CustoVenda();
 
@@ -716,8 +776,8 @@ public class CustoVendaView extends javax.swing.JFrame {
             scFuncionario.setNome(ifu.nome);
             
             Madeira scMadeira = new Madeira();
-            ItemEnergia ima = (ItemEnergia) jCBMadeira.getSelectedItem(); 
-            scMadeira.setCodmadeira(Integer.valueOf(ima.codenergia));
+            ItemMadeira ima = (ItemMadeira) jCBMadeira.getSelectedItem(); 
+            scMadeira.setCodmadeira(Integer.valueOf(ima.codmadeira));
             scMadeira.setNome(ima.nome);
                     
             custovenda.setMaquina(scMaquina);
@@ -729,6 +789,8 @@ public class CustoVendaView extends javax.swing.JFrame {
             custovenda.setCustofinal(Double.valueOf(custofinal));
             custovenda.setMargemlucro(Integer.valueOf(margemlucro));
             custovenda.setValorfinal(Double.valueOf(valorfinal));
+            custovenda.setHoras(Integer.valueOf(horas));
+            custovenda.setTamanhomadeira(Double.valueOf(tamanhomadeira));
             
            
             if(editando != 1){
@@ -753,6 +815,8 @@ public class CustoVendaView extends javax.swing.JFrame {
             jBGravar.setEnabled(false);
             jBCancelar.setEnabled(false);
             jTCustoVenda.setEnabled(true);
+            jTFHoras.setEditable(false);
+            jTFMadeira.setEditable(false);
 
     }//GEN-LAST:event_jBGravarActionPerformed
 
@@ -782,12 +846,16 @@ public class CustoVendaView extends javax.swing.JFrame {
         jTFCustoFinal.setText("");
         jTFMargemLucro.setText("");
         jTFValorFinal.setText("");
+        jTFHoras.setText("");
+        jTFMadeira.setText("");
         jTCustoVenda.setEnabled(true);
         jBNovo.setEnabled(true);
         jBDeletar.setEnabled(false);
         jBGravar.setEnabled(false);
         jBCancelar.setEnabled(false);
         jBEditar.setEnabled(false);
+        jTFHoras.setEditable(false);
+        jTFMadeira.setEditable(false);
     }//GEN-LAST:event_jBCancelarActionPerformed
 
     private void jCBMaquinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMaquinaActionPerformed
@@ -919,6 +987,14 @@ public class CustoVendaView extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTFHorasFocusLost
 
+    private void jTFMadeiraFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFMadeiraFocusLost
+        calcular();
+    }//GEN-LAST:event_jTFMadeiraFocusLost
+
+    private void jTFMadeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFMadeiraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFMadeiraActionPerformed
+
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -971,10 +1047,18 @@ public class CustoVendaView extends javax.swing.JFrame {
   
         public String codmaquina;   
         public String nome; 
+        public String consumo;
+        public String depreciacao;
+        public String valormanutencao;
+        public String precounitario;
 
-        public ItemMaquina(String id,String nome){  
+        public ItemMaquina(String id,String nome, String consumo, String depreciacao, String valormanutencao, String precounitario){  
             this.codmaquina = id;  
             this.nome = nome; 
+            this.consumo = consumo;
+            this.depreciacao = depreciacao;
+            this.valormanutencao = valormanutencao;
+            this.precounitario = precounitario;
         }  
         
         @Override  
@@ -988,10 +1072,12 @@ public class CustoVendaView extends javax.swing.JFrame {
   
         public String codenergia;   
         public String nome; 
+        public String valorhora;
 
-        public ItemEnergia(String id,String nome){  
+        public ItemEnergia(String id,String nome, String valorhora){  
             this.codenergia = id;  
             this.nome = nome; 
+            this.valorhora = valorhora;
         }  
         
         @Override  
@@ -1042,7 +1128,7 @@ public class CustoVendaView extends javax.swing.JFrame {
         ((DefaultTableCellRenderer)jTCustoVenda.getTableHeader().getDefaultRenderer()).setHorizontalAlignment(SwingConstants.CENTER); 
         
         for(CustoVenda cv : dao.findAll()){
-            dados.addRow(new String[]{""+cv.getCodcustovenda(), ""+cv.getMaquina().getCodmaquina(), cv.getMaquina().getNome(), ""+cv.getEnergiaeletrica().getCodenergiaeletrica(), cv.getEnergiaeletrica().getPrestadora(), ""+cv.getFuncionario().getCodfuncionario(), cv.getFuncionario().getNome(), ""+cv.getMadeira().getCodmadeira(), cv.getMadeira().getNome(), ""+cv.getDatavenda(), ""+cv.getCustoadicional(), ""+cv.getPerda(), ""+cv.getCustofinal(), ""+cv.getMargemlucro(), ""+cv.getValorfinal()});
+            dados.addRow(new String[]{""+cv.getCodcustovenda(), ""+cv.getMaquina().getCodmaquina(), cv.getMaquina().getNome(), ""+cv.getEnergiaeletrica().getCodenergiaeletrica(), cv.getEnergiaeletrica().getPrestadora(), ""+cv.getFuncionario().getCodfuncionario(), cv.getFuncionario().getNome(), ""+cv.getMadeira().getCodmadeira(), cv.getMadeira().getNome(), ""+cv.getDatavenda(), ""+cv.getCustoadicional(), ""+cv.getPerda(), ""+cv.getCustofinal(), ""+cv.getMargemlucro(), ""+cv.getValorfinal(), ""+cv.getHoras(), ""+cv.getTamanhomadeira()});
         }
     }
     private final CustoVendaDao dao = new CustoVendaDao();
@@ -1051,6 +1137,44 @@ public class CustoVendaView extends javax.swing.JFrame {
     private final EnergiaEletricaDao enDao = new EnergiaEletricaDao();
     private final FuncionarioDao fuDao = new FuncionarioDao();
     private final MadeiraDao madeiraDao = new MadeiraDao();
+    
+    private void calcular(){
+        
+                
+         //############ ENERGIA ############
+        double valorhora, custoenergiahora;
+        ItemEnergia iee = (ItemEnergia) jCBEnergia.getSelectedItem();
+        
+        valorhora = Double.valueOf(iee.valorhora);
+        
+        
+        //############ MAQUINA ############
+        double totalmaquina;
+        double consumo, depreciacao, precounitario, valormanutencao, depreciacaohora;
+       
+        ItemMaquina imaq = (ItemMaquina) jCBMaquina.getSelectedItem(); 
+        
+        consumo = Double.valueOf(imaq.consumo);
+        depreciacao = Integer.valueOf(imaq.depreciacao);
+        precounitario = Double.valueOf(imaq.precounitario);
+        valormanutencao = Double.valueOf(imaq.valormanutencao);
+        
+        depreciacaohora = precounitario/depreciacao;
+        depreciacaohora = depreciacaohora/12;
+        depreciacaohora = depreciacaohora/22;
+        depreciacaohora = depreciacaohora/8; //depreciacao por hora
+       // depreciacaominuto = depreciacaominuto/60;
+        
+        valormanutencao = valormanutencao/22;
+        valormanutencao = valormanutencao/8; //manutencao por hora
+        
+        consumo = consumo/60;
+        custoenergiahora = (consumo*valorhora)*60; // energia por hora
+        
+        
+
+        
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -1072,6 +1196,7 @@ public class CustoVendaView extends javax.swing.JFrame {
     private javax.swing.JLabel jLData12;
     private javax.swing.JLabel jLData13;
     private javax.swing.JLabel jLData14;
+    private javax.swing.JLabel jLData15;
     private javax.swing.JLabel jLData2;
     private javax.swing.JLabel jLData3;
     private javax.swing.JLabel jLData4;
@@ -1092,6 +1217,7 @@ public class CustoVendaView extends javax.swing.JFrame {
     private javax.swing.JTextField jTFCustoMadeira;
     private javax.swing.JTextField jTFCustoMaquina;
     private javax.swing.JTextField jTFHoras;
+    private javax.swing.JTextField jTFMadeira;
     private javax.swing.JTextField jTFMargemLucro;
     private javax.swing.JTextField jTFPerda;
     private javax.swing.JTextField jTFValorFinal;
