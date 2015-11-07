@@ -658,6 +658,10 @@ public class CustoVendaView extends javax.swing.JFrame {
         jTFValorFinal.setText("");
         jTFHoras.setText("");
         jTFMadeira.setText("");
+        jTFCustoMaquina.setText("");
+        jTFCustoEnergia.setText("");
+        jTFCustoFuncionario.setText("");
+        jTFCustoMadeira.setText("");
         jTFHoras.setEditable(true);
         jTFMadeira.setEditable(true);
         jTFCustoAdicional.requestFocus();
@@ -811,6 +815,10 @@ public class CustoVendaView extends javax.swing.JFrame {
             jTFCustoFinal.setText("");
             jTFMargemLucro.setText("");
             jTFValorFinal.setText("");
+            jTFCustoMaquina.setText("");
+            jTFCustoEnergia.setText("");
+            jTFCustoFuncionario.setText("");
+            jTFCustoMadeira.setText("");
             jBNovo.setEnabled(true);
             jBGravar.setEnabled(false);
             jBCancelar.setEnabled(false);
@@ -848,6 +856,10 @@ public class CustoVendaView extends javax.swing.JFrame {
         jTFValorFinal.setText("");
         jTFHoras.setText("");
         jTFMadeira.setText("");
+        jTFCustoMaquina.setText("");
+        jTFCustoEnergia.setText("");
+        jTFCustoFuncionario.setText("");
+        jTFCustoMadeira.setText("");
         jTCustoVenda.setEnabled(true);
         jBNovo.setEnabled(true);
         jBDeletar.setEnabled(false);
@@ -1140,6 +1152,7 @@ public class CustoVendaView extends javax.swing.JFrame {
     
     private void calcular(){
         
+        double horas = Double.valueOf(jTFHoras.getText());
                 
          //############ ENERGIA ############
         double valorhora, custoenergiahora;
@@ -1163,19 +1176,27 @@ public class CustoVendaView extends javax.swing.JFrame {
         depreciacaohora = depreciacaohora/12;
         depreciacaohora = depreciacaohora/22;
         depreciacaohora = depreciacaohora/8; //depreciacao por hora
-       // depreciacaominuto = depreciacaominuto/60;
         
         valormanutencao = valormanutencao/22;
         valormanutencao = valormanutencao/8; //manutencao por hora
         
+        totalmaquina = depreciacaohora+valormanutencao;
+        totalmaquina = totalmaquina*horas;
+        jTFCustoMaquina.setText(String.valueOf(format(totalmaquina)));
+        
         consumo = consumo/60;
         custoenergiahora = (consumo*valorhora)*60; // energia por hora
+        custoenergiahora = custoenergiahora*horas;
+        jTFCustoEnergia.setText(String.valueOf(format(custoenergiahora)));
         
         
 
         
     }
     
+    public static String format(double x) {  
+        return String.format("%.2f", x);  
+    }  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBCancelar;
