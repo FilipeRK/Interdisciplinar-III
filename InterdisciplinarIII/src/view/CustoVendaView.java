@@ -30,6 +30,7 @@ public class CustoVendaView extends javax.swing.JFrame {
 
 
     private int editando;
+    public double custofunchora, custofuncminuto;
     
     public CustoVendaView() {
         initComponents();
@@ -74,7 +75,6 @@ public class CustoVendaView extends javax.swing.JFrame {
         jTFCustoFinal = new javax.swing.JTextField();
         jTFMargemLucro = new javax.swing.JTextField();
         jLData8 = new javax.swing.JLabel();
-        jTFValorFinal = new javax.swing.JTextField();
         jLData9 = new javax.swing.JLabel();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         jLData11 = new javax.swing.JLabel();
@@ -89,7 +89,14 @@ public class CustoVendaView extends javax.swing.JFrame {
         jTFCustoFuncionario = new javax.swing.JTextField();
         jTFMadeira = new javax.swing.JTextField();
         jLData15 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLData16 = new javax.swing.JLabel();
+        jTFMinutos = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jLValorFinal = new javax.swing.JLabel();
+        jLFunc1 = new javax.swing.JLabel();
+        jLFunc2 = new javax.swing.JLabel();
+        jLFunc3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -170,20 +177,20 @@ public class CustoVendaView extends javax.swing.JFrame {
 
         jTCustoVenda.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Código", "Cód. Máquina", "Máquina", "Cód. Energia", "Energia", "Cód. Funcionário", "Funcionário", "Cód. Madeira", "Madeira", "Data da Venda", "Custo Adicional", "Perda", "Custo Final", "Margem de Lucro", "Valor Final", "Horas", "Madeira Utilizada"
+                "Código", "Cód. Máquina", "Máquina", "Cód. Energia", "Energia", "Cód. Funcionário", "Funcionário", "Cód. Madeira", "Madeira", "Data da Venda", "Custo Adicional", "Perda", "Custo Final", "Margem de Lucro", "Valor Final", "Horas", "Minutos", "Madeira Utilizada"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.Integer.class, java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -222,7 +229,8 @@ public class CustoVendaView extends javax.swing.JFrame {
             jTCustoVenda.getColumnModel().getColumn(13).setMinWidth(100);
             jTCustoVenda.getColumnModel().getColumn(14).setMinWidth(200);
             jTCustoVenda.getColumnModel().getColumn(15).setMinWidth(50);
-            jTCustoVenda.getColumnModel().getColumn(16).setMinWidth(150);
+            jTCustoVenda.getColumnModel().getColumn(16).setMinWidth(100);
+            jTCustoVenda.getColumnModel().getColumn(17).setMinWidth(150);
         }
 
         jTFCustoAdicional.addActionListener(new java.awt.event.ActionListener() {
@@ -322,13 +330,8 @@ public class CustoVendaView extends javax.swing.JFrame {
 
         jLData8.setText("Margem Lucro(%)");
 
-        jTFValorFinal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFValorFinalActionPerformed(evt);
-            }
-        });
-
-        jLData9.setText("Valor Final");
+        jLData9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLData9.setText("Valor Final:");
 
         jLayeredPane2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -347,6 +350,9 @@ public class CustoVendaView extends javax.swing.JFrame {
 
         jTFHoras.setEditable(false);
         jTFHoras.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTFHorasFocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTFHorasFocusLost(evt);
             }
@@ -392,6 +398,9 @@ public class CustoVendaView extends javax.swing.JFrame {
 
         jTFMadeira.setEditable(false);
         jTFMadeira.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTFMadeiraFocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jTFMadeiraFocusLost(evt);
             }
@@ -404,6 +413,30 @@ public class CustoVendaView extends javax.swing.JFrame {
 
         jLData15.setText("Madeira");
 
+        jButton2.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\ok.png")); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLData16.setText("Minutos");
+
+        jTFMinutos.setEditable(false);
+        jTFMinutos.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jTFMinutosFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTFMinutosFocusLost(evt);
+            }
+        });
+        jTFMinutos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFMinutosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
         jLayeredPane2.setLayout(jLayeredPane2Layout);
         jLayeredPane2Layout.setHorizontalGroup(
@@ -413,63 +446,72 @@ public class CustoVendaView extends javax.swing.JFrame {
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTFMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLData15))
+                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                                .addComponent(jTFHoras)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTFMinutos, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLData15)
+                                    .addComponent(jTFMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 18, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(jLData11)
-                                .addGap(50, 50, 50))
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTFCustoMaquina, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                            .addComponent(jTFCustoMaquina, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLData11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTFCustoEnergia, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLData12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLData13)
-                            .addComponent(jTFCustoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(12, 12, 12)
+                            .addComponent(jTFCustoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLData13))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLData14)
-                            .addComponent(jTFCustoMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLData10))
-                .addContainerGap(35, Short.MAX_VALUE))
+                            .addComponent(jTFCustoMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLData14))
+                        .addContainerGap(35, Short.MAX_VALUE))
+                    .addGroup(jLayeredPane2Layout.createSequentialGroup()
+                        .addComponent(jLData10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLData16)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLData10)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLData10)
+                    .addComponent(jLData16))
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addGap(5, 5, 5)
-                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                .addComponent(jLData14)
-                                .addGap(26, 26, 26))
-                            .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLData12)
-                                    .addComponent(jLData11)
-                                    .addComponent(jLData13))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTFCustoEnergia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTFCustoMaquina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTFCustoMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTFCustoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLData14)
+                            .addComponent(jLData13)
+                            .addComponent(jLData12)
+                            .addComponent(jLData11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTFCustoMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTFCustoFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTFCustoEnergia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTFCustoMaquina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTFHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTFHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTFMinutos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLData15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTFMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jLayeredPane2.setLayer(jLData11, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jLData12, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -483,8 +525,18 @@ public class CustoVendaView extends javax.swing.JFrame {
         jLayeredPane2.setLayer(jTFCustoFuncionario, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jTFMadeira, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(jLData15, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jLData16, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jTFMinutos, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\add.png")); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jLValorFinal.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -511,9 +563,12 @@ public class CustoVendaView extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jCBEnergia, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLData5)
-                            .addComponent(jCBFuncionario, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jCBFuncionario, 0, 135, Short.MAX_VALUE)
+                            .addComponent(jLFunc1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLFunc2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLFunc3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -524,28 +579,6 @@ public class CustoVendaView extends javax.swing.JFrame {
                     .addComponent(jLData6)
                     .addComponent(jCBMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFTFDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLData2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(14, 14, 14)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTFCustoAdicional, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLData))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLData1)
-                                .addGap(63, 63, 63)
-                                .addComponent(jLData7)
-                                .addGap(54, 54, 54)
-                                .addComponent(jLData8))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTFPerda, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTFCustoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTFMargemLucro, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jBNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -555,10 +588,33 @@ public class CustoVendaView extends javax.swing.JFrame {
                         .addComponent(jBDeletar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jBCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jTFValorFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLData9)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jFTFDataVenda, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLData2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLData9))
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTFCustoAdicional, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLData))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jTFPerda, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(jTFCustoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLData1)
+                                        .addGap(63, 63, 63)
+                                        .addComponent(jLData7)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLData8)
+                                    .addComponent(jTFMargemLucro, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLValorFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18))
         );
         layout.setVerticalGroup(
@@ -585,10 +641,19 @@ public class CustoVendaView extends javax.swing.JFrame {
                         .addComponent(jCBMaquina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLData6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLData6)
+                    .addComponent(jLFunc1, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jCBMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jCBMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(24, 24, 24))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLFunc2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLFunc3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addComponent(jLayeredPane2)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -604,11 +669,11 @@ public class CustoVendaView extends javax.swing.JFrame {
                     .addComponent(jTFPerda, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTFCustoFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTFMargemLucro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLData9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTFValorFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLData9)
+                    .addComponent(jLValorFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBNovo, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jBEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -666,16 +731,18 @@ public class CustoVendaView extends javax.swing.JFrame {
         jFTFDataVenda.setText("");
         jTFCustoAdicional.setText("");
         jTFPerda.setText("");
-        jTFCustoFinal.setText("");
-        jTFMargemLucro.setText("");
-        jTFValorFinal.setText("");
-        jTFHoras.setText("");
+        jTFCustoFinal.setText("0.0");
+        jTFMargemLucro.setText("0");
+        jLValorFinal.setText("");
+        jTFHoras.setText("0");
+        jTFMinutos.setText("0");
         jTFMadeira.setText("");
         jTFCustoMaquina.setText("");
         jTFCustoEnergia.setText("");
         jTFCustoFuncionario.setText("");
         jTFCustoMadeira.setText("");
         jTFHoras.setEditable(true);
+        jTFMinutos.setEditable(true);
         jTFMadeira.setEditable(true);
         jTFCustoAdicional.requestFocus();
     }//GEN-LAST:event_jBNovoActionPerformed
@@ -720,6 +787,7 @@ public class CustoVendaView extends javax.swing.JFrame {
         jBGravar.setEnabled(true);
         jTCustoVenda.setEnabled(false);
         jTFHoras.setEditable(true);
+        jTFMinutos.setEditable(true);
         jTFMadeira.setEditable(true);
         
         String codigo = ""+jTCustoVenda.getValueAt(jTCustoVenda.getSelectedRow(),0);
@@ -730,7 +798,8 @@ public class CustoVendaView extends javax.swing.JFrame {
         String margemlucro = ""+jTCustoVenda.getValueAt(jTCustoVenda.getSelectedRow(),13);
         String valorfinal = ""+jTCustoVenda.getValueAt(jTCustoVenda.getSelectedRow(),14);
         String hora = ""+jTCustoVenda.getValueAt(jTCustoVenda.getSelectedRow(),15);
-        String tamanhomadeira = ""+jTCustoVenda.getValueAt(jTCustoVenda.getSelectedRow(),14);
+        String minuto = ""+jTCustoVenda.getValueAt(jTCustoVenda.getSelectedRow(),16);
+        String tamanhomadeira = ""+jTCustoVenda.getValueAt(jTCustoVenda.getSelectedRow(),17);
         
         jTFCodigo.setText(codigo);
         jFTFDataVenda.setText(datavenda);
@@ -738,8 +807,9 @@ public class CustoVendaView extends javax.swing.JFrame {
         jTFPerda.setText(perda);
         jTFCustoFinal.setText(custofinal);
         jTFMargemLucro.setText(margemlucro);
-        jTFValorFinal.setText(valorfinal);
+        jLValorFinal.setText(valorfinal);
         jTFHoras.setText(hora);
+        jTFMinutos.setText(minuto);
         jTFMadeira.setText(tamanhomadeira);
         
         SimpleDateFormat formato1 = new SimpleDateFormat("yyyy-MM-dd");  
@@ -764,8 +834,9 @@ public class CustoVendaView extends javax.swing.JFrame {
             String perda = jTFPerda.getText();
             String custofinal = jTFCustoFinal.getText();
             String margemlucro = jTFMargemLucro.getText();
-            String valorfinal = jTFValorFinal.getText();
+            String valorfinal = jLValorFinal.getText();
             String horas = jTFHoras.getText();
+            String minutos = jTFMinutos.getText();
             String tamanhomadeira = jTFMadeira.getText();
             
             custovenda = new CustoVenda();
@@ -809,6 +880,7 @@ public class CustoVendaView extends javax.swing.JFrame {
             custovenda.setMargemlucro(Integer.valueOf(margemlucro));
             custovenda.setValorfinal(Double.valueOf(valorfinal));
             custovenda.setHoras(Integer.valueOf(horas));
+            custovenda.setMinutos(Integer.valueOf(minutos));
             custovenda.setTamanhomadeira(Double.valueOf(tamanhomadeira));
             
            
@@ -829,7 +901,9 @@ public class CustoVendaView extends javax.swing.JFrame {
             jTFPerda.setText("");
             jTFCustoFinal.setText("");
             jTFMargemLucro.setText("");
-            jTFValorFinal.setText("");
+            jLValorFinal.setText("");
+            jTFHoras.setText("");
+            jTFMinutos.setText("");
             jTFCustoMaquina.setText("");
             jTFCustoEnergia.setText("");
             jTFCustoFuncionario.setText("");
@@ -839,6 +913,7 @@ public class CustoVendaView extends javax.swing.JFrame {
             jBCancelar.setEnabled(false);
             jTCustoVenda.setEnabled(true);
             jTFHoras.setEditable(false);
+            jTFMinutos.setEditable(false);
             jTFMadeira.setEditable(false);
 
     }//GEN-LAST:event_jBGravarActionPerformed
@@ -868,8 +943,9 @@ public class CustoVendaView extends javax.swing.JFrame {
         jTFPerda.setText("");
         jTFCustoFinal.setText("");
         jTFMargemLucro.setText("");
-        jTFValorFinal.setText("");
+        jLValorFinal.setText("");
         jTFHoras.setText("");
+        jTFMinutos.setText("");
         jTFMadeira.setText("");
         jTFCustoMaquina.setText("");
         jTFCustoEnergia.setText("");
@@ -882,7 +958,9 @@ public class CustoVendaView extends javax.swing.JFrame {
         jBCancelar.setEnabled(false);
         jBEditar.setEnabled(false);
         jTFHoras.setEditable(false);
+        jTFMinutos.setEditable(false);
         jTFMadeira.setEditable(false);
+        custofunchora = 0.0;
     }//GEN-LAST:event_jBCancelarActionPerformed
 
     private void jCBMaquinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBMaquinaActionPerformed
@@ -986,10 +1064,6 @@ public class CustoVendaView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFMargemLucroActionPerformed
 
-    private void jTFValorFinalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFValorFinalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTFValorFinalActionPerformed
-
     private void jTFHorasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFHorasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFHorasActionPerformed
@@ -1015,12 +1089,54 @@ public class CustoVendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_jTFHorasFocusLost
 
     private void jTFMadeiraFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFMadeiraFocusLost
-        calcular();
+
     }//GEN-LAST:event_jTFMadeiraFocusLost
 
     private void jTFMadeiraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFMadeiraActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFMadeiraActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        calcular();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        ItemFuncionario ifu = (ItemFuncionario) jCBFuncionario.getSelectedItem(); 
+        
+        custofunchora = custofunchora + (Double.valueOf(ifu.custohora));
+        custofuncminuto = custofunchora/60;
+        if("".equals(jLFunc1.getText())){
+            jLFunc1.setText(ifu.nome);
+        }else{
+            if("".equals(jLFunc2.getText())){
+                jLFunc2.setText(ifu.nome);
+            }else{
+                jLFunc3.setText(ifu.nome);
+            }
+        }
+        
+        jCBFuncionario.removeItem(ifu);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTFMinutosFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFMinutosFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFMinutosFocusLost
+
+    private void jTFMinutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFMinutosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFMinutosActionPerformed
+
+    private void jTFHorasFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFHorasFocusGained
+        jTFHoras.selectAll();
+    }//GEN-LAST:event_jTFHorasFocusGained
+
+    private void jTFMinutosFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFMinutosFocusGained
+        jTFMinutos.selectAll();
+    }//GEN-LAST:event_jTFMinutosFocusGained
+
+    private void jTFMadeiraFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFMadeiraFocusGained
+        jTFMadeira.selectAll();
+    }//GEN-LAST:event_jTFMadeiraFocusGained
 
 
     public static void main(String args[]) {
@@ -1172,17 +1288,19 @@ public class CustoVendaView extends javax.swing.JFrame {
     private void calcular(){
         
         double horas = Double.valueOf(jTFHoras.getText());
+        double minutos = Double.valueOf(jTFMinutos.getText());
                 
          //############ ENERGIA ############
-        double valorhora, custoenergiahora;
+        double custoenergiatotal, valorhora, valorminuto, custoenergiahora, custoenergiaminuto;
         ItemEnergia iee = (ItemEnergia) jCBEnergia.getSelectedItem();
         
         valorhora = Double.valueOf(iee.valorhora);
+        valorminuto = valorhora/60;
         
         
         //############ MAQUINA ############
-        double totalmaquina;
-        double consumo, depreciacao, precounitario, valormanutencao, depreciacaohora;
+        double totalmaquina, totalmaquinahora, totalmaquinaminuto;
+        double consumo, depreciacao, precounitario, valormanutencao, valormanutencaominuto, depreciacaohora, depreciacaominuto;
        
         ItemMaquina imaq = (ItemMaquina) jCBMaquina.getSelectedItem(); 
         
@@ -1195,28 +1313,39 @@ public class CustoVendaView extends javax.swing.JFrame {
         depreciacaohora = depreciacaohora/12;
         depreciacaohora = depreciacaohora/22;
         depreciacaohora = depreciacaohora/8; //depreciacao por hora
+        depreciacaominuto = depreciacaohora/60; // depreciacao por minuto
         
         valormanutencao = valormanutencao/22;
         valormanutencao = valormanutencao/8; //manutencao por hora
+        valormanutencaominuto = valormanutencao/60; //manutencao por minuto
         
-        totalmaquina = depreciacaohora+valormanutencao;
-        totalmaquina = totalmaquina*horas;
+        totalmaquinahora = depreciacaohora+valormanutencao;
+        totalmaquinahora = totalmaquinahora*horas;
+        totalmaquinaminuto = depreciacaominuto+valormanutencaominuto;
+        totalmaquinaminuto = totalmaquinaminuto*minutos;
+        totalmaquina = totalmaquinahora+totalmaquinaminuto;
         jTFCustoMaquina.setText(String.valueOf(format(totalmaquina)));
     
         consumo = consumo/60;
         custoenergiahora = (consumo*valorhora)*60; // energia por hora
         custoenergiahora = custoenergiahora*horas;
-        jTFCustoEnergia.setText(String.valueOf(format(custoenergiahora)));
+        
+        custoenergiaminuto = (consumo*valorhora); // energia por minuto
+        custoenergiaminuto = custoenergiaminuto*minutos;
+        
+        custoenergiatotal = custoenergiahora+custoenergiaminuto;
+        
+        jTFCustoEnergia.setText(String.valueOf(format(custoenergiatotal)));
         
         
         //############ FUNCIONÁRIO ############
-        double totalfuncionario, custofunc;
+        double totalfuncionario;
         
-        ItemFuncionario ifu = (ItemFuncionario) jCBFuncionario.getSelectedItem(); 
-        
-        custofunc = Double.valueOf(ifu.custohora);
-        
-        totalfuncionario = horas*custofunc;
+//        ItemFuncionario ifu = (ItemFuncionario) jCBFuncionario.getSelectedItem(); 
+//        
+//        custofunc = Double.valueOf(ifu.custohora);
+//        
+        totalfuncionario = (horas*custofunchora)+(minutos*custofuncminuto);
         
         jTFCustoFuncionario.setText(String.valueOf(totalfuncionario));
         
@@ -1246,6 +1375,7 @@ public class CustoVendaView extends javax.swing.JFrame {
     private javax.swing.JButton jBGravar;
     private javax.swing.JButton jBNovo;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox jCBEnergia;
     private javax.swing.JComboBox jCBFuncionario;
     private javax.swing.JComboBox jCBMadeira;
@@ -1260,6 +1390,7 @@ public class CustoVendaView extends javax.swing.JFrame {
     private javax.swing.JLabel jLData13;
     private javax.swing.JLabel jLData14;
     private javax.swing.JLabel jLData15;
+    private javax.swing.JLabel jLData16;
     private javax.swing.JLabel jLData2;
     private javax.swing.JLabel jLData3;
     private javax.swing.JLabel jLData4;
@@ -1268,7 +1399,11 @@ public class CustoVendaView extends javax.swing.JFrame {
     private javax.swing.JLabel jLData7;
     private javax.swing.JLabel jLData8;
     private javax.swing.JLabel jLData9;
+    private javax.swing.JLabel jLFunc1;
+    private javax.swing.JLabel jLFunc2;
+    private javax.swing.JLabel jLFunc3;
     private javax.swing.JLabel jLTitulo;
+    private javax.swing.JLabel jLValorFinal;
     private javax.swing.JLayeredPane jLayeredPane2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTCustoVenda;
@@ -1282,7 +1417,7 @@ public class CustoVendaView extends javax.swing.JFrame {
     private javax.swing.JTextField jTFHoras;
     private javax.swing.JTextField jTFMadeira;
     private javax.swing.JTextField jTFMargemLucro;
+    private javax.swing.JTextField jTFMinutos;
     private javax.swing.JTextField jTFPerda;
-    private javax.swing.JTextField jTFValorFinal;
     // End of variables declaration//GEN-END:variables
 }

@@ -52,9 +52,12 @@
                           </Group>
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLData5" min="-2" max="-2" attributes="0"/>
-                          <Component id="jCBFuncionario" alignment="0" min="-2" pref="135" max="-2" attributes="0"/>
+                          <Component id="jCBFuncionario" alignment="0" pref="135" max="32767" attributes="0"/>
+                          <Component id="jLFunc1" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLFunc2" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLFunc3" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="38" max="-2" attributes="0"/>
@@ -69,34 +72,6 @@
                   <Component id="jLData6" min="-2" max="-2" attributes="0"/>
                   <Component id="jCBMadeira" min="-2" pref="135" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jFTFDataVenda" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                          <Component id="jLData2" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTFCustoAdicional" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                          <Component id="jLData" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLData1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
-                              <Component id="jLData7" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
-                              <Component id="jLData8" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jTFPerda" min="-2" pref="100" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTFCustoFinal" min="-2" pref="100" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTFMargemLucro" min="-2" pref="86" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                  </Group>
-                  <Group type="102" attributes="0">
                       <Component id="jBNovo" min="-2" pref="105" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jBEditar" min="-2" pref="105" max="-2" attributes="0"/>
@@ -107,11 +82,42 @@
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jBCancelar" min="-2" pref="105" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="jLayeredPane2" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jTFValorFinal" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                      <Component id="jLData9" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jFTFDataVenda" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                          <Component id="jLData2" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                          <Component id="jLData9" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTFCustoAdicional" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
+                                  <Component id="jLData" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jTFPerda" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Component id="jTFCustoFinal" min="-2" pref="100" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLData1" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="63" max="-2" attributes="0"/>
+                                      <Component id="jLData7" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jLData8" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTFMargemLucro" min="-2" pref="86" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Component id="jLValorFinal" min="-2" pref="83" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
+                  <Component id="jLayeredPane2" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
           </Group>
@@ -149,10 +155,23 @@
                   </Group>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jLData6" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLData6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLFunc1" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jCBMadeira" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jCBMadeira" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="jLFunc2" min="-2" pref="14" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="jLFunc3" min="-2" pref="14" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <Component id="jLayeredPane2" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -170,11 +189,12 @@
                   <Component id="jTFCustoFinal" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTFMargemLucro" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLData9" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTFValorFinal" min="-2" pref="27" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLData9" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLValorFinal" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jBNovo" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="jBEditar" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
@@ -299,7 +319,7 @@
         <Component class="javax.swing.JTable" name="jTCustoVenda">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="17" rowCount="4">
+              <Table columnCount="18" rowCount="4">
                 <Column editable="false" title="C&#xf3;digo" type="java.lang.Integer"/>
                 <Column editable="false" title="C&#xf3;d. M&#xe1;quina" type="java.lang.Integer"/>
                 <Column editable="false" title="M&#xe1;quina" type="java.lang.String"/>
@@ -316,6 +336,7 @@
                 <Column editable="false" title="Margem de Lucro" type="java.lang.String"/>
                 <Column editable="false" title="Valor Final" type="java.lang.String"/>
                 <Column editable="false" title="Horas" type="java.lang.String"/>
+                <Column editable="false" title="Minutos" type="java.lang.String"/>
                 <Column editable="false" title="Madeira Utilizada" type="java.lang.String"/>
               </Table>
             </Property>
@@ -399,6 +420,11 @@
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="50" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="100" prefWidth="-1" resizable="true">
                   <Title/>
                   <Editor/>
                   <Renderer/>
@@ -524,14 +550,12 @@
         <Property name="text" type="java.lang.String" value="Margem Lucro(%)"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTFValorFinal">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFValorFinalActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="jLData9">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Valor Final"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Valor Final:"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JLayeredPane" name="jLayeredPane2">
@@ -551,40 +575,50 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTFHoras" min="-2" pref="53" max="-2" attributes="0"/>
-                              <Component id="jTFMadeira" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
-                              <Component id="jLData15" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                                  <Component id="jLData11" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jTFHoras" max="32767" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jTFMinutos" min="-2" pref="34" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" attributes="0">
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="jTFCustoMaquina" min="-2" pref="79" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLData15" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTFMadeira" alignment="0" min="-2" pref="53" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="18" max="32767" attributes="0"/>
                               </Group>
                           </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jButton2" min="-2" pref="38" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jTFCustoMaquina" min="-2" pref="79" max="-2" attributes="0"/>
+                              <Component id="jLData11" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jTFCustoEnergia" min="-2" pref="79" max="-2" attributes="0"/>
                               <Component id="jLData12" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLData13" min="-2" max="-2" attributes="0"/>
                               <Component id="jTFCustoFuncionario" min="-2" pref="79" max="-2" attributes="0"/>
+                              <Component id="jLData13" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLData14" min="-2" max="-2" attributes="0"/>
                               <Component id="jTFCustoMadeira" min="-2" pref="79" max="-2" attributes="0"/>
+                              <Component id="jLData14" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace pref="35" max="32767" attributes="0"/>
                       </Group>
-                      <Component id="jLData10" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Component id="jLData10" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jLData16" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace pref="35" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -592,41 +626,41 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jLData10" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLData10" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLData16" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Component id="jLData14" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLData12" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLData11" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLData13" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jTFCustoEnergia" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTFCustoMaquina" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTFCustoMadeira" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTFCustoFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLData14" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLData13" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLData12" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLData11" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTFCustoMadeira" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFCustoFuncionario" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFCustoEnergia" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFCustoMaquina" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButton2" alignment="0" min="-2" pref="28" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jTFHoras" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jTFHoras" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTFMinutos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jLData15" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jTFMadeira" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -659,6 +693,7 @@
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
           <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFHorasFocusGained"/>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFHorasFocusLost"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFHorasActionPerformed"/>
           </Events>
@@ -719,6 +754,7 @@
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
           <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFMadeiraFocusGained"/>
             <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFMadeiraFocusLost"/>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFMadeiraActionPerformed"/>
           </Events>
@@ -728,6 +764,31 @@
             <Property name="text" type="java.lang.String" value="Madeira"/>
           </Properties>
         </Component>
+        <Component class="javax.swing.JButton" name="jButton2">
+          <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="2" name="C:\SCCP\img\ok.png"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLData16">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Minutos"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTFMinutos">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFMinutosFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFMinutosFocusLost"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFMinutosActionPerformed"/>
+          </Events>
+        </Component>
       </SubComponents>
     </Container>
     <Component class="javax.swing.JButton" name="jButton1">
@@ -736,6 +797,22 @@
           <Image iconType="2" name="C:\SCCP\img\add.png"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLValorFinal">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="18" style="1"/>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLFunc1">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLFunc2">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLFunc3">
     </Component>
   </SubComponents>
 </Form>

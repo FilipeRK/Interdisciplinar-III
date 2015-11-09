@@ -17,7 +17,7 @@ public class CustoVenda implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator="seq_custovenda")
     private int codcustovenda;
-    private int perda, margemlucro, horas;
+    private int perda, margemlucro, horas, minutos;
     private double custoadicional, custofinal, valorfinal, tamanhomadeira;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date datavenda;
@@ -142,4 +142,11 @@ public class CustoVenda implements Serializable {
         this.tamanhomadeira = tamanhomadeira;
     }
 
+    public int getMinutos() {
+        return minutos;
+    }
+
+    public void setMinutos(int minutos) {
+        this.minutos = minutos;
+    }
 }

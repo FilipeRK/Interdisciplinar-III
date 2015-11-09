@@ -742,6 +742,7 @@ public class FuncionarioView extends javax.swing.JFrame {
         jBGravar.setEnabled(false);
         jBCancelar.setEnabled(false);
         jBEditar.setEnabled(false);
+        editando = 0;
     }//GEN-LAST:event_jBCancelarActionPerformed
 
     private void jTFuncionarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTFuncionarioMouseClicked
