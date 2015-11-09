@@ -43,9 +43,9 @@
                           <Component id="jLData" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLData1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTFConsumo" min="-2" pref="62" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jLData1" max="32767" attributes="0"/>
+                          <Component id="jTFConsumo" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jButton1" min="-2" pref="33" max="-2" attributes="0"/>
@@ -54,7 +54,7 @@
                           <Component id="jTFDepreciacao" min="-2" pref="107" max="-2" attributes="0"/>
                           <Component id="jLData2" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="83" max="32767" attributes="0"/>
+                      <EmptySpace pref="81" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">

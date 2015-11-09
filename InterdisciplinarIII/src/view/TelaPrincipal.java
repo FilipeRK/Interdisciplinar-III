@@ -161,7 +161,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu3.setText("Máquinas");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\add.png")); // NOI18N
+        jMenuItem1.setIcon(new javax.swing.JLabel() {
+            public javax.swing.Icon getIcon() {
+                try {
+                    return new javax.swing.ImageIcon(
+                        new java.net.URL("file:/C:/SCCP/img/maquina.png")
+                    );
+                } catch (java.net.MalformedURLException e) {
+                }
+                return null;
+            }
+        }.getIcon());
         jMenuItem1.setText("Cadastro");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,7 +193,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMFornecedores.setText("Madeiras");
 
-        jMIMadeira.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\add.png")); // NOI18N
+        jMIMadeira.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\madeira.png")); // NOI18N
         jMIMadeira.setText("Cadastro");
         jMIMadeira.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,7 +202,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMFornecedores.add(jMIMadeira);
 
-        jMIUnidadeMadeiraCadastro.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\madeira.png")); // NOI18N
+        jMIUnidadeMadeiraCadastro.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\metroquadrado.png")); // NOI18N
         jMIUnidadeMadeiraCadastro.setText("Unidade Madeira");
         jMIUnidadeMadeiraCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
