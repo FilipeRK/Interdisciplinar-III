@@ -161,17 +161,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu3.setText("Máquinas");
 
-        jMenuItem1.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/C:/SCCP/img/maquina.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        jMenuItem1.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\maquina.png")); // NOI18N
         jMenuItem1.setText("Cadastro");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
