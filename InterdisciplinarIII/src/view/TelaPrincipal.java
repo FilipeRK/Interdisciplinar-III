@@ -3,6 +3,8 @@ package view;
 import dao.AFCaixaDao;
 //import dao.CidadesDao;
 import dao.ClienteDao;
+import dao.MadeiraDao;
+import dao.MaquinaDao;
 //import dao.FornecedoresDao;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -64,9 +66,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu3 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMFornecedores = new javax.swing.JMenu();
         jMIMadeira = new javax.swing.JMenuItem();
         jMIUnidadeMadeiraCadastro = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
         jMClientes = new javax.swing.JMenu();
         jMIClienteCadastro = new javax.swing.JMenuItem();
         jMICidadeCadastro = new javax.swing.JMenuItem();
@@ -179,6 +183,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem2);
 
+        jMenuItem9.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\relatorio.jpg")); // NOI18N
+        jMenuItem9.setText("Relatório");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem9);
+
         jMenuPrincipal.add(jMenu3);
 
         jMFornecedores.setText("Madeiras");
@@ -200,6 +213,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jMFornecedores.add(jMIUnidadeMadeiraCadastro);
+
+        jMenuItem4.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\relatorio.jpg")); // NOI18N
+        jMenuItem4.setText("Relatório");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMFornecedores.add(jMenuItem4);
 
         jMenuPrincipal.add(jMFornecedores);
 
@@ -406,6 +428,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
         aa.abreJanelaCustoVenda();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        if(JOptionPane.showConfirmDialog(null, "Gerar relatório das Madeiras?", "Relatório", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+            MadeiraDao maDao = new MadeiraDao();
+            try {
+                maDao.abrirRelatorio();
+            }catch(Exception e){
+            }
+        }
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        if(JOptionPane.showConfirmDialog(null, "Gerar relatório de Máquinas?", "Relatório", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+            MaquinaDao mqDao = new MaquinaDao();
+            try {
+                mqDao.abrirRelatorio();
+            }catch(Exception e){
+            }
+        }
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -541,10 +583,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuBar jMenuPrincipal;
     // End of variables declaration//GEN-END:variables
 }

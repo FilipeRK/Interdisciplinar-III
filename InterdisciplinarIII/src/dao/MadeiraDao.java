@@ -1,11 +1,18 @@
 package dao;
 
+import java.io.InputStream;
+import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import model.Madeira;
+import net.sf.jasperreports.engine.JRException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import util.ConnectionFactory;
 import util.HibernateUtil;
+import util.ReportUtils;
 
 
 public class MadeiraDao {
@@ -46,5 +53,18 @@ public class MadeiraDao {
     
     public List<Madeira> findAll(){ 
         return session.createQuery("From Madeira").list();
+    }
+    
+    public void abrirRelatorio() {
+ 
+        InputStream inputStream = getClass().getResourceAsStream( "/Madeira.jasper" );
+        Map parametros = new HashMap();
+
+        try {
+            ReportUtils.openReport( "Madeira", inputStream, parametros,
+                    ConnectionFactory.getBancoConnection());
+ 
+        } catch ( SQLException | JRException exc ) {
+        }
     }
 }

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="aa14ba50-b50e-41dc-bddf-d704376ff08d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select *
+from maquina]]>
+	</queryString>
+	<field name="codmaquina" class="java.lang.Integer"/>
+	<field name="consumo" class="java.lang.Double"/>
+	<field name="depreciacao" class="java.lang.Integer"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="precounitario" class="java.lang.Double"/>
+	<field name="valormanutencao" class="java.lang.Double"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" uuid="12518dbf-526a-4938-8019-4a943aa41f75"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SCCP - Sistema para Controle de Custo de Produção
+Madeireira Itaúba 
+
+Relatório de Máquinas]]></text>
+			</staticText>
+			<image>
+				<reportElement x="12" y="12" width="88" height="67" uuid="9eac5b73-2bc9-4a1c-b0ab-cb96b8b2ee9f"/>
+				<imageExpression><![CDATA["C:\\SCCP\\img\\logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="30" splitType="Stretch">
+			<staticText>
+				<reportElement x="18" y="2" width="59" height="20" uuid="6d8070e5-6a76-4b70-b289-0fc06db4a613"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="94" y="2" width="119" height="20" uuid="63b6e068-adad-4955-a433-cf7da945acca"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="231" y="2" width="69" height="20" uuid="9740d862-2207-4d7c-a8fc-c245ad49464c"/>
+				<text><![CDATA[Consumo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="313" y="2" width="85" height="20" uuid="fdc1c064-891f-4ff4-abe3-49065e758778"/>
+				<text><![CDATA[Depreciação]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="415" y="2" width="73" height="20" uuid="3fecaa56-760c-4cfb-bf81-4d8c08f9dd25"/>
+				<text><![CDATA[Manutenção]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<textField>
+				<reportElement x="18" y="0" width="59" height="20" uuid="356fe339-472f-4c0f-9623-c993f8cae8ed"/>
+				<textFieldExpression><![CDATA[$F{codmaquina}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="94" y="0" width="119" height="20" uuid="b7449a8b-675c-4701-bec0-e3952d2cd075"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="231" y="0" width="69" height="20" uuid="e5215715-5258-4a47-ab67-72664b1c990f"/>
+				<textFieldExpression><![CDATA[$F{consumo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00">
+				<reportElement x="313" y="0" width="85" height="20" uuid="6804596a-de62-4f2c-a33a-99d53ecd836e"/>
+				<textFieldExpression><![CDATA[$F{depreciacao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="415" y="0" width="73" height="20" uuid="8e926637-8f4f-4c2f-a25a-874ec368055b"/>
+				<textFieldExpression><![CDATA[$F{valormanutencao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="580d5f63-925f-4fab-b2f6-7fb513e8be8a"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

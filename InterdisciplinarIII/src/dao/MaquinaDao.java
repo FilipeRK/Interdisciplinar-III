@@ -1,11 +1,18 @@
 package dao;
 
+import java.io.InputStream;
+import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.swing.JOptionPane;
 import model.Maquina;
+import net.sf.jasperreports.engine.JRException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import util.ConnectionFactory;
 import util.HibernateUtil;
+import util.ReportUtils;
 
 
 public class MaquinaDao {
@@ -46,5 +53,18 @@ public class MaquinaDao {
     
     public List<Maquina> findAll(){ 
         return session.createQuery("From Maquina").list();
+    }
+    
+     public void abrirRelatorio() {
+ 
+        InputStream inputStream = getClass().getResourceAsStream( "/Maquina.jasper" );
+        Map parametros = new HashMap();
+
+        try {
+            ReportUtils.openReport( "Maquina", inputStream, parametros,
+                    ConnectionFactory.getBancoConnection());
+ 
+        } catch ( SQLException | JRException exc ) {
+        }
     }
 }
