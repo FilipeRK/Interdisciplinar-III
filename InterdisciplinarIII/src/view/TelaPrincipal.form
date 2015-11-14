@@ -156,9 +156,6 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jMIUnidadeMadeiraCadastro">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\SCCP\img\metroquadrado.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Unidade Madeira"/>
               </Properties>
               <Events>

@@ -91,7 +91,7 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jLData7" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="0" pref="84" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="jTFINSS" alignment="1" max="32767" attributes="0"/>
                               </Group>
@@ -120,41 +120,37 @@
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jTFCustoMM" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jLData13" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLData14" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jTFCustoAno" min="-2" pref="74" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTFCustoDia" min="-2" pref="74" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLData16" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTFCustoHora" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="181" pref="181" max="-2" attributes="0"/>
-                              <Component id="jLData15" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLData13" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFCustoMM" min="-2" pref="115" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLData14" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFCustoAno" min="-2" pref="62" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLData15" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFCustoDia" min="-2" pref="74" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLData16" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFCustoHora" min="-2" pref="67" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                           <Component id="jTFCustoModHora" alignment="0" max="32767" attributes="0"/>
                           <Component id="jLData17" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTFSalarioFinal" min="-2" pref="97" max="-2" attributes="0"/>
-                          <Component id="jLData18" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jLData18" max="32767" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jTFSalarioFinal" min="-2" pref="81" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -172,7 +168,7 @@
                               <Component id="jBCancelar" min="-2" pref="105" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="11" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -251,30 +247,32 @@
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" attributes="0">
-                  <Component id="jTFCustoMM" alignment="1" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                      <Component id="jTFCustoAno" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTFCustoDia" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTFCustoHora" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                      <Component id="jTFCustoModHora" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jTFSalarioFinal" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLData16" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLData13" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                              <Component id="jLData14" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLData15" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jLData17" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLData18" alignment="1" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                          <Component id="jTFCustoAno" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFCustoDia" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFCustoHora" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
+                      <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                          <Component id="jTFCustoModHora" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTFSalarioFinal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="jLData16" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLData13" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="3" attributes="0">
+                                  <Component id="jLData14" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLData15" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Component id="jLData17" alignment="1" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLData18" alignment="1" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="26" pref="26" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
+                  <Component id="jTFCustoMM" alignment="1" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">

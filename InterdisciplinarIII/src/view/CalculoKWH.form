@@ -32,6 +32,7 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace pref="48" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jButton1" min="-2" pref="110" max="-2" attributes="0"/>
                   <Component id="jLData1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jTFResultado" alignment="0" min="-2" pref="106" max="-2" attributes="0"/>
                   <Component id="jLData" min="-2" max="-2" attributes="0"/>
@@ -42,11 +43,6 @@
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="83" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="110" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,7 +75,7 @@
           <Font name="Arial" size="24" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Calcular para KW/h"/>
+        <Property name="text" type="java.lang.String" value="Calcular para kW/h"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLData">
@@ -98,12 +94,18 @@
           </StringArray>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="CalculoKWH_jCB1"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="jTFResultado">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLData1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Resultado"/>
+        <Property name="text" type="java.lang.String" value="Resultado em Kwh"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">

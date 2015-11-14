@@ -39,13 +39,15 @@ public class CalculoKWH extends javax.swing.JFrame {
 
         jLTitulo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         jLTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLTitulo.setText("Calcular para KW/h");
+        jLTitulo.setText("Calcular para kW/h");
 
         jLData.setText("Valor");
 
         jCB1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CV", "W" }));
 
-        jLData1.setText("Resultado");
+        jTFResultado.setEditable(false);
+
+        jLData1.setText("Resultado em Kwh");
 
         jButton1.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\calcular.png")); // NOI18N
         jButton1.setText("Calcular");
@@ -63,6 +65,7 @@ public class CalculoKWH extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(48, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLData1)
                     .addComponent(jTFResultado, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLData)
@@ -71,10 +74,6 @@ public class CalculoKWH extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jCB1, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(50, 50, 50))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(83, 83, 83)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,7 +176,7 @@ public class CalculoKWH extends javax.swing.JFrame {
 
         this.setLocationRelativeTo(null);
         this.setLayout(new BorderLayout());
-        this.setTitle("Calculo para KWh");
+        this.setTitle("Calculo para kWh");
         
         ImageIcon image = new ImageIcon("C:\\SCCP\\img\\icone.png");
         this.setIconImage(image.getImage()); 
