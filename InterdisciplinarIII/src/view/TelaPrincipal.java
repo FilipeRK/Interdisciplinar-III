@@ -80,6 +80,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMICartaoCadastro = new javax.swing.JMenuItem();
         jMITipoCartaoCadastro = new javax.swing.JMenuItem();
+        jMenu6 = new javax.swing.JMenu();
+        jNovoUsuario = new javax.swing.JMenuItem();
+        jAlterarSenha = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -165,7 +168,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu3.setText("Máquinas");
 
-        jMenuItem1.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\maquina.png")); // NOI18N
         jMenuItem1.setText("Cadastro");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,7 +185,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem2);
 
-        jMenuItem9.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\relatorio.jpg")); // NOI18N
         jMenuItem9.setText("Relatório");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -205,7 +206,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMFornecedores.add(jMIMadeira);
 
-        jMIUnidadeMadeiraCadastro.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\metroquadrado.png")); // NOI18N
         jMIUnidadeMadeiraCadastro.setText("Unidade Madeira");
         jMIUnidadeMadeiraCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,7 +214,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMFornecedores.add(jMIUnidadeMadeiraCadastro);
 
-        jMenuItem4.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\relatorio.jpg")); // NOI18N
         jMenuItem4.setText("Relatório");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -295,6 +294,26 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu2.add(jMITipoCartaoCadastro);
 
         jMenuPrincipal.add(jMenu2);
+
+        jMenu6.setText("Usuário");
+
+        jNovoUsuario.setText("Novo Usuário");
+        jNovoUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jNovoUsuarioActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jNovoUsuario);
+
+        jAlterarSenha.setText("Alterar Senha");
+        jAlterarSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jAlterarSenhaActionPerformed(evt);
+            }
+        });
+        jMenu6.add(jAlterarSenha);
+
+        jMenuPrincipal.add(jMenu6);
 
         setJMenuBar(jMenuPrincipal);
 
@@ -448,6 +467,24 @@ public class TelaPrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
+    private void jNovoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNovoUsuarioActionPerformed
+        UsuarioLogin tela = new UsuarioLogin();
+        tela.jLTítulo.setText("SCCP - Novo Usuário");
+        tela.jBLogin.setText("Criar");
+        tela.setTitle("SCCP - Novo Usuário");
+        tela.novoUser = 1;
+        tela.abreJanelaUsuario();
+    }//GEN-LAST:event_jNovoUsuarioActionPerformed
+
+    private void jAlterarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAlterarSenhaActionPerformed
+        UsuarioLogin tela = new UsuarioLogin();
+        tela.jLTítulo.setText("SCCP - Alterar Senha");
+        tela.jBLogin.setText("Alterar");
+        tela.setTitle("SCCP - Alterar Senha");
+        tela.editSenha = 1;
+        tela.abreJanelaUsuario();
+    }//GEN-LAST:event_jAlterarSenhaActionPerformed
+
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -563,6 +600,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     AFCaixaDao telaAFDao = new AFCaixaDao();
     AFCaixaView telaAF = new AFCaixaView();
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem jAlterarSenha;
     private javax.swing.JMenu jMClientes;
     private javax.swing.JMenu jMFornecedores;
     private javax.swing.JMenuItem jMIAberturaCaixa;
@@ -580,6 +618,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -590,5 +629,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuBar jMenuPrincipal;
+    private javax.swing.JMenuItem jNovoUsuario;
     // End of variables declaration//GEN-END:variables
 }
