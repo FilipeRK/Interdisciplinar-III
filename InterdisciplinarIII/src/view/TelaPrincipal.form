@@ -263,6 +263,9 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="jNovoUsuario">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\SCCP\img\usu&#xe1;rio.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Novo Usu&#xe1;rio"/>
               </Properties>
               <Events>
@@ -271,6 +274,9 @@
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="jAlterarSenha">
               <Properties>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="C:\SCCP\img\senha.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Alterar Senha"/>
               </Properties>
               <Events>

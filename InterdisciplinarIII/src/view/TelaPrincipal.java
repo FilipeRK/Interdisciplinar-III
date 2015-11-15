@@ -297,6 +297,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu6.setText("Usuário");
 
+        jNovoUsuario.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\usuário.png")); // NOI18N
         jNovoUsuario.setText("Novo Usuário");
         jNovoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -305,6 +306,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu6.add(jNovoUsuario);
 
+        jAlterarSenha.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\senha.png")); // NOI18N
         jAlterarSenha.setText("Alterar Senha");
         jAlterarSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
