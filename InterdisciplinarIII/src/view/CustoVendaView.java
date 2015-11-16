@@ -1314,9 +1314,12 @@ public class CustoVendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_jFTFDataVendaFocusGained
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String codigo = ""+jTCustoVenda.getValueAt(jTCustoVenda.getSelectedRow(),0);
-        dao.cod = Integer.parseInt(codigo);
-        dao.abrirRelatorio();
+        
+        if(JOptionPane.showConfirmDialog(null, "Gerar relatório da Venda?", "Relatório", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){       
+            String codigo = ""+jTCustoVenda.getValueAt(jTCustoVenda.getSelectedRow(),0);
+            dao.cod = Integer.parseInt(codigo);
+            dao.abrirRelatorio();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

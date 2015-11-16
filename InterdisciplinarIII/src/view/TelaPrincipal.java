@@ -168,6 +168,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu3.setText("Máquinas");
 
+        jMenuItem1.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\maquina.png")); // NOI18N
         jMenuItem1.setText("Cadastro");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -185,6 +186,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu3.add(jMenuItem2);
 
+        jMenuItem9.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\relatorio.jpg")); // NOI18N
         jMenuItem9.setText("Relatório");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,6 +208,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMFornecedores.add(jMIMadeira);
 
+        jMIUnidadeMadeiraCadastro.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\metroquadrado.png")); // NOI18N
         jMIUnidadeMadeiraCadastro.setText("Unidade Madeira");
         jMIUnidadeMadeiraCadastro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -214,6 +217,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMFornecedores.add(jMIUnidadeMadeiraCadastro);
 
+        jMenuItem4.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\relatorio.jpg")); // NOI18N
         jMenuItem4.setText("Relatório");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

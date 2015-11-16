@@ -44,6 +44,9 @@ public class UsuarioLogin extends javax.swing.JFrame {
 
         jLSenha.setText("Senha");
 
+        jTFUsuario.setText("Admin");
+
+        jTFSenha.setText("Admin");
         jTFSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTFSenhaKeyPressed(evt);
