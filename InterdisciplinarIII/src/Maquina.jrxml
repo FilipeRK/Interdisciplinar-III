@@ -17,9 +17,9 @@ from maquina]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="108" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="555" height="79" uuid="12518dbf-526a-4938-8019-4a943aa41f75"/>
+				<reportElement x="0" y="0" width="555" height="93" uuid="12518dbf-526a-4938-8019-4a943aa41f75"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Arial" size="14" isBold="true"/>
 				</textElement>
@@ -29,7 +29,7 @@ Madeireira Itaúba
 Relatório de Máquinas]]></text>
 			</staticText>
 			<image>
-				<reportElement x="12" y="12" width="88" height="67" uuid="9eac5b73-2bc9-4a1c-b0ab-cb96b8b2ee9f"/>
+				<reportElement x="6" y="41" width="88" height="67" uuid="9eac5b73-2bc9-4a1c-b0ab-cb96b8b2ee9f"/>
 				<imageExpression><![CDATA["C:\\SCCP\\img\\logo.jpg"]]></imageExpression>
 			</image>
 		</band>
@@ -38,22 +38,37 @@ Relatório de Máquinas]]></text>
 		<band height="30" splitType="Stretch">
 			<staticText>
 				<reportElement x="18" y="2" width="59" height="20" uuid="6d8070e5-6a76-4b70-b289-0fc06db4a613"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[Código]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="94" y="2" width="119" height="20" uuid="63b6e068-adad-4955-a433-cf7da945acca"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[Nome]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="231" y="2" width="69" height="20" uuid="9740d862-2207-4d7c-a8fc-c245ad49464c"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[Consumo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="313" y="2" width="85" height="20" uuid="fdc1c064-891f-4ff4-abe3-49065e758778"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[Depreciação]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="415" y="2" width="73" height="20" uuid="3fecaa56-760c-4cfb-bf81-4d8c08f9dd25"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[Manutenção]]></text>
 			</staticText>
 		</band>
@@ -61,7 +76,7 @@ Relatório de Máquinas]]></text>
 	<detail>
 		<band height="32" splitType="Stretch">
 			<textField>
-				<reportElement x="18" y="0" width="59" height="20" uuid="356fe339-472f-4c0f-9623-c993f8cae8ed"/>
+				<reportElement x="35" y="0" width="59" height="20" uuid="356fe339-472f-4c0f-9623-c993f8cae8ed"/>
 				<textFieldExpression><![CDATA[$F{codmaquina}]]></textFieldExpression>
 			</textField>
 			<textField>

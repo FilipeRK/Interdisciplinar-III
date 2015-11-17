@@ -49,28 +49,43 @@ Relatório de Venda]]></text>
 			<staticText>
 				<reportElement x="100" y="19" width="368" height="45" uuid="a795151d-5e78-44c0-bd7a-2488912b14e8"/>
 				<textElement>
-					<font size="16"/>
+					<font size="16" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cliente: _______________________________]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="12" y="74" width="100" height="20" uuid="d498b4d4-741c-415e-b3bd-135f248dfb15"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[Data da Venda]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="372" y="74" width="83" height="20" uuid="386f9dd4-16e8-468d-a924-cec919749675"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[Tempo(h/m)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="127" y="74" width="100" height="20" uuid="31f044d2-a27b-47f6-a80b-80c09caa1551"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[Máquina]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="242" y="74" width="100" height="20" uuid="1a184312-7252-4440-8b1b-b4ac59442cc2"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[Madeira]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="468" y="74" width="87" height="20" uuid="10b30cf4-4f4e-46a2-a9e5-408caca32878"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
 				<text><![CDATA[Valor Final]]></text>
 			</staticText>
 		</band>
