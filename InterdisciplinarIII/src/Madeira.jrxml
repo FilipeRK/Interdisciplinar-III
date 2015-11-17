@@ -39,30 +39,18 @@ Relatório de Madeiras]]></text>
 		<band height="30" splitType="Stretch">
 			<staticText>
 				<reportElement x="44" y="2" width="56" height="20" uuid="e73e34bc-c1ad-4f7b-84b1-2583a52b405c"/>
-				<textElement>
-					<font size="12" isBold="true"/>
-				</textElement>
 				<text><![CDATA[Código]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="119" y="2" width="125" height="20" uuid="559629b3-d6e2-41e8-9db4-75a229aadd6f"/>
-				<textElement>
-					<font size="12" isBold="true"/>
-				</textElement>
 				<text><![CDATA[Nome]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="263" y="2" width="100" height="20" uuid="e79f2fab-617d-4dd6-9cb0-b7aebe473491"/>
-				<textElement>
-					<font size="12" isBold="true"/>
-				</textElement>
 				<text><![CDATA[Preço]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="393" y="2" width="100" height="20" uuid="c07a63ed-4a96-4636-876c-eb7a6c5c42fa"/>
-				<textElement>
-					<font size="12" isBold="true"/>
-				</textElement>
 				<text><![CDATA[Unidade]]></text>
 			</staticText>
 		</band>
@@ -71,30 +59,18 @@ Relatório de Madeiras]]></text>
 		<band height="32" splitType="Stretch">
 			<textField>
 				<reportElement x="44" y="0" width="56" height="20" uuid="ec229ef7-1fd3-4809-aba1-be7088be4f0a"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
 				<textFieldExpression><![CDATA[$F{codmadeira}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="119" y="0" width="125" height="20" uuid="341484d9-dc16-434d-ae0d-9bd357145c35"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="#,##0.00">
 				<reportElement x="263" y="0" width="100" height="20" uuid="ebc88121-7551-4e14-85fc-f8d3244f8419"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
 				<textFieldExpression><![CDATA[$F{precounitario}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="393" y="0" width="100" height="20" uuid="4561fd3a-07a6-4a6c-a9b7-5652321950c0"/>
-				<textElement>
-					<font size="12"/>
-				</textElement>
 				<textFieldExpression><![CDATA[$F{nomemadeira}]]></textFieldExpression>
 			</textField>
 		</band>

@@ -91,13 +91,14 @@ Relatório de Venda]]></text>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="32" splitType="Stretch">
+		<band height="22" splitType="Stretch">
 			<textField>
 				<reportElement x="12" y="0" width="100" height="20" uuid="65e11f1c-e7e6-462d-811f-77e8653a49c3"/>
 				<textFieldExpression><![CDATA[$F{datavenda}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="372" y="0" width="22" height="20" uuid="cd3463bc-9de5-46fb-96f6-77e15182b247"/>
+				<textElement textAlignment="Right"/>
 				<textFieldExpression><![CDATA[$F{horas}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -113,9 +114,16 @@ Relatório de Venda]]></text>
 				<textFieldExpression><![CDATA[$F{madeiranome}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
-				<reportElement x="468" y="0" width="87" height="20" uuid="3b00ad05-39b9-495b-950e-c384c322d245"/>
+				<reportElement x="481" y="0" width="87" height="20" uuid="3b00ad05-39b9-495b-950e-c384c322d245"/>
 				<textFieldExpression><![CDATA[$F{valorfinal}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="394" y="0" width="11" height="20" uuid="a15eb55e-f777-4b28-ab04-be3f6030e2b4"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<pageFooter>

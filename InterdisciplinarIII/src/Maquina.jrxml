@@ -74,7 +74,7 @@ Relatório de Máquinas]]></text>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="32" splitType="Stretch">
+		<band height="21" splitType="Stretch">
 			<textField>
 				<reportElement x="35" y="0" width="59" height="20" uuid="356fe339-472f-4c0f-9623-c993f8cae8ed"/>
 				<textFieldExpression><![CDATA[$F{codmaquina}]]></textFieldExpression>
@@ -83,18 +83,33 @@ Relatório de Máquinas]]></text>
 				<reportElement x="94" y="0" width="119" height="20" uuid="b7449a8b-675c-4701-bec0-e3952d2cd075"/>
 				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="231" y="0" width="69" height="20" uuid="e5215715-5258-4a47-ab67-72664b1c990f"/>
+			<textField pattern="###0">
+				<reportElement x="234" y="0" width="20" height="20" uuid="e5215715-5258-4a47-ab67-72664b1c990f"/>
 				<textFieldExpression><![CDATA[$F{consumo}]]></textFieldExpression>
 			</textField>
-			<textField pattern="###0.00">
-				<reportElement x="313" y="0" width="85" height="20" uuid="6804596a-de62-4f2c-a33a-99d53ecd836e"/>
+			<textField pattern="###0">
+				<reportElement x="313" y="0" width="29" height="20" uuid="6804596a-de62-4f2c-a33a-99d53ecd836e"/>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{depreciacao}]]></textFieldExpression>
 			</textField>
 			<textField pattern="#,##0.00">
 				<reportElement x="415" y="0" width="73" height="20" uuid="8e926637-8f4f-4c2f-a25a-874ec368055b"/>
 				<textFieldExpression><![CDATA[$F{valormanutencao}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="342" y="0" width="42" height="20" uuid="189d3c00-36fa-44e1-9a4a-402153f9b4cc"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[%]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="0" width="28" height="20" uuid="2fa39d21-288d-49b2-a897-6b18acd646ea"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[kW/h]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<pageFooter>
