@@ -57,7 +57,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu4 = new javax.swing.JMenu();
         jMIAberturaCaixa = new javax.swing.JMenuItem();
         jMIFechamentoCaixa = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
+        jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
@@ -114,14 +116,28 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
         jMenu4.add(jMIFechamentoCaixa);
 
-        jMenuItem3.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\custo_venda.png")); // NOI18N
-        jMenuItem3.setText("Custo de Venda");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+        jMenu7.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\custo_venda.png")); // NOI18N
+        jMenu7.setText("Custo de Venda");
+
+        jMenuItem10.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\calcularnovocusto.jpg")); // NOI18N
+        jMenuItem10.setText("Calcular Novo Custo");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
+                jMenuItem10ActionPerformed(evt);
             }
         });
-        jMenu4.add(jMenuItem3);
+        jMenu7.add(jMenuItem10);
+
+        jMenuItem11.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\relatorio.jpg")); // NOI18N
+        jMenuItem11.setText("Relatório");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenu7.add(jMenuItem11);
+
+        jMenu4.add(jMenu7);
 
         jMenu5.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\contas_pagar.png")); // NOI18N
         jMenu5.setText("Contas a Pagar");
@@ -448,11 +464,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
         aa.abreJanelaTipoContaPagar();
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        CustoVendaView aa = new CustoVendaView();
-        aa.abreJanelaCustoVenda();
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         if(JOptionPane.showConfirmDialog(null, "Gerar relatório das Madeiras?", "Relatório", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
             MadeiraDao maDao = new MadeiraDao();
@@ -490,6 +501,16 @@ public class TelaPrincipal extends javax.swing.JFrame {
         tela.editSenha = 1;
         tela.abreJanelaUsuario();
     }//GEN-LAST:event_jAlterarSenhaActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        CustoVendaView aa = new CustoVendaView();
+        aa.abreJanelaCustoVenda();
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        CustoVendaRelatorio aa = new CustoVendaRelatorio();
+        aa.abreJanelaCustoVendaRelatorio();
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
 
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -625,9 +646,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;

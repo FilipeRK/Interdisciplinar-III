@@ -2,6 +2,9 @@ package dao;
 
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +26,10 @@ public class CustoVendaDao {
     private final Session session;
     private String sql;
     public int cod;
+    public String datainicial, datafinal;
+    
+    SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+    Date datai, dataf; 
     
     public void insert(CustoVenda ban){
         Transaction t = session.beginTransaction();
@@ -57,7 +64,7 @@ public class CustoVendaDao {
         return session.createQuery("From CustoVenda").list();
     }
     
-    public void abrirRelatorio() {
+    public void abrirRelatorioSelecao() {
  
         InputStream inputStream = getClass().getResourceAsStream( "/CustoVenda.jasper" );
         Map parametros = new HashMap();
@@ -72,4 +79,38 @@ public class CustoVendaDao {
         } catch ( SQLException | JRException exc ) {
         }
     }
+    
+    public void abrirRelatorioGeral() {
+ 
+        InputStream inputStream = getClass().getResourceAsStream( "/CustoVendaGeral.jasper" );
+        Map parametros = new HashMap();
+
+        try {
+            ReportUtils.openReport( "CustoVenda", inputStream, parametros,
+                    ConnectionFactory.getBancoConnection());
+ 
+        } catch ( SQLException | JRException exc ) {
+        }
+    }
+    
+    public void abrirRelatorioData() throws ParseException {
+ 
+        InputStream inputStream = getClass().getResourceAsStream( "/CustoVendaData.jasper" );
+        Map parametros = new HashMap();
+        
+        datai = formatter.parse(datainicial);
+        dataf = formatter.parse(datafinal);
+        java.sql.Date d1 = new java.sql.Date(datai.getTime());  
+        java.sql.Date d2 = new java.sql.Date(dataf.getTime()); 
+        sql = "select cv.*, ma.nome as maquinanome, m.nome as madeiranome from custovenda cv inner join madeira m on cv.codmadeira = m.codmadeira inner join maquina ma on cv.codmaquina = ma.codmaquina where cv.datavenda between '"+datai+"' and '"+dataf+"'";
+        parametros.put("CONSULTA", sql);
+
+        try {
+            ReportUtils.openReport( "CustoVenda", inputStream, parametros,
+                    ConnectionFactory.getBancoConnection());
+ 
+        } catch ( SQLException | JRException exc ) {
+        }
+    }
+    
 }

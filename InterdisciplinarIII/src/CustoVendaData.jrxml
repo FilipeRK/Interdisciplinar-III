@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="aa14ba50-b50e-41dc-bddf-d704376ff08d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="CONSULTA" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[$P!{CONSULTA}]]>
+	</queryString>
+	<field name="codcustovenda" class="java.lang.Integer"/>
+	<field name="custoadicional" class="java.lang.Double"/>
+	<field name="custofinal" class="java.lang.Double"/>
+	<field name="datavenda" class="java.sql.Date"/>
+	<field name="margemlucro" class="java.lang.Integer"/>
+	<field name="perda" class="java.lang.Integer"/>
+	<field name="valorfinal" class="java.lang.Double"/>
+	<field name="codenergiaeletrica" class="java.lang.Integer"/>
+	<field name="codfuncionario" class="java.lang.Integer"/>
+	<field name="codmadeira" class="java.lang.Integer"/>
+	<field name="codmaquina" class="java.lang.Integer"/>
+	<field name="horas" class="java.lang.Integer"/>
+	<field name="minutos" class="java.lang.Integer"/>
+	<field name="tamanhomadeira" class="java.lang.Double"/>
+	<field name="maquinanome" class="java.lang.String"/>
+	<field name="madeiranome" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="79" uuid="12518dbf-526a-4938-8019-4a943aa41f75"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SCCP - Sistema para Controle de Custo de Produção
+Madeireira Itaúba 
+
+Relatório de Venda]]></text>
+			</staticText>
+			<image>
+				<reportElement x="12" y="12" width="88" height="67" uuid="9eac5b73-2bc9-4a1c-b0ab-cb96b8b2ee9f"/>
+				<imageExpression><![CDATA["C:\\SCCP\\img\\logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="12" y="10" width="100" height="20" uuid="d498b4d4-741c-415e-b3bd-135f248dfb15"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data da Venda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="372" y="10" width="83" height="20" uuid="386f9dd4-16e8-468d-a924-cec919749675"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tempo(h/m)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="10" width="100" height="20" uuid="31f044d2-a27b-47f6-a80b-80c09caa1551"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Máquina]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="242" y="10" width="100" height="20" uuid="1a184312-7252-4440-8b1b-b4ac59442cc2"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Madeira]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="468" y="10" width="87" height="20" uuid="10b30cf4-4f4e-46a2-a9e5-408caca32878"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor Final]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="12" y="0" width="100" height="20" uuid="65e11f1c-e7e6-462d-811f-77e8653a49c3"/>
+				<textFieldExpression><![CDATA[$F{datavenda}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="372" y="0" width="22" height="20" uuid="cd3463bc-9de5-46fb-96f6-77e15182b247"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{horas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="405" y="0" width="26" height="20" uuid="c91fed72-ad02-4df9-a486-01a30da987ba"/>
+				<textFieldExpression><![CDATA[$F{minutos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="0" width="100" height="20" uuid="7bf56da4-c047-478d-a909-1cd69249da4f"/>
+				<textFieldExpression><![CDATA[$F{maquinanome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="242" y="0" width="100" height="20" uuid="7037e303-d7ea-4e78-b4c6-44175a4c2dc0"/>
+				<textFieldExpression><![CDATA[$F{madeiranome}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="481" y="0" width="87" height="20" uuid="3b00ad05-39b9-495b-950e-c384c322d245"/>
+				<textFieldExpression><![CDATA[$F{valorfinal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="394" y="0" width="11" height="20" uuid="a15eb55e-f777-4b28-ab04-be3f6030e2b4"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="580d5f63-925f-4fab-b2f6-7fb513e8be8a"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>
