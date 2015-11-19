@@ -1,32 +1,16 @@
 package view;
 
 import dao.CustoVendaDao;
-import dao.EnergiaEletricaDao;
-import dao.FuncionarioDao;
-import dao.MadeiraDao;
-import dao.MaquinaDao;
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.InputMismatchException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.border.LineBorder;
-import javax.security.auth.callback.ConfirmationCallback;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
-import javax.swing.border.Border;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import model.CustoVenda;
-import model.EnergiaEletrica;
-import model.Funcionario;
-import model.Madeira;
-import model.Maquina;
 
 
 public class CustoVendaRelatorio extends javax.swing.JFrame {
@@ -47,11 +31,6 @@ public class CustoVendaRelatorio extends javax.swing.JFrame {
         jLTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTCustoVenda = new javax.swing.JTable();
-        jLayeredPane3 = new javax.swing.JLayeredPane();
-        jLFunc2 = new javax.swing.JLabel();
-        jLFunc3 = new javax.swing.JLabel();
-        jLFunc1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
         jRBGeral = new javax.swing.JRadioButton();
         jRBSelecao = new javax.swing.JRadioButton();
         jRBData = new javax.swing.JRadioButton();
@@ -59,6 +38,7 @@ public class CustoVendaRelatorio extends javax.swing.JFrame {
         jFTFDataFinal = new javax.swing.JFormattedTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -149,48 +129,6 @@ public class CustoVendaRelatorio extends javax.swing.JFrame {
             jTCustoVenda.getColumnModel().getColumn(17).setMinWidth(150);
         }
 
-        jButton1.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\relatório.png")); // NOI18N
-        jButton1.setText("Gerar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jLayeredPane3Layout = new javax.swing.GroupLayout(jLayeredPane3);
-        jLayeredPane3.setLayout(jLayeredPane3Layout);
-        jLayeredPane3Layout.setHorizontalGroup(
-            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLFunc3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(jLayeredPane3Layout.createSequentialGroup()
-                        .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLFunc2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLFunc1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 111, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jLayeredPane3Layout.setVerticalGroup(
-            jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane3Layout.createSequentialGroup()
-                .addComponent(jLFunc1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3)
-                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLFunc2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addComponent(jLFunc3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(3, 3, 3))
-        );
-        jLayeredPane3.setLayer(jLFunc2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(jLFunc3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(jLFunc1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         jRBGeral.setSelected(true);
         jRBGeral.setText("Geral");
         jRBGeral.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -233,6 +171,14 @@ public class CustoVendaRelatorio extends javax.swing.JFrame {
 
         jLabel2.setText("Data Final");
 
+        jButton1.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\relatório.png")); // NOI18N
+        jButton1.setText("Gerar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -257,21 +203,18 @@ public class CustoVendaRelatorio extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addComponent(jFTFDataFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 652, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jLTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLayeredPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jRBGeral)
@@ -281,10 +224,13 @@ public class CustoVendaRelatorio extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
-                        .addGap(4, 4, 4)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jFTFDataFinal, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
-                            .addComponent(jFTFDataInicial))))
+                        .addGap(4, 4, 4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(7, 7, 7)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jFTFDataFinal, javax.swing.GroupLayout.DEFAULT_SIZE, 23, Short.MAX_VALUE)
+                    .addComponent(jFTFDataInicial))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -345,7 +291,6 @@ public class CustoVendaRelatorio extends javax.swing.JFrame {
     }//GEN-LAST:event_formWindowGainedFocus
 
     private void jRBGeralMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRBGeralMouseClicked
-;
         jRBGeral.setSelected(true);
         jRBData.setSelected(false);
         jRBSelecao.setSelected(false);
@@ -450,13 +395,7 @@ public class CustoVendaRelatorio extends javax.swing.JFrame {
     }
     private final CustoVendaDao dao = new CustoVendaDao();
     private CustoVenda custovenda = new CustoVenda();
-    private final MaquinaDao maDao = new MaquinaDao();
-    private final EnergiaEletricaDao enDao = new EnergiaEletricaDao();
-    private final FuncionarioDao fuDao = new FuncionarioDao();
-    private final MadeiraDao madeiraDao = new MadeiraDao();
-    
-  
-    
+
     public static String format(double x) {  
         return String.format("%.2f", x);  
     }  
@@ -466,13 +405,9 @@ public class CustoVendaRelatorio extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JFormattedTextField jFTFDataFinal;
     private javax.swing.JFormattedTextField jFTFDataInicial;
-    private javax.swing.JLabel jLFunc1;
-    private javax.swing.JLabel jLFunc2;
-    private javax.swing.JLabel jLFunc3;
     private javax.swing.JLabel jLTitulo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JRadioButton jRBData;
     private javax.swing.JRadioButton jRBGeral;
     private javax.swing.JRadioButton jRBSelecao;

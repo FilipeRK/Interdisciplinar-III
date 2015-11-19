@@ -5,6 +5,7 @@ import dao.AFCaixaDao;
 import dao.ClienteDao;
 import dao.MadeiraDao;
 import dao.MaquinaDao;
+import graficos.GraficoCustoVendaGeral;
 //import dao.FornecedoresDao;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -60,6 +61,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu7 = new javax.swing.JMenu();
         jMenuItem10 = new javax.swing.JMenuItem();
         jMenuItem11 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
@@ -129,13 +131,22 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenu7.add(jMenuItem10);
 
         jMenuItem11.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\relatorio.jpg")); // NOI18N
-        jMenuItem11.setText("Relatório");
+        jMenuItem11.setText("Relatórios");
         jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem11ActionPerformed(evt);
             }
         });
         jMenu7.add(jMenuItem11);
+
+        jMenuItem3.setIcon(new javax.swing.ImageIcon("C:\\SCCP\\img\\grafico.png")); // NOI18N
+        jMenuItem3.setText("Gráficos");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu7.add(jMenuItem3);
 
         jMenu4.add(jMenu7);
 
@@ -512,6 +523,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         aa.abreJanelaCustoVendaRelatorio();
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        CustoVendaGrafico aa = new CustoVendaGrafico();
+        aa.abreJanelaCustoVendaGrafico();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
     public static void main(String args[]) {
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -651,6 +667,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;

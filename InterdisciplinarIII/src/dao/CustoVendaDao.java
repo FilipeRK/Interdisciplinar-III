@@ -64,6 +64,10 @@ public class CustoVendaDao {
         return session.createQuery("From CustoVenda").list();
     }
     
+    public List<CustoVenda> findAllTeste(String datai, String dataf){ 
+        return session.createQuery("From CustoVenda where datavenda between '"+datai+"' and '"+dataf+"'").list();
+    }
+    
     public void abrirRelatorioSelecao() {
  
         InputStream inputStream = getClass().getResourceAsStream( "/CustoVenda.jasper" );
@@ -112,5 +116,20 @@ public class CustoVendaDao {
         } catch ( SQLException | JRException exc ) {
         }
     }
+    
+    public String retornaSaldoCustoDia(String data){
+        
+         String saldoDia = (session.createSQLQuery("SELECT SUM(CUSTOFINAL) FROM CUSTOVENDA WHERE DATAVENDA = '"+data+"'").list().toString()).replace("[", ""); 
+         String sDF1 =  saldoDia.replace("]", ""); 
+         return sDF1;
+    }
+    
+    public String retornaSaldoFinalDia(String data){
+        
+         String saldoDia = (session.createSQLQuery("SELECT SUM(VALORFINAL) FROM CUSTOVENDA WHERE DATAVENDA = '"+data+"'").list().toString()).replace("[", ""); 
+         String sDF1 =  saldoDia.replace("]", ""); 
+         return sDF1;
+    }
+
     
 }

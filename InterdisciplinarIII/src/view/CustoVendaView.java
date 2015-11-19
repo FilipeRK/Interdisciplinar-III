@@ -5,7 +5,7 @@ import dao.EnergiaEletricaDao;
 import dao.FuncionarioDao;
 import dao.MadeiraDao;
 import dao.MaquinaDao;
-import graficos.teste;
+import graficos.GraficoCustoVendaGeral;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.text.ParseException;
@@ -794,9 +794,7 @@ public class CustoVendaView extends javax.swing.JFrame {
     private void jBNovoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBNovoActionPerformed
 
         
-        teste p = new teste();
-        p.criaGrafico();
-        p.setVisible(true);
+        
 
         jCBMaquina.removeAllItems();
         for (Maquina a : maDao.findAll()) { 

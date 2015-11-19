@@ -1,19 +1,27 @@
 package graficos;
 
 import dao.CustoVendaDao;
+import java.awt.BasicStroke;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import javax.swing.ImageIcon;
 import model.CustoVenda;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.chart.renderer.category.LineAndShapeRenderer;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.category.DefaultCategoryDataset;
 
-public class teste extends javax.swing.JFrame {
+public class GraficoCustoVendaGeral extends javax.swing.JFrame {
 
-    public teste() {
+    public GraficoCustoVendaGeral() {
         initComponents();
     }
 
@@ -23,17 +31,17 @@ public class teste extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 380, Short.MAX_VALUE)
+            .addGap(0, 850, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 278, Short.MAX_VALUE)
+            .addGap(0, 450, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -73,20 +81,21 @@ public class teste extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(teste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GraficoCustoVendaGeral.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(teste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GraficoCustoVendaGeral.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(teste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GraficoCustoVendaGeral.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(teste.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(GraficoCustoVendaGeral.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new teste().setVisible(true);
+                new GraficoCustoVendaGeral().setVisible(true);
             }
         });
     }
@@ -94,23 +103,24 @@ public class teste extends javax.swing.JFrame {
     private CategoryDataset createDataset() { 
         DefaultCategoryDataset dataset = new DefaultCategoryDataset(); 
         
-        List list;
-        list = dao.findAll(); 
-        Iterator iterator;
-        iterator = list.iterator();  
-        while(iterator.hasNext()){  
-            CustoVenda aa = new CustoVenda();
-            dataset.addValue(aa.getCustofinal(),"a","Hinos");    
-        } 
-//        dataset.addValue(1000.0,"01/2012","Mês/Ano");
-//        dataset.addValue(1750.0,"02/2012","Mês/Ano");
-//        dataset.addValue(1500.0,"03/2012","Mês/Ano");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        
+        for(CustoVenda cv : dao.findAll()){
+            
+            double aa = Double.valueOf(dao.retornaSaldoCustoDia(cv.getDatavenda().toString()));
+            double bb = Double.valueOf(dao.retornaSaldoFinalDia(cv.getDatavenda().toString()));
+            double cc = bb-aa;
+            dataset.addValue(aa,"Custos",""+formatter.format(cv.getDatavenda())); 
+            dataset.addValue(bb,"Custos + Lucro",""+formatter.format(cv.getDatavenda())); 
+            dataset.addValue(cc,"Lucro",""+formatter.format(cv.getDatavenda())); 
+ 
+        }
         return dataset; 
     }
     
     public void criaGrafico() {
         CategoryDataset cds = createDataset();
-        String titulo = "Gráfico de Teste";
+        String titulo = "Custos e Lucros no Geral";
         String eixoy = "Valores";
         String txt_legenda = "Legenda:";
         boolean legenda = true;
@@ -124,6 +134,18 @@ public class teste extends javax.swing.JFrame {
         jPanel1.add(myChartPanel); 
         jPanel1.revalidate();
         jPanel1.repaint(); 
+    }
+    
+    public void abreJanelaGraficoGeral(){
+
+        this.setLocationRelativeTo(null);
+        this.setLayout(new BorderLayout());
+        this.setTitle("Gráfico dos Custos e Lucros no Geral");
+        
+        ImageIcon image = new ImageIcon("C:\\SCCP\\img\\icone.png");
+        this.setIconImage(image.getImage()); 
+        criaGrafico();
+        this.setVisible(true);
     }
     
     CustoVendaDao dao = new CustoVendaDao();
