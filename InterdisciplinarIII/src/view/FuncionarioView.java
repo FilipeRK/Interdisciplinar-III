@@ -272,12 +272,22 @@ public class FuncionarioView extends javax.swing.JFrame {
                 jTFSalarioBaseFocusGained(evt);
             }
         });
+        jTFSalarioBase.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFSalarioBaseKeyTyped(evt);
+            }
+        });
 
         jLData6.setText("Salário Base");
 
         jTFINSS.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTFINSSFocusGained(evt);
+            }
+        });
+        jTFINSS.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFINSSKeyTyped(evt);
             }
         });
 
@@ -295,10 +305,20 @@ public class FuncionarioView extends javax.swing.JFrame {
                 jTFInsalubridadeActionPerformed(evt);
             }
         });
+        jTFInsalubridade.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFInsalubridadeKeyTyped(evt);
+            }
+        });
 
         jTFQuinquenio.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jTFQuinquenioFocusGained(evt);
+            }
+        });
+        jTFQuinquenio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFQuinquenioKeyTyped(evt);
             }
         });
 
@@ -309,8 +329,19 @@ public class FuncionarioView extends javax.swing.JFrame {
                 jTFSindicatoFocusGained(evt);
             }
         });
+        jTFSindicato.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFSindicatoKeyTyped(evt);
+            }
+        });
 
         jLData10.setText("Sindicato");
+
+        jTFHorasAno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFHorasAnoKeyTyped(evt);
+            }
+        });
 
         jLData11.setText("Horas Ano");
 
@@ -827,6 +858,48 @@ public class FuncionarioView extends javax.swing.JFrame {
     private void jTFInsalubridadeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTFInsalubridadeFocusGained
         jTFInsalubridade.selectAll();
     }//GEN-LAST:event_jTFInsalubridadeFocusGained
+
+    private void jTFSalarioBaseKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFSalarioBaseKeyTyped
+        String caracteres="0987654321,.";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFSalarioBaseKeyTyped
+
+    private void jTFINSSKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFINSSKeyTyped
+        String caracteres="0987654321,.";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFINSSKeyTyped
+
+    private void jTFInsalubridadeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFInsalubridadeKeyTyped
+        String caracteres="0987654321,.";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFInsalubridadeKeyTyped
+
+    private void jTFQuinquenioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFQuinquenioKeyTyped
+        String caracteres="0987654321,.";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFQuinquenioKeyTyped
+
+    private void jTFSindicatoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFSindicatoKeyTyped
+        String caracteres="0987654321,.";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFSindicatoKeyTyped
+
+    private void jTFHorasAnoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFHorasAnoKeyTyped
+        String caracteres="0987654321";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFHorasAnoKeyTyped
 
 
     public static void main(String args[]) {

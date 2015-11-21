@@ -304,6 +304,9 @@
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFDataFinalFocusGained"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="try{&#xd;&#xa; javax.swing.text.MaskFormatter mask = new javax.swing.text.MaskFormatter(&quot;##/##/####&quot;);&#xd;&#xa; jFTFDataFinal = new javax.swing.JFormattedTextField(mask);&#xd;&#xa; }&#xd;&#xa; catch (ParseException e){&#xd;&#xa; } "/>
       </AuxValues>

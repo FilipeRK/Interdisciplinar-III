@@ -146,6 +146,12 @@ public class TipoCartaoView extends javax.swing.JFrame {
             jTTipoCartao.getColumnModel().getColumn(2).setMinWidth(123);
         }
 
+        jTFTarifaMensal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFTarifaMensalKeyTyped(evt);
+            }
+        });
+
         jLData1.setText("Tarifa Mensal");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -329,6 +335,13 @@ public class TipoCartaoView extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         listar();
     }//GEN-LAST:event_formWindowOpened
+
+    private void jTFTarifaMensalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFTarifaMensalKeyTyped
+        String caracteres="0987654321,.";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFTarifaMensalKeyTyped
 
 
     public static void main(String args[]) {

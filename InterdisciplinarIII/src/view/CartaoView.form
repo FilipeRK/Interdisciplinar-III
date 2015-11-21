@@ -235,6 +235,7 @@
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="jFTFDataCadastro">
       <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFDataCadastroFocusGained"/>
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jFTFDataCadastroFocusLost"/>
       </Events>
       <AuxValues>

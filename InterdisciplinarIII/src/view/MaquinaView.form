@@ -312,6 +312,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTFDepreciacao">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFDepreciacaoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLData3">
       <Properties>
@@ -319,6 +322,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTFPrecoUnitario">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFPrecoUnitarioKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLData4">
       <Properties>
@@ -326,6 +332,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTFValorManut">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFValorManutKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>

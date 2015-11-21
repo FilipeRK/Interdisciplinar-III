@@ -43,6 +43,12 @@ public class CalculoKWH extends javax.swing.JFrame {
 
         jLData.setText("Valor");
 
+        jTFValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFValorKeyTyped(evt);
+            }
+        });
+
         jCB1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "CV", "W" }));
 
         jTFResultado.setEditable(false);
@@ -123,6 +129,13 @@ public class CalculoKWH extends javax.swing.JFrame {
     private void formWindowClosing(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosing
         valor = jTFResultado.getText();
     }//GEN-LAST:event_formWindowClosing
+
+    private void jTFValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFValorKeyTyped
+        String caracteres="0987654321,.";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFValorKeyTyped
 
 
     public static void main(String args[]) {

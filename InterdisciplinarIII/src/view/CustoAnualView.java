@@ -161,6 +161,11 @@ public class CustoAnualView extends javax.swing.JFrame {
                 jTFMediaMesFocusLost(evt);
             }
         });
+        jTFMediaMes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFMediaMesKeyTyped(evt);
+            }
+        });
 
         jLData1.setText("Média/Mês");
 
@@ -170,6 +175,12 @@ public class CustoAnualView extends javax.swing.JFrame {
         jTFMediaAno.setBackground(new java.awt.Color(204, 204, 204));
 
         jLData3.setText("Horas/Ano");
+
+        jTFHorasAno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFHorasAnoKeyTyped(evt);
+            }
+        });
 
         jLData4.setText("Total Ano");
 
@@ -198,9 +209,11 @@ public class CustoAnualView extends javax.swing.JFrame {
                             .addComponent(jTFCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLData)
-                            .addComponent(jTFNome, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 52, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLData)
+                                .addGap(0, 258, Short.MAX_VALUE))
+                            .addComponent(jTFNome))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLData1)
                             .addComponent(jTFMediaMes, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -435,6 +448,20 @@ public class CustoAnualView extends javax.swing.JFrame {
         double totalano = Double.valueOf(jTFMediaMes.getText().replace(",", "."))*12;
         jTFMediaAno.setText(String.valueOf(totalano));
     }//GEN-LAST:event_jTFMediaMesFocusLost
+
+    private void jTFMediaMesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFMediaMesKeyTyped
+        String caracteres="0987654321,.";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFMediaMesKeyTyped
+
+    private void jTFHorasAnoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFHorasAnoKeyTyped
+        String caracteres="0987654321";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFHorasAnoKeyTyped
 
 
     public static void main(String args[]) {

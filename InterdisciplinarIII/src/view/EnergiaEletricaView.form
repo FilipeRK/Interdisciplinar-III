@@ -241,6 +241,9 @@
     <Component class="javax.swing.JTextField" name="jTFPrestadora">
     </Component>
     <Component class="javax.swing.JTextField" name="jTFValorHora">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFValorHoraKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLData1">
       <Properties>

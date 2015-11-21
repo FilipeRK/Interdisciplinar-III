@@ -143,6 +143,12 @@ public class EnergiaEletricaView extends javax.swing.JFrame {
             jTEnergia.getColumnModel().getColumn(2).setMinWidth(150);
         }
 
+        jTFValorHora.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFValorHoraKeyTyped(evt);
+            }
+        });
+
         jLData1.setText("Valor do kWh");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -325,6 +331,13 @@ public class EnergiaEletricaView extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         listar();
     }//GEN-LAST:event_formWindowOpened
+
+    private void jTFValorHoraKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFValorHoraKeyTyped
+       String caracteres="0987654321,.";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFValorHoraKeyTyped
 
 
     public static void main(String args[]) {

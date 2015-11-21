@@ -227,6 +227,11 @@ public class ContaPagarView extends javax.swing.JFrame {
                 jTFValorActionPerformed(evt);
             }
         });
+        jTFValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFValorKeyTyped(evt);
+            }
+        });
 
         jLData5.setText("Valor");
 
@@ -543,6 +548,13 @@ public class ContaPagarView extends javax.swing.JFrame {
     private void jTFValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFValorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFValorActionPerformed
+
+    private void jTFValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFValorKeyTyped
+        String caracteres="0987654321,.";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFValorKeyTyped
 
 
     public static void main(String args[]) {

@@ -2,7 +2,11 @@ package view;
 
 import dao.CustoVendaDao;
 import java.awt.BorderLayout;
+import java.text.DateFormat;
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
@@ -166,6 +170,11 @@ public class CustoVendaRelatorio extends javax.swing.JFrame {
         catch (ParseException e){
         }
         jFTFDataFinal.setEnabled(false);
+        jFTFDataFinal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jFTFDataFinalFocusGained(evt);
+            }
+        });
 
         jLabel1.setText("Data Inicial");
 
@@ -309,6 +318,17 @@ public class CustoVendaRelatorio extends javax.swing.JFrame {
         jTCustoVenda.setEnabled(false);
         selecao = 3;
     }//GEN-LAST:event_jRBDataMouseClicked
+
+    private void jFTFDataFinalFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataFinalFocusGained
+        if("  /  /    ".equals(jFTFDataFinal.getText())){
+            Calendar Inicial = Calendar.getInstance();
+            Date diaAtual = new Date();
+            Inicial.setTime(diaAtual);
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");  
+            jFTFDataFinal.setText(df.format(Inicial.getTime()));
+            jFTFDataFinal.selectAll();
+        }
+    }//GEN-LAST:event_jFTFDataFinalFocusGained
 
 
     public static void main(String args[]) {

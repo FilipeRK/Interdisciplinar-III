@@ -589,6 +589,7 @@
     <Component class="javax.swing.JTextField" name="jTFSalarioBase">
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFSalarioBaseFocusGained"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFSalarioBaseKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLData6">
@@ -599,6 +600,7 @@
     <Component class="javax.swing.JTextField" name="jTFINSS">
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFINSSFocusGained"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFINSSKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLData7">
@@ -615,11 +617,13 @@
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFInsalubridadeFocusGained"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTFInsalubridadeActionPerformed"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFInsalubridadeKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jTFQuinquenio">
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFQuinquenioFocusGained"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFQuinquenioKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLData9">
@@ -630,6 +634,7 @@
     <Component class="javax.swing.JTextField" name="jTFSindicato">
       <Events>
         <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTFSindicatoFocusGained"/>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFSindicatoKeyTyped"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLData10">
@@ -638,6 +643,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTFHorasAno">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFHorasAnoKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLData11">
       <Properties>

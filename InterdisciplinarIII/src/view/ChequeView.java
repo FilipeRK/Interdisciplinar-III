@@ -132,6 +132,11 @@ public class ChequeView extends javax.swing.JFrame {
                 jFTFValorFocusLost(evt);
             }
         });
+        jFTFValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jFTFValorKeyTyped(evt);
+            }
+        });
 
         jLData2.setText("Valor");
 
@@ -540,6 +545,13 @@ public class ChequeView extends javax.swing.JFrame {
     private void jCB2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCB2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCB2ActionPerformed
+
+    private void jFTFValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jFTFValorKeyTyped
+        String caracteres="0987654321,.";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jFTFValorKeyTyped
 
 
     public static void main(String args[]) {

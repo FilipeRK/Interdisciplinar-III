@@ -8,6 +8,7 @@ import dao.MaquinaDao;
 import graficos.GraficoCustoVendaGeral;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -264,6 +265,11 @@ public class CustoVendaView extends javax.swing.JFrame {
                 jTFCustoAdicionalActionPerformed(evt);
             }
         });
+        jTFCustoAdicional.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFCustoAdicionalKeyTyped(evt);
+            }
+        });
 
         jFTFDataVenda.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -345,6 +351,11 @@ public class CustoVendaView extends javax.swing.JFrame {
                 jTFPerdaActionPerformed(evt);
             }
         });
+        jTFPerda.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFPerdaKeyTyped(evt);
+            }
+        });
 
         jLData1.setText("Perda(%)");
 
@@ -356,6 +367,11 @@ public class CustoVendaView extends javax.swing.JFrame {
         jTFMargemLucro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTFMargemLucroActionPerformed(evt);
+            }
+        });
+        jTFMargemLucro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFMargemLucroKeyTyped(evt);
             }
         });
 
@@ -1301,8 +1317,36 @@ public class CustoVendaView extends javax.swing.JFrame {
     }//GEN-LAST:event_jTFMargemLucroFocusGained
 
     private void jFTFDataVendaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataVendaFocusGained
-        jFTFDataVenda.selectAll();
+        if("  /  /    ".equals(jFTFDataVenda.getText())){
+            Calendar Inicial = Calendar.getInstance();
+            Date diaAtual = new Date();
+            Inicial.setTime(diaAtual);
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");  
+            jFTFDataVenda.setText(df.format(Inicial.getTime()));
+            jFTFDataVenda.selectAll();
+        }
     }//GEN-LAST:event_jFTFDataVendaFocusGained
+
+    private void jTFCustoAdicionalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFCustoAdicionalKeyTyped
+        String caracteres="0987654321,.";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFCustoAdicionalKeyTyped
+
+    private void jTFPerdaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFPerdaKeyTyped
+        String caracteres="0987654321";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFPerdaKeyTyped
+
+    private void jTFMargemLucroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFMargemLucroKeyTyped
+        String caracteres="0987654321";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFMargemLucroKeyTyped
 
 
     public static void main(String args[]) {

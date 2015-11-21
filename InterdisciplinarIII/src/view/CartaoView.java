@@ -3,6 +3,7 @@ package view;
 import dao.CartaoDao;
 import dao.TipoCartaoDao;
 import java.awt.BorderLayout;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.text.ParseException;
@@ -130,6 +131,9 @@ public class CartaoView extends javax.swing.JFrame {
         jLData.setText("Data de Cadastro");
 
         jFTFDataCadastro.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jFTFDataCadastroFocusGained(evt);
+            }
             public void focusLost(java.awt.event.FocusEvent evt) {
                 jFTFDataCadastroFocusLost(evt);
             }
@@ -554,6 +558,17 @@ public class CartaoView extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         listar();
     }//GEN-LAST:event_formWindowOpened
+
+    private void jFTFDataCadastroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jFTFDataCadastroFocusGained
+        if("  /  /    ".equals(jFTFDataCadastro.getText())){
+            Calendar Inicial = Calendar.getInstance();
+            Date diaAtual = new Date();
+            Inicial.setTime(diaAtual);
+            DateFormat df = new SimpleDateFormat("dd/MM/yyyy");  
+            jFTFDataCadastro.setText(df.format(Inicial.getTime()));
+            jFTFDataCadastro.selectAll();
+        }
+    }//GEN-LAST:event_jFTFDataCadastroFocusGained
 
 
     public static void main(String args[]) {

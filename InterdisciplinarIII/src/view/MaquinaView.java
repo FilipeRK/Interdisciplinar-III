@@ -164,9 +164,27 @@ public class MaquinaView extends javax.swing.JFrame {
 
         jLData2.setText("Depreciação (%)");
 
+        jTFDepreciacao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFDepreciacaoKeyTyped(evt);
+            }
+        });
+
         jLData3.setText("Preço Unitário");
 
+        jTFPrecoUnitario.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFPrecoUnitarioKeyTyped(evt);
+            }
+        });
+
         jLData4.setText("Valor de Manutenção");
+
+        jTFValorManut.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFValorManutKeyTyped(evt);
+            }
+        });
 
         jButton1.setText("...");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -416,6 +434,27 @@ public class MaquinaView extends javax.swing.JFrame {
     private void formWindowGainedFocus(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowGainedFocus
         jTFConsumo.setText(aaa.valor);
     }//GEN-LAST:event_formWindowGainedFocus
+
+    private void jTFDepreciacaoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFDepreciacaoKeyTyped
+        String caracteres="0987654321";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFDepreciacaoKeyTyped
+
+    private void jTFPrecoUnitarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFPrecoUnitarioKeyTyped
+        String caracteres="0987654321,.";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFPrecoUnitarioKeyTyped
+
+    private void jTFValorManutKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFValorManutKeyTyped
+        String caracteres="0987654321,.";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFValorManutKeyTyped
 
 
     public static void main(String args[]) {

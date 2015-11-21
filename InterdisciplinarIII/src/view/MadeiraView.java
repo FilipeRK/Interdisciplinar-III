@@ -177,6 +177,11 @@ public class MadeiraView extends javax.swing.JFrame {
                 jTFPrecoUActionPerformed(evt);
             }
         });
+        jTFPrecoU.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFPrecoUKeyTyped(evt);
+            }
+        });
 
         jLData5.setText("Preço Unitário");
 
@@ -402,6 +407,13 @@ public class MadeiraView extends javax.swing.JFrame {
     private void jTFPrecoUActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFPrecoUActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTFPrecoUActionPerformed
+
+    private void jTFPrecoUKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFPrecoUKeyTyped
+        String caracteres="0987654321,.";
+        if(!caracteres.contains(evt.getKeyChar()+"")){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTFPrecoUKeyTyped
 
 
     public static void main(String args[]) {

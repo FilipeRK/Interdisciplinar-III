@@ -241,6 +241,9 @@
     <Component class="javax.swing.JTextField" name="jTFDescricao">
     </Component>
     <Component class="javax.swing.JTextField" name="jTFTarifaMensal">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTFTarifaMensalKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLData1">
       <Properties>
