@@ -36,8 +36,9 @@ import model.Maquina;
 public class CustoVendaView extends javax.swing.JFrame {
 
 
-    private int editando;
+    private int editando, codfunc;
     public double custofunchora, custofuncminuto;
+    public String nomefunc;
     
     public CustoVendaView() {
         initComponents();
@@ -479,10 +480,10 @@ public class CustoVendaView extends javax.swing.JFrame {
         jLayeredPane2Layout.setHorizontalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                .addContainerGap(17, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
-                        .addComponent(jTFMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTFMadeira, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLUnMad, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
@@ -994,9 +995,11 @@ public class CustoVendaView extends javax.swing.JFrame {
             scEnergia.setPrestadora(iee.nome);
             
             Funcionario scFuncionario = new Funcionario();
-            ItemFuncionario ifu = (ItemFuncionario) jCBFuncionario.getSelectedItem(); 
-            scFuncionario.setCodfuncionario(Integer.valueOf(ifu.codfuncionario));
-            scFuncionario.setNome(ifu.nome);
+            //ItemFuncionario ifu = (ItemFuncionario) jCBFuncionario.getSelectedItem(); 
+            //scFuncionario.setCodfuncionario(Integer.valueOf(ifu.codfuncionario));
+            //scFuncionario.setNome(ifu.nome);
+            scFuncionario.setCodfuncionario(codfunc);
+            scFuncionario.setNome(nomefunc);
             
             Madeira scMadeira = new Madeira();
             ItemMadeira ima = (ItemMadeira) jCBMadeira.getSelectedItem(); 
@@ -1266,6 +1269,9 @@ public class CustoVendaView extends javax.swing.JFrame {
                 jLFunc3.setText(ifu.nome);
             }
         }
+        
+        codfunc = Integer.valueOf(ifu.codfuncionario);
+        nomefunc = ifu.nome;
         
         jCBFuncionario.removeItem(ifu);
     }//GEN-LAST:event_jBAddFuncActionPerformed

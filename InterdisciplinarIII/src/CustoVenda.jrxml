@@ -92,7 +92,7 @@ Relatório de Venda]]></text>
 	</columnHeader>
 	<detail>
 		<band height="22" splitType="Stretch">
-			<textField>
+			<textField pattern="dd/MM/yyyy">
 				<reportElement x="12" y="0" width="100" height="20" uuid="65e11f1c-e7e6-462d-811f-77e8653a49c3"/>
 				<textFieldExpression><![CDATA[$F{datavenda}]]></textFieldExpression>
 			</textField>

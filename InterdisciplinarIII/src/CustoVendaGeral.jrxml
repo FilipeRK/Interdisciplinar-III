@@ -84,16 +84,12 @@ Relatório de Venda]]></text>
 	</columnHeader>
 	<detail>
 		<band height="22" splitType="Stretch">
-			<textField>
+			<textField pattern="dd/MM/yyyy">
 				<reportElement x="12" y="0" width="100" height="20" uuid="65e11f1c-e7e6-462d-811f-77e8653a49c3"/>
 				<textFieldExpression><![CDATA[$F{datavenda}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="372" y="0" width="22" height="20" uuid="cd3463bc-9de5-46fb-96f6-77e15182b247"/>
-				<textFieldExpression><![CDATA[$F{horas}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="405" y="0" width="26" height="20" uuid="c91fed72-ad02-4df9-a486-01a30da987ba"/>
+				<reportElement x="389" y="2" width="26" height="20" uuid="c91fed72-ad02-4df9-a486-01a30da987ba"/>
 				<textFieldExpression><![CDATA[$F{minutos}]]></textFieldExpression>
 			</textField>
 			<textField>
@@ -107,6 +103,17 @@ Relatório de Venda]]></text>
 			<textField pattern="#,##0.00">
 				<reportElement x="468" y="0" width="87" height="20" uuid="3b00ad05-39b9-495b-950e-c384c322d245"/>
 				<textFieldExpression><![CDATA[$F{valorfinal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="383" y="2" width="6" height="20" uuid="cf58ec2e-d1ed-4dd5-a65a-d9b72cb0acfc"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="372" y="2" width="11" height="20" uuid="cd3463bc-9de5-46fb-96f6-77e15182b247"/>
+				<textFieldExpression><![CDATA[$F{horas}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
